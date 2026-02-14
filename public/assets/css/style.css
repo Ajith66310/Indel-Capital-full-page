@@ -402,6 +402,7 @@ img {
   display: inline-block;
   max-width: 100%;
   height: auto;
+  padding-left: 20px;
   transition-delay: .1s;
   transition-timing-function: ease-in-out;
   transition-duration: .7s;
@@ -816,12 +817,13 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 10vh;
 }
 
 .main-header .outer-box .logo-box{
   position: relative;
-  padding: 61px 90px 61px 0px;
-  margin-top: -60px;
+  padding: 61px 50px 41px 0px;
+  margin-top: -80px;
   background: var(--theme-color);
   z-index: 1;
 }
