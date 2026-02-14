@@ -27,7 +27,7 @@ export default function MobileMenu({ isSidebar, handleMobileMenu, handleSidebar 
                 <nav className="menu-box">
                     <div className="nav-logo">
                         <Link href="/">
-                            <img src="assets/images/logo.png" alt="" />
+                            <img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt="" />
                         </Link>
                     </div>
 

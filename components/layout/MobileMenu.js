@@ -32,7 +32,7 @@ const MobileMenu = ({ isSidebar, handleMobileMenu, handleSidebar }) => {
                 <nav className="menu-box">
                     <div className="nav-logo">
                         <Link href="/">
-                            <img src="assets/images/logo.png" alt="" />
+                            <img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt="" />
                         </Link>
                     </div>
 
@@ -68,7 +68,7 @@ const MobileMenu = ({ isSidebar, handleMobileMenu, handleSidebar }) => {
                                 </li>
                             
                                 <li className={isActive.key == 3 ? "dropdown current" : "dropdown"}>
-                                    <Link href="/#">Pages</Link>
+                                    <Link href="/#">Overview</Link>
                                     <ul style={{ display: `${isActive.key == 3 ? "block" : "none"}` }}>
                                         <li className={isActive.subMenuKey == 4 ? "dropdown current" : "dropdown"}>
                                             <Link href="/">Directors</Link>
@@ -98,11 +98,12 @@ const MobileMenu = ({ isSidebar, handleMobileMenu, handleSidebar }) => {
                                         </li>
                                         <li><Link href="/currency">Currency Exchange</Link></li>
                                         <li><Link href="/credit-cards">Credit Cards</Link></li>
-                                        <li><Link href="/faq">General FAQ’s</Link></li>
+                                        <li><Link href="/faq">General FAQ's</Link></li>
                                         <li><Link href="/error">404 Error</Link></li>
                                     </ul>
                                     <div className={isActive.key == 3 ? "dropdown-btn open" : "dropdown-btn"} onClick={() => handleToggle(3)}><span className="fa fa-angle-right" /></div>
                                 </li>
+                                <li><Link href="/activities">Activities</Link></li>
                                 <li><Link href="/contact">Contact</Link></li>
                             </ul>
                         </div>

@@ -4,7 +4,7 @@ export default function App() {
     return (
         <>        
             
-            <section className="apps-section pt_120 pb_120">
+            {/* <section className="apps-section pt_120 pb_120">
                 <div className="auto-container">
                     <div className="inner-container">
                     <div className="shape">
@@ -44,7 +44,7 @@ export default function App() {
                     </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     )
 }

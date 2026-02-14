@@ -36,7 +36,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSide
                         <div className="logo-box">
                             <figure className="logo">
                             <Link href="/">
-                                <img src="assets/images/logo.png" alt="" />
+                                <img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt="" />
                             </Link>
                             </figure>
                         </div>
@@ -73,7 +73,7 @@ export default function Header2({ scroll, isMobileMenu, handleMobileMenu, isSide
                         <div className="logo-box">
                             <figure className="logo">
                             <Link href="/">
-                                <img src="assets/images/logo.png" alt="" />
+                                <img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt="" />
                             </Link>
                             </figure>
                         </div>

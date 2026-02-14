@@ -189,7 +189,7 @@ export default function Home() {
                 {/* feature-style-three end */}
 
                 {/* apps-section */}
-                <section className="apps-section about-page pb_120">
+                {/* <section className="apps-section about-page pb_120">
                     <div className="auto-container">
                         <div className="inner-container">
                         <div className="shape">
@@ -229,7 +229,7 @@ export default function Home() {
                         </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 {/* apps-section end */}
 
 

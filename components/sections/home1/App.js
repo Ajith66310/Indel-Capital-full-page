@@ -5,7 +5,7 @@ export default function App() {
         <>        
             
             <section className="apps-section pt_120 pb_120">
-                <div className="auto-container">
+                {/* <div className="auto-container">
                     <div className="inner-container">
                     <div className="shape">
                         <div className="shape-1" style={{ backgroundImage: 'url(assets/images/shape/shape-4.png)' }}></div>
@@ -42,7 +42,7 @@ export default function App() {
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> */}
             </section>
         </>
     )

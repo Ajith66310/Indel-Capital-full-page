@@ -4,7 +4,7 @@ export default function App() {
     return (
         <>        
             
-            <section className="apps-section alternat-2 pt_120 pb_120">
+            {/* <section className="apps-section alternat-2 pt_120 pb_120">
                 <div className="pattern-layer">
                     <div className="pattern-2" style={{ backgroundImage: "url(assets/images/shape/shape-16.png)" }}></div>
                 </div>
@@ -39,7 +39,7 @@ export default function App() {
                     </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     )
 }

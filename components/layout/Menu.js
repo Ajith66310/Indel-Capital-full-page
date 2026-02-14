@@ -36,7 +36,7 @@ export default function Menu() {
                         <li><Link href="/service-details-8">Fixed Term Account</Link></li>
                     </ul>
                 </li> 
-                <li className="dropdown"><Link href="/">Pages</Link>
+                <li className="dropdown"><Link href="/">Overview</Link>
                     <ul>
                         <li className="dropdown"><Link href="/">Directors</Link>
                             <ul>
@@ -60,22 +60,13 @@ export default function Menu() {
                         </li>
                         <li><Link href="/currency">Currency Exchange</Link></li>
                         <li><Link href="/credit-cards">Credit Cards</Link></li>
-                        <li><Link href="/faq">General FAQ’s</Link></li>
+                        <li><Link href="/faq">General FAQ's</Link></li>
                         <li><Link href="/error">404 Error</Link></li>
                     </ul>
                 </li> 
+                <li><Link href="/activities">Activities</Link></li>
                 <li><Link href="/contact">Contact</Link></li> 
             </ul>
         </>
     )
 }
-
-
-
-
-
-
-
-
-
-                                    

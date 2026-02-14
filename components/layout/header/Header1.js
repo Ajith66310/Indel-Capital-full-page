@@ -35,7 +35,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                     <div className="outer-box">
                         <div className="logo-box">
                         <div className="shape"></div>
-                        <figure className="logo"><Link href="/"><img src="assets/images/logo.png" alt="" /></Link></figure>
+                        <figure className="logo"  ><Link href="/"><img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt=""  /></Link></figure>
                         </div>
                         <div className="menu-area">
                         {/* Mobile Navigation Toggler */}
@@ -64,7 +64,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                         <div className="outer-box">
                         <div className="logo-box">
                             <div className="shape"></div>
-                            <figure className="logo"><Link href="/"><img src="assets/images/logo.png" alt="" /></Link></figure>
+                            <figure className="logo"><Link href="/"><img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt="" /></Link></figure>
                         </div>
                         <div className="menu-area">
                             <nav className="main-menu clearfix">
