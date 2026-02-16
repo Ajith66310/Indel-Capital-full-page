@@ -46,7 +46,7 @@ export default function Banner() {
                                 <p>This statistic is based on our average personal current account online opening time from the last 12 months.</p>
                                 <div className="btn-box">
                                     <Link href="/" className="theme-btn btn-one">
-                                    Make an Appointment
+                                    Explore Strategies
                                     </Link>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@ export default function Banner() {
                                 <p>This statistic is based on our average personal current account online opening time from the last 12 months.</p>
                                 <div className="btn-box">
                                     <Link href="/" className="theme-btn btn-one">
-                                    Make an Appointment
+                                    Explore Strategies
                                     </Link>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ export default function Banner() {
                                 <p>This statistic is based on our average personal current account online opening time from the last 12 months.</p>
                                 <div className="btn-box">
                                     <Link href="/" className="theme-btn btn-one">
-                                    Make an Appointment
+                                    Explore Strategies
                                     </Link>
                                 </div>
                             </div>

@@ -140,6 +140,7 @@ body {
 
 .large-container{
   max-width: 1710px;
+  height: 15vh;
   padding: 0px 15px;
   margin: 0 auto;
 }
@@ -817,7 +818,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 10vh;
+  height: 15vh;
 }
 
 .main-header .outer-box .logo-box{

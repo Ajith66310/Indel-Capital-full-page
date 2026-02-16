@@ -13,6 +13,7 @@ export default function Menu() {
             </ul> */}
 
             <ul className="navigation clearfix">
+                
                 <li className="dropdown"><Link href="/">About</Link>
                     <ul>
                         <li><Link href="/">Home Page One</Link></li>
@@ -21,10 +22,12 @@ export default function Menu() {
                         <li><Link href="/index-onepage">OnePage Home</Link></li>
                     </ul>
                 </li>
+                
                 <li><Link href="/about/">Investment Approach</Link></li>
-                <li className="dropdown"><Link href="/">Strategies</Link>
+                
+                <li className="dropdown"><Link href="/">Products</Link>
                     <ul>
-                        <li><Link href="/service">Products</Link></li>
+                        <li><Link href="/service">Our Services 1</Link></li>
                         <li><Link href="/service-2">Our Services 2</Link></li>
                         <li><Link href="/service-details">Digital Banking</Link></li>
                         <li><Link href="/service-details-2">Mobile & Web Banking</Link></li>
@@ -36,9 +39,10 @@ export default function Menu() {
                         <li><Link href="/service-details-8">Fixed Term Account</Link></li>
                     </ul>
                 </li>
-                <li className="dropdown"><Link href="/">Portfolio</Link>
+                
+                <li className="dropdown"><Link href="/">Investments</Link>
                     <ul>
-                        <li className="dropdown"><Link href="/">Investments</Link>
+                        <li className="dropdown"><Link href="/">dropdownn</Link>
                             <ul>
                                 <li><Link href="/team">Board of Directors</Link></li>
                                 <li><Link href="/team-details">Director Details</Link></li>
@@ -65,13 +69,8 @@ export default function Menu() {
                     </ul>
                 </li>
                 <li><Link href="/activities">Insights</Link></li>
-                <li className="dropdown"><Link href="/">ESG</Link>
-                    <ul>
-                        <li><Link href="#"></Link>Responsibility</li>
-                    </ul>
-                </li>
-                <li><Link href="/about/">Investor Relations</Link></li>
-                <li><Link href="/about/">Contact</Link></li>
+                <li><Link href="#">Investor Relations</Link></li>
+                <li><Link href="#">Contact</Link></li>
 
             </ul>
         </>

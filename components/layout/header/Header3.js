@@ -1,48 +1,39 @@
 import Link from "next/link"
 import Menu from "../Menu"
 import MobileMenu from "../MobileMenu"
-export default function Header3({ scroll, isMobileMenu, handleMobileMenu, isSidebar, handlePopup, handleSidebar }) {
+
+export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSidebar, handlePopup, handleSidebar }) {
     return (
         <>
-            {/* <header className="main-header header-style-three"> */}
-            
-
-            <header className={`main-header header-style-three ${scroll ? "fixed-header" : ""}`}>
-                {/* header-top */}
-                <div className="auto-container">
-                    <div className="header-top">
-                    <div className="top-inner">
+            <header className={`main-header header-style-one ${scroll ? "fixed-header" : ""}`}>
+                {/* Header Top */}
+                {/* <div className="header-top">
+                    <div className="large-container">
+                        <div className="top-inner">
                         <ul className="links-list clearfix">
-                        <li><Link href="/career">Career</Link></li>
-                        <li><Link href="/faq">Faq</Link></li>
-                        <li><Link href="/">Rewards</Link></li>
-                        <li><Link href="/">Media</Link></li>
+                            <li><Link href="/career">Career</Link></li>
+                            <li><Link href="/faq">Faq</Link></li>
+                            <li><Link href="/">Rewards</Link></li>
+                            <li><Link href="/">Media</Link></li>
                         </ul>
                         <ul className="info-list clearfix">
-                        <li>
+                            <li>
                             <i className="icon-1"></i>
                             <Link href="mailto:info@example.com">info@example.com</Link>
-                        </li>
-                        <li>
+                            </li>
+                            <li>
                             <i className="icon-2"></i>
                             Find Nearest Branch
-                        </li>
+                            </li>
                         </ul>
-                    </div>
-                    </div>
-                </div>
-
-                {/* header-lower */}
-                <div className="auto-container">
-                    <div className="header-lower">
-                    <div className="outer-box">
-                        <div className="logo-box">
-                        <figure className="logo">
-                            <Link href="/">
-                            <img src="assets/images/logo-3.png" alt="" />
-                            </Link>
-                        </figure>
                         </div>
+                    </div>
+                </div> */}
+                {/* Header lower */}
+                <div className="header-lower">
+                    <div className="large-container">
+                    <div className="outer-box">
+                        <figure className="logo"  ><Link href="/"><img style={{width:"120px", height:"50px"}} src="assets/images/indel-capital-logo-blue.png" alt=""  /></Link></figure>
                         <div className="menu-area">
                         {/* Mobile Navigation Toggler */}
                         <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
@@ -55,30 +46,20 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, isSide
                                 <Menu />
                             </div>
                         </nav>
-                        <div className="menu-right-content ml_70">
-                            <Link href="/" className="theme-btn btn-two mr_20">
-                            Login
-                            </Link>
-                            <Link href="/contact" className="theme-btn btn-one">
-                            Open Account
-                            </Link>
-                        </div>
+                        {/* <div className="menu-right-content ml_70">
+                            <Link href="/" className="theme-btn btn-two mr_20">Login</Link>
+                            <Link href="/contact" className="theme-btn btn-one">Open Account</Link>
+                        </div> */}
                         </div>
                     </div>
                     </div>
                 </div>
-
-                {/* sticky Header */}
-                <div className="sticky-header">
+                {/*End Header lower*/}
+                {/* Sticky Header  */}
+                <div className={`sticky-header ${scroll ? "animated slideInDown" : ""}`}>
                     <div className="large-container">
-                    <div className="outer-box">
-                        <div className="logo-box">
-                        <figure className="logo">
-                            <Link href="/">
-                            <img src="assets/images/logo-3.png" alt="" />
-                            </Link>
-                        </figure>
-                        </div>
+                        <div className="outer-box">
+                            <figure className="logo"><Link href="/"><img style={{width:"120px", height:"50px"}} src="assets/images/indel-capital-logo-blue.png" alt="" /></Link></figure>
                         <div className="menu-area">
                             <nav className="main-menu clearfix">
                                 <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
@@ -90,15 +71,14 @@ export default function Header3({ scroll, isMobileMenu, handleMobileMenu, isSide
                             <Link href="/contact" className="theme-btn btn-one">Open Account</Link>
                             </div> */}
                         </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
+                {/* End Sticky Menu */}
+                {/* Mobile Menu  */}
+
+                <MobileMenu handleMobileMenu={handleMobileMenu} />
             </header>
-
-            <MobileMenu handleMobileMenu={handleMobileMenu} isSidebar={isSidebar} handleSidebar={handleSidebar} />
-            
-
-            
         </>
     )
 }
