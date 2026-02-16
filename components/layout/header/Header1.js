@@ -33,10 +33,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                 <div className="header-lower">
                     <div className="large-container">
                     <div className="outer-box">
-                        <div className="logo-box">
-                        <div className="shape"></div>
-                        <figure className="logo"  ><Link href="/"><img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt=""  /></Link></figure>
-                        </div>
+                        <figure className="logo"  ><Link href="/"><img style={{width:"120px", height:"50px"}} src="assets/images/indel-capital-logo-blue.png" alt=""  /></Link></figure>
                         <div className="menu-area">
                         {/* Mobile Navigation Toggler */}
                         <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
@@ -49,10 +46,10 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                                 <Menu />
                             </div>
                         </nav>
-                        <div className="menu-right-content ml_70">
+                        {/* <div className="menu-right-content ml_70">
                             <Link href="/" className="theme-btn btn-two mr_20">Login</Link>
                             <Link href="/contact" className="theme-btn btn-one">Open Account</Link>
-                        </div>
+                        </div> */}
                         </div>
                     </div>
                     </div>
@@ -62,20 +59,17 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                 <div className={`sticky-header ${scroll ? "animated slideInDown" : ""}`}>
                     <div className="large-container">
                         <div className="outer-box">
-                        <div className="logo-box">
-                            <div className="shape"></div>
-                            <figure className="logo"><Link href="/"><img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt="" /></Link></figure>
-                        </div>
+                            <figure className="logo"><Link href="/"><img style={{width:"120px", height:"50px"}} src="assets/images/indel-capital-logo-blue.png" alt="" /></Link></figure>
                         <div className="menu-area">
                             <nav className="main-menu clearfix">
                                 <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <Menu />
                                 </div>
                             </nav>
-                            <div className="menu-right-content ml_70">
+                            {/* <div className="menu-right-content ml_70">
                             <Link href="/" className="theme-btn btn-two mr_20">Login</Link>
                             <Link href="/contact" className="theme-btn btn-one">Open Account</Link>
-                            </div>
+                            </div> */}
                         </div>
                         </div>
                     </div>

@@ -32,7 +32,7 @@ const MobileMenu = ({ isSidebar, handleMobileMenu, handleSidebar }) => {
                 <nav className="menu-box">
                     <div className="nav-logo">
                         <Link href="/">
-                            <img style={{width:"100px", height:"50px"}} src="assets/images/logo.png" alt="" />
+                            <img style={{width:"120px", height:"50px"}} src="assets/images/indel-capital-logo-blue.png" alt="" />
                         </Link>
                     </div>
 

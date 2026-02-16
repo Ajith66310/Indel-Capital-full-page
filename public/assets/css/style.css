@@ -822,8 +822,8 @@ img {
 
 .main-header .outer-box .logo-box{
   position: relative;
-  padding: 61px 50px 41px 0px;
-  margin-top: -80px;
+  padding: 61px 90px 61px 0px;
+  margin-top: -60px;
   background: var(--theme-color);
   z-index: 1;
 }

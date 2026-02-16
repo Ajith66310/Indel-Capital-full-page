@@ -38,7 +38,7 @@
 }
 
 .service-block-one:hover .inner-box .shape:before{
-  background: #fff !important;
+  background: #e33232 !important;
   opacity: 0.15;
 }
 

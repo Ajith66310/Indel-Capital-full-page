@@ -13,18 +13,18 @@ export default function Menu() {
             </ul> */}
 
             <ul className="navigation clearfix">
-                <li className="dropdown"><Link href="/">Home</Link>
+                <li className="dropdown"><Link href="/">About</Link>
                     <ul>
                         <li><Link href="/">Home Page One</Link></li>
                         <li><Link href="/index-2">Home Page Two</Link></li>
                         <li><Link href="/index-3">Home Page Three</Link></li>
                         <li><Link href="/index-onepage">OnePage Home</Link></li>
                     </ul>
-                </li> 
-                <li><Link href="/about/">About</Link></li>
-                <li className="dropdown"><Link href="/">Services</Link>
+                </li>
+                <li><Link href="/about/">Investment Approach</Link></li>
+                <li className="dropdown"><Link href="/">Strategies</Link>
                     <ul>
-                        <li><Link href="/service">Our Services</Link></li>
+                        <li><Link href="/service">Products</Link></li>
                         <li><Link href="/service-2">Our Services 2</Link></li>
                         <li><Link href="/service-details">Digital Banking</Link></li>
                         <li><Link href="/service-details-2">Mobile & Web Banking</Link></li>
@@ -35,10 +35,10 @@ export default function Menu() {
                         <li><Link href="/service-details-7">Private Banking</Link></li>
                         <li><Link href="/service-details-8">Fixed Term Account</Link></li>
                     </ul>
-                </li> 
-                <li className="dropdown"><Link href="/">Overview</Link>
+                </li>
+                <li className="dropdown"><Link href="/">Portfolio</Link>
                     <ul>
-                        <li className="dropdown"><Link href="/">Directors</Link>
+                        <li className="dropdown"><Link href="/">Investments</Link>
                             <ul>
                                 <li><Link href="/team">Board of Directors</Link></li>
                                 <li><Link href="/team-details">Director Details</Link></li>
@@ -63,9 +63,16 @@ export default function Menu() {
                         <li><Link href="/faq">General FAQ's</Link></li>
                         <li><Link href="/error">404 Error</Link></li>
                     </ul>
-                </li> 
-                <li><Link href="/activities">Activities</Link></li>
-                <li><Link href="/contact">Contact</Link></li> 
+                </li>
+                <li><Link href="/activities">Insights</Link></li>
+                <li className="dropdown"><Link href="/">ESG</Link>
+                    <ul>
+                        <li><Link href="#"></Link>Responsibility</li>
+                    </ul>
+                </li>
+                <li><Link href="/about/">Investor Relations</Link></li>
+                <li><Link href="/about/">Contact</Link></li>
+
             </ul>
         </>
     )
