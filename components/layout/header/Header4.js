@@ -13,7 +13,6 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                         <ul className="links-list clearfix">
                             <li><Link href="/career">Career</Link></li>
                             <li><Link href="/faq">Faq</Link></li>
-                            <li><Link href="/">Rewards</Link></li>
                             <li><Link href="/">Media</Link></li>
                         </ul>
                         <ul className="info-list clearfix">

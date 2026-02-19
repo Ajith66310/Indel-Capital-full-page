@@ -2,7 +2,7 @@ import Layout from '@/components/layout/Layout'
 import Funfact from '@/components/sections/whoweare/Funfact'
 import Milestone from '@/components/sections/whoweare/Milestone'
 import Profilecards from '@/components/sections/whoweare/Profilecards'
-import Whoweare from '@/components/sections/whoweare/whoweare'
+import Whoweare from '@/components/sections/whoweare/Whoweare.js'
 import React from 'react'
 
 const Home = () => {

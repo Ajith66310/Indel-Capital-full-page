@@ -22,7 +22,7 @@ export default function Menu() {
                     </ul>
                 </li>
                       
-                <li className="dropdown"><Link href="/">Investment Approach</Link>
+                <li className="dropdown"><Link href="/investment-approach">Investment Approach</Link>
                     <ul>
                         <li><Link href="/service">Our Services 1</Link></li>
                         <li><Link href="/service-2">Our Services 2</Link></li>
@@ -36,8 +36,8 @@ export default function Menu() {
                         <li><Link href="/service-details-8">Fixed Term Account</Link></li>
                     </ul>
                 </li>
-                
-                <li className="dropdown"><Link href="/">Portfolio</Link>
+                <li><Link href="/strategies">Strategies</Link></li>
+                <li className="dropdown"><Link href="/portfolio">Portfolio</Link>
                     <ul>
                         <li className="dropdown"><Link href="/">dropdownn</Link>
                             <ul>
@@ -65,10 +65,9 @@ export default function Menu() {
                         <li><Link href="/error">404 Error</Link></li>
                     </ul>
                 </li>
-                <li><Link href="/activities">Insights & Research</Link></li>
-                <li><Link href="#">Investor Resources</Link></li>
-                <li><Link href="#">Contact Us</Link></li>
-                <li><Link href="/career">Careers</Link></li>
+                <li><Link href="/insights-research">Insights & Research</Link></li>
+                <li><Link href="/investor-resources">Investor Resources</Link></li>
+                <li><Link href="/contact-us">Contact Us</Link></li>
 
             </ul>
         </>
