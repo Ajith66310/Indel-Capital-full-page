@@ -6,7 +6,7 @@ export default function RiskManagement() {
         <>
             <style jsx>{`
                 .risk-section {
-                    padding: 120px 0;
+                    padding: 80px 0;
                     background-color: #ffffff;
                     position: relative;
                     overflow: hidden;
@@ -35,7 +35,6 @@ export default function RiskManagement() {
                     border-radius: 15px;
                     text-align: center;
                     border: 1px solid #f1f5f9;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
                     transition: all 0.4s ease;
                 }
                 .pillar-card:nth-child(even) {
