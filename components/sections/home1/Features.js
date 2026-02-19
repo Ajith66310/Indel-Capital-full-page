@@ -35,14 +35,14 @@ export default function Features() {
                 .feature-section-custom {
                     position: relative;
                     padding: 0;
-                    margin-top: -60px; /* Overlaps with the previous section for a modern look */
+                    margin-top: -60px;
                     z-index: 10;
                 }
 
                 .features-grid {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-                    gap: 0; /* Removing gaps to create a seamless bar look */
+                    gap: 0; 
                     background: #fff;
                     border-radius: 20px;
                     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
@@ -61,9 +61,8 @@ export default function Features() {
                     border-right: none;
                 }
 
-                /* Hover State - Lifting Effect */
                 .feature-item:hover {
-                    background: #17479d; /* Deep Blue */
+                    background: #17479d;
                     transform: translateY(-5px);
                     z-index: 2;
                 }
@@ -115,7 +114,6 @@ export default function Features() {
                     color: #fff;
                 }
 
-                /* Mobile Responsive */
                 @media (max-width: 1200px) {
                     .features-grid { grid-template-columns: repeat(2, 1fr); }
                     .feature-item { border-bottom: 1px solid #f0f0f0; }
