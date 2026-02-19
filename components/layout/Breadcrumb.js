@@ -6,7 +6,7 @@ export default function Breadcrumb({ breadcrumbTitle, breadcrumbImg }) {
             <style jsx>{`
                 .page-title {
                     position: relative;
-                    padding: 100px 0; /* Adjust padding as needed */
+                    padding: 100px 0; 
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;

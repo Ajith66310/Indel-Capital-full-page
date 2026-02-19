@@ -24,15 +24,14 @@ export default function ApproachOverview() {
                     position: relative;
                 }
 
-                /* --- NEW IMAGE STYLE --- */
                 .img-wrapper {
                     position: relative;
-                    padding: 40px; /* Space for the floating frames */
+                    padding: 40px;
                 }
                 .img-wrapper img {
                     width: 100%;
                     height: auto;
-                    border-radius: 60px 5px 60px 5px; /* Asymmetric corners */
+                    border-radius: 60px 5px 60px 5px;
                     z-index: 2;
                     position: relative;
                     object-fit: cover;
@@ -55,7 +54,7 @@ export default function ApproachOverview() {
                     left: 70px;
                     right: 10px;
                     bottom: -20px;
-                    background: #f1f5f9; /* Soft gray backing */
+                    background: #f1f5f9; 
                     border-radius: 60px 5px 60px 5px;
                     z-index: 0;
                 }
