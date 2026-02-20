@@ -18,7 +18,6 @@ export default function FeaturedStrategies() {
                         <div className="bento-card card-red card-wide">
                             <div className="card-inner">
                                 <div className="label-group">
-                                    <span className="dot pulse"></span>
                                     <span className="indicator">ASSET PROTECTION</span>
                                 </div>
                                 <div className="content-mid">
