@@ -9,7 +9,7 @@ export default function InvestmentPhilosophy() {
         <>
             <style jsx>{`
                 .philosophy-section {
-                    padding: 120px 0;
+                    padding: 80px 0;
                     background-color: #ffffff;
                 }
                 

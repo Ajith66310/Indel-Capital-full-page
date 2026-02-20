@@ -76,9 +76,9 @@ export const investmentPhilosophyData = {
 };
 
 export const featuredStrategiesData = {
-    subTitle: "Featured Strategies",
-    mainTitle: "Love from Happy Clients",
-    description: "Amet dui scelerisque habitant eget tincidunt facilisis pretium lorem ipsum dilore."
+    subTitle: "Institutional Roadmap",
+    mainTitle: "Strategies for Sustainable Value",
+    description: "Indel Capital leverages a resilient gold-backed portfolio and an aggressive phygital expansion strategy to deliver consistent, risk-adjusted growth for our stakeholders."
 };
 
 export const testimonialData = [

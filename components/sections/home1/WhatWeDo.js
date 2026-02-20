@@ -10,11 +10,11 @@ export default function WhatWeDo() {
         <>
             <style jsx>{`
                 .wwd-container {
-                    padding: 0px 0;
-                    background: #ffffff;
+                    padding: 50px 0;
+                    background: #fafafa;
+                    height: 900px ; 
                 }
 
-                /* DESKTOP STYLES (lg) */
                 .accordion-wrapper {
                     display: flex;
                     flex-direction: row;
