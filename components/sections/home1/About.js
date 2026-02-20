@@ -23,14 +23,13 @@ export default function About() {
           width: 90%; 
           border-radius: 20px; 
           box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
-          /* Optional: Adding the slope to the image bottom */
           clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
         .exp-card {
           position: absolute;
           bottom: 0;
           right: 0;
-          background: #17479d; /* Deep blue theme */
+          background: #17479d;
           color: white;
           padding: 30px;
           border-radius: 15px;
@@ -41,7 +40,6 @@ export default function About() {
         .exp-card h2 { font-size: 40px; font-weight: 800; line-height: 1; margin: 0; }
         .exp-card span { font-size: 12px; text-transform: uppercase; font-weight: 700; }
 
-        /* --- Content Design --- */
         .sub-t { color: #eb2525; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
         .main-t { font-size: 42px; font-weight: 800; color: #212226; line-height: 1.2; margin-bottom: 20px; }
         

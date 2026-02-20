@@ -25,13 +25,13 @@ export default function Home() {
                 <WhatWeDo/>
                 <InvestmentPhilosophy/>
                 <FeaturedStrategies/>
-                <Services />
+                {/* <Services /> */}
+                <Testimonial />
                 <Insights/>
                 {/* <Calculator /> */}
                 {/* <Video /> */}
                 {/* <Funfacts /> */}
                 {/* <App /> */}
-                <Testimonial />
                 {/* <News /> */}
                 <Subscribe />
             </Layout>

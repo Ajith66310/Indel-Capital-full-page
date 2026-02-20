@@ -5,7 +5,7 @@ export default function Testimonial() {
         <>
 
             <section className="testimonial-section centred pt_90 pb_120">
-                <div className="bg-layer" style={{ backgroundImage: 'url(assets/images/background/testimonial-bg.jpg)' }}></div>
+                {/* <div className="bg-layer" style={{ backgroundImage: 'url(assets/images/background/testimonial-bg.jpg)' }}></div> */}
                 <div className="auto-container">
                     <div className="sec-title mb_70">
                     <h6>Testimonials</h6>
