@@ -1,152 +1,301 @@
-'use client'
-import Link from "next/link"
-import { portfolioHighlightsData } from '@/public/assets/assest.js'
+"use client";
+
+import React, { useEffect, useRef } from "react";
+
+const portfolioData = [
+  {
+    id: 1,
+    name: "Nexus Fintech",
+    sector: "Financial Services",
+    ticker: "NXF",
+    description: "Institutional-grade liquidity protocols streamlining cross-border settlement through blockchain efficiency.",
+    status: "Series B",
+    irr: "24.3%",
+    vintage: "2022",
+    multiple: "2.1×",
+  },
+  {
+    id: 2,
+    name: "GreenGrid Systems",
+    sector: "Renewable Energy",
+    ticker: "GGS",
+    description: "Smart-grid solutions utilizing proprietary AI to reduce urban energy waste by 40%.",
+    status: "Seed",
+    irr: "38.7%",
+    vintage: "2023",
+    multiple: "1.6×",
+  },
+  {
+    id: 3,
+    name: "BioPath Labs",
+    sector: "Healthcare",
+    ticker: "BPL",
+    description: "AI-driven diagnostic platforms for early-stage oncology detection and pathology automation.",
+    status: "Series A",
+    irr: "31.2%",
+    vintage: "2023",
+    multiple: "1.9×",
+  },
+];
+
+const statusColors = {
+  Seed: { text: "#ee3824", bg: "rgba(238,56,36,0.06)" },
+  "Series A": { text: "#17479e", bg: "rgba(23,71,158,0.06)" },
+  "Series B": { text: "#17479e", bg: "rgba(23,71,158,0.12)" },
+};
 
 export default function PortfolioHighlights() {
-    const data = portfolioHighlightsData;
+  const cardsRef = useRef([]);
 
-    return (
-        <>
-            <style jsx>{`
-                .portfolio-section {
-                    padding-bottom: 60px ;
-                    background-color: #fff;
-                }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("ph-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    cardsRef.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
-                .highlight-card {
-                    padding: 35px;
-                    border-radius: 16px;
-                    background: #ffffff;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-                    position: relative;
-                    border: 1px solid transparent;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-                }
+  return (
+    <>
+      <style>{css}</style>
+      <section className="ph-section">
+        <div className="ph-container">
+          <div className="ph-header">
+            <span className="ph-eyebrow">Strategic Investments</span>
+            <h2 className="ph-title">Portfolio Highlights</h2>
+            <p className="ph-subtitle">
+              Deployment of institutional capital into disruptive category leaders across global high-growth sectors.
+            </p>
+          </div>
 
-                .highlight-card:hover {
-                    transform: translateY(-8px);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-                    border-color: #f0f0f0;
-                }
+          <div className="ph-grid">
+            {portfolioData.map((item, i) => {
+              const sc = statusColors[item.status] || statusColors["Series A"];
+              return (
+                <div
+                  key={item.id}
+                  className="ph-card"
+                  ref={(el) => (cardsRef.current[i] = el)}
+                  style={{ "--delay": `${i * 120}ms` }}
+                >
+                  <div className="ph-card-top">
+                    <span className="ph-ticker">{item.ticker}</span>
+                    <span className="ph-status" style={{ color: sc.text, backgroundColor: sc.bg }}>
+                      {item.status}
+                    </span>
+                  </div>
 
-                .card-header {
-                    display: flex;
-                    align-items: center;
-                    gap: 15px;
-                    margin-bottom: 25px;
-                }
+                  <div className="ph-card-body">
+                    <p className="ph-sector">{item.sector}</p>
+                    <h3 className="ph-company">{item.name}</h3>
+                    <p className="ph-desc">{item.description}</p>
+                  </div>
 
-                .icon-box {
-                    font-size: 28px;
-                    color: #eb2525;
-                    background: #fff5f5;
-                    width: 50px;
-                    height: 50px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 12px;
-                    transition: 0.3s;
-                }
-
-                .highlight-card:hover .icon-box {
-                    background: #eb2525;
-                    color: #fff;
-                }
-
-                .highlight-card h4 {
-                    font-size: 19px;
-                    font-weight: 700;
-                    color: #17479d;
-                    margin: 0;
-                    letter-spacing: -0.5px;
-                }
-
-                .item-list {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0 0 30px 0;
-                    flex-grow: 1;
-                }
-
-                .item-list li {
-                    font-size: 14.5px;
-                    color: #666;
-                    padding: 6px 0;
-                    border-bottom: 1px solid #f9f9f9;
-                }
-
-                .item-list li:last-child {
-                    border-bottom: none;
-                }
-
-                .learn-more-link {
-                    font-size: 14px;
-                    font-weight: 700;
-                    color: #eb2525;
-                    text-decoration: none;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    transition: gap 0.3s ease;
-                }
-
-                .learn-more-link:hover {
-                    gap: 12px;
-                    text-decoration: underline;
-                }
-
-                .section-header {
-                    text-align: center;
-                    margin-bottom: 50px;
-                }
-
-                .section-header h2 {
-                    font-size: 38px;
-                    font-weight: 800;
-                    color: #17479d;
-                    margin-top: 10px;
-                }
-            `}</style>
-
-            <section className="portfolio-section">
-                <div className="auto-container">
-                    <div className="section-header">
-                        <span style={{ color: '#eb2525', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '13px' }}>
-                            {data.subTitle}
-                        </span>
-                        <h2>{data.title}</h2>
+                  <div className="ph-metrics">
+                    <div className="ph-metric">
+                      <span className="ph-label">Target IRR</span>
+                      <span className="ph-value">{item.irr}</span>
                     </div>
-
-                    <div className="row">
-                        {data.services.map((service, index) => (
-                            <div key={index} className="col-lg-3 col-md-6 col-sm-12 mb_30">
-                                <div className="highlight-card">
-                                    <div className="card-header">
-                                        <div className="icon-box">
-                                            <i className={service.icon}></i>
-                                        </div>
-                                        <h4>{service.title}</h4>
-                                    </div>
-
-                                    <ul className="item-list">
-                                        {service.items.map((item, idx) => (
-                                            <li key={idx}>{item}</li>
-                                        ))}
-                                    </ul>
-
-                                    <Link href={service.link} className="learn-more-link">
-                                        Explore Details 
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="ph-metric">
+                      <span className="ph-label">MOIC</span>
+                      <span className="ph-value">{item.multiple}</span>
                     </div>
+                    <div className="ph-metric">
+                      <span className="ph-label">Vintage</span>
+                      <span className="ph-value">{item.vintage}</span>
+                    </div>
+                  </div>
                 </div>
-            </section>
-        </>
-    )
+              );
+            })}
+          </div>
+
+          <div className="ph-footer">
+            <a className="theme-btn btn-one">
+              Explore Full Portfolio
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
+
+const css = `
+  .ph-section {
+    padding-bottom: 60px;
+    padding-top: 60px;
+    background-color: #fafafa;
+    /* Updated to match About section body font stack */
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #212226;
+  }
+
+  .ph-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .ph-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .ph-eyebrow {
+    color: #ee3824;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .ph-title {
+    /* Matches .main-t from About section */
+    font-size: clamp(32px, 5vw, 42px);
+    font-weight: 800;
+    color: #212226;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .ph-subtitle {
+    font-size: 18px;
+    color: #4a5568;
+    max-width: 580px;
+    margin: 20px auto 0;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .ph-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 70px;
+  }
+
+  .ph-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 0;
+    transform: translateY(30px);
+    border-radius: 12px;
+  }
+
+  .ph-card.ph-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: var(--delay);
+  }
+
+  .ph-card:hover {
+    border-color: #17479e;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+  }
+
+  .ph-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .ph-ticker {
+    font-size: 11px;
+    font-weight: 800;
+    color: #17479e;
+    border: 1.5px solid #17479e;
+    padding: 3px 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .ph-status {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .ph-card-body { flex-grow: 1; }
+
+  .ph-sector {
+    color: #ee3824;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .ph-company {
+    /* Matches feature-item h3 or main-t style */
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 0 16px;
+    color: #212226;
+    line-height: 1.2;
+  }
+
+  .ph-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4a5568;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .ph-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #f1f5f9;
+    padding-top: 24px;
+    margin-bottom: 10px;
+  }
+
+  .ph-label {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .ph-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: #17479e;
+  }
+
+  .ph-footer {
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .ph-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .ph-grid { grid-template-columns: 1fr; }
+    .ph-container { padding: 0 20px; }
+    .ph-header { margin-bottom: 40px; }
+  }
+`;

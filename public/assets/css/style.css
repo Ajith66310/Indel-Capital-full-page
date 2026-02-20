@@ -774,7 +774,7 @@ img {
 }
 
 .header-top .links-list li a:hover{
-  color: var(--theme-color);
+  color: black !important;
 }
 
 .header-top .info-list{
@@ -808,7 +808,7 @@ img {
 }
 
 .header-top .info-list li a:hover{
-  color: var(--theme-color);
+  color:black !important;
 }
 
 .main-header .outer-box{

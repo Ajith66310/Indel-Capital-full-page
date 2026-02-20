@@ -45,11 +45,11 @@ export default function Footer1() {
                                         <ul className="links-list clearfix">
                                             <li><Link href="/">Privacy policy</Link></li>
                                             <li><Link href="/">Terms & condition</Link></li>
-                                            <li><Link href="/">Credit Card</Link></li>
+                                            {/* <li><Link href="/">Credit Card</Link></li>
                                             <li><Link href="/">Saving Account</Link></li>
                                             <li><Link href="/">Digital Gift Cards</Link></li>
                                             <li><Link href="/">Apply for Loans</Link></li>
-                                            <li><Link href="/">Mobile Application</Link></li>
+                                            <li><Link href="/">Mobile Application</Link></li> */}
                                         </ul>
                                     </div>
                                 </div>

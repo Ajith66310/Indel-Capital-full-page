@@ -1,7 +1,6 @@
 import Layout from "@/components/layout/Layout"
 import About from "@/components/sections/home1/About"
 import Banner from "@/components/sections/home1/Banner"
-import Services from "@/components/sections/home1/PortfolioHighlights"
 import Calculator from "@/components/sections/home1/Calculator"
 import Video from "@/components/sections/home1/Video"
 import Features from "@/components/sections/home1/Features"
@@ -14,6 +13,7 @@ import WhatWeDo from "@/components/sections/home1/WhatWeDo"
 import InvestmentPhilosophy from "@/components/sections/home1/InvestmentPhilosophy"
 import FeaturedStrategies from "@/components/sections/home1/FeaturedStrategies"
 import Insights from "@/components/sections/home1/Insights"
+import PortfolioHighlights from "@/components/sections/home1/PortfolioHighlights"
 export default function Home() {
 
     return (
@@ -24,8 +24,8 @@ export default function Home() {
                 <About />
                 <WhatWeDo/>
                 <InvestmentPhilosophy/>
+                <PortfolioHighlights />
                 <FeaturedStrategies/>
-                {/* <Services /> */}
                 <Testimonial />
                 <Insights/>
                 {/* <Calculator /> */}

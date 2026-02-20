@@ -9,10 +9,16 @@ export default function InvestmentPhilosophy() {
         <>
             <style jsx>{`
                 .philosophy-section {
-                    padding: 80px 0;
+                    padding: 60px 0;
                     background-color: #ffffff;
                 }
                 
+                .container-compact {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 24px;
+                }
+
                 .sub-title {
                     color: #eb2525;
                     font-weight: 700;
@@ -20,36 +26,37 @@ export default function InvestmentPhilosophy() {
                     letter-spacing: 2px;
                     display: block;
                     margin-bottom: 10px;
+                    font-size: 13px;
                 }
                 
                 .main-title {
-                    font-size: 42px;
+                    font-size: 38px;
                     line-height: 1.2;
                     font-weight: 800;
                     color: #17479d;
-                    margin-bottom: 25px;
+                    margin-bottom: 20px;
                 }
 
                 .description-text {
-                    font-size: 18px;
-                    line-height: 1.8;
+                    font-size: 16px; 
+                    line-height: 1.7;
                     color: #555;
-                    margin-bottom: 30px;
+                    margin-bottom: 25px;
                 }
 
                 .philosophy-list {
                     list-style: none;
                     padding: 0;
-                    margin-bottom: 40px;
+                    margin-bottom: 35px;
                 }
 
                 .philosophy-list li {
                     position: relative;
-                    padding-left: 35px;
-                    margin-bottom: 15px;
+                    padding-left: 32px;
+                    margin-bottom: 12px;
                     font-weight: 600;
                     color: #222;
-                    font-size: 17px;
+                    font-size: 16px;
                 }
 
                 .philosophy-list li::before {
@@ -57,20 +64,20 @@ export default function InvestmentPhilosophy() {
                     position: absolute;
                     left: 0;
                     top: 2px;
-                    width: 24px;
-                    height: 24px;
+                    width: 22px;
+                    height: 22px;
                     background: #eb2525;
                     color: white;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 12px;
+                    font-size: 10px;
                 }
 
                 .image-holder {
                     position: relative;
-                    padding: 30px;
+                    padding: 20px; 
                 }
 
                 .image-holder::before {
@@ -78,25 +85,25 @@ export default function InvestmentPhilosophy() {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 85%;
+                    width: 80%;
                     height: 85%;
-                    border: 10px solid #f0f4f9;
-                    border-radius: 40px; 
+                    border: 8px solid #f0f4f9;
+                    border-radius: 30px; 
                     z-index: 0;
                 }
 
                 .main-img-wrapper {
                     position: relative;
                     z-index: 1;
-                    border-radius: 40px; 
+                    border-radius: 30px; 
                     overflow: hidden; 
-                    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
                 }
 
                 .main-img-wrapper img {
                     width: 100%;
                     display: block;
-                    border-radius: 40px;
+                    border-radius: 30px;
                     transition: transform 0.5s ease;
                 }
 
@@ -104,47 +111,30 @@ export default function InvestmentPhilosophy() {
                     transform: scale(1.05);
                 }
 
-                .experience-badge {
-                    position: absolute;
-                    bottom: -20px;
-                    right: 10px;
-                    background: #17479d;
-                    color: white;
-                    padding: 35px;
-                    border-radius: 40px; 
-                    text-align: center;
-                    z-index: 2;
-                    box-shadow: 0 15px 35px rgba(23, 71, 157, 0.3);
-                    min-width: 180px;
-                }
-
-                .experience-badge h3 {
-                    font-size: 40px;
-                    font-weight: 800;
-                    margin: 0;
-                    color: #fff;
-                    line-height: 1;
-                }
-
-                .experience-badge span {
-                    font-size: 12px;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                    font-weight: 700;
-                }
-
                 @media (max-width: 991px) {
-                    .image-holder { margin-top: 50px; }
+                    .image-holder { margin-top: 40px; }
                     .main-title { font-size: 32px; }
-                    .experience-badge { padding: 25px; min-width: 150px; }
+                    .container-compact { padding: 0 20px; }
+                }
+                
+                /* Grid system for the internal row */
+                .flex-row {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    gap: 40px;
+                }
+                .flex-col {
+                    flex: 1;
+                    min-width: 300px;
                 }
             `}</style>
 
             <section className="philosophy-section">
-                <div className="auto-container">
-                    <div className="row align-items-center">
-                        <div className="col-lg-6 col-md-12 col-sm-12">
-                            <div className="content-box mr_70">
+                <div className="container-compact">
+                    <div className="flex-row">
+                        <div className="flex-col">
+                            <div className="content-box">
                                 <span className="sub-title">{data.subTitle}</span>
                                 <h2 className="main-title">{data.title}</h2>
                                 <p className="description-text">{data.description}</p>
@@ -159,7 +149,7 @@ export default function InvestmentPhilosophy() {
                             </div>
                         </div>
 
-                        <div className="col-lg-6 col-md-12 col-sm-12">
+                        <div className="flex-col">
                             <div className="image-holder">
                                 <div className="main-img-wrapper">
                                     <img 
@@ -167,7 +157,6 @@ export default function InvestmentPhilosophy() {
                                         alt="Investment Philosophy" 
                                     />
                                 </div>
-                            
                             </div>
                         </div>
                     </div>
