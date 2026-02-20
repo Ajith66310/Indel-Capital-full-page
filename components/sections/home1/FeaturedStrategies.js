@@ -22,8 +22,7 @@ export default function FeaturedStrategies() {
                                     <span className="indicator">ASSET PROTECTION</span>
                                 </div>
                                 <div className="content-mid">
-                                    <h3 className="card-big-stat">94%</h3>
-                                    <p className="stat-sub-text">Total Portfolio Security Ratio</p>
+                                    <h3 className="card-big-stat" style={{paddingBottom:"10px"}}>94%</h3>
                                 </div>
                                 <div className="card-footer">
                                     <h4 className="white-text">Gold-Backed Security Infrastructure</h4>
@@ -38,7 +37,7 @@ export default function FeaturedStrategies() {
                                 <div className="center-content">
                                     <span className="scaling-label">Projected AUM</span>
                                     <div className="scaling-value">₹4,000<span>Cr</span></div>
-                                    <p className="mini-desc">Aggressive growth trajectory for FY 2026.</p>
+                                    <p className="mini-desc" style={{color:'white'}}>Aggressive growth trajectory for FY 2026.</p>
                                 </div>
                                 <div className="growth-viz">
                                     <div className="viz-bar" style={{height: '30%'}}></div>
@@ -104,7 +103,7 @@ export default function FeaturedStrategies() {
 
 const styles = `
     .indel-bento-section {
-        padding: 80px 0 150px 0;
+        padding: 0px 0 150px 0;
         background-color: #ffffff;
     }
 
