@@ -292,6 +292,11 @@ const css = `
     color: #17479e;
   }
 
+  .ph-footer {
+    display: flex;
+    justify-content: center;
+  }
+
   @media (max-width: 1024px) {
     .ph-grid { grid-template-columns: repeat(2, 1fr); }
   }
