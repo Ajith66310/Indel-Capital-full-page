@@ -7,7 +7,7 @@ export default function Insights() {
 
     return (
         <>
-            <section className="news-section  pt_80 pb_90">
+            <section className="news-section  pb_20">
                 <div className="auto-container">
                     <div className="sec-title centred mb_70">
                         <h6>{data.subTitle}</h6>

@@ -2,72 +2,74 @@ export const AboutFeatures = [
   {
     id: 1,
     icon: "icon-10",
-    title: "Solution Focused",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis tincidunt feugiat",
+    title: "Prudent Investment Management",
+    description: "Focusing on professional fund management driven by financial discipline and transparency.",
   },
   {
     id: 2,
     icon: "icon-11",
-    title: "99.99% Success",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis tincidunt feugiat",
+    title: "Structured Lending & Capital Allocation",
+    description: "Expert deployment of capital through strategic lending and long-term value creation.",
   },
 ];
 
 export const aboutData = {
-  experienceYears: 40,
-  ratingText: "5 Star Rating Bank",
-  subTitle: "About US",
-  mainTitle: "Financial Guidance for Every Stage of Life.",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis, suscipit you take action against fraud. See it the Security Center for and Mobile and Online Banking.",
+  experienceYears: 5, 
+  ratingText: "Investment Arm of Indel Group",
+  subTitle: "FINANCE CONSULTING",
+  mainTitle: "Our Strategic Investment Management - Since 2021",
+  description: "Indel Capital Ventures and Investments Private Limited is the investment arm of the Indel Group, incorporated in 2021 and headquartered in Mumbai with a Corporate Office in Kochi. We focus on the prudent deployment and professional management of funds, driven by financial discipline, transparency, and a long-term value creation approach.",
 };
+
 
 export const WhatWeDoData = [
   {
     id: 1,
-    title: "Digital Banking",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis, suscipit you take action against fraud. See it the Security Center for and Mobile and Online Banking.",
+    title: "Fixed Coupon Securities & Asset Securitisation",
+    text: "Strategic investments in marketable fixed coupon securities and securitised NBFC assets, aligned with liquidity planning, market conditions, and disciplined capital management.",
     image: "assets/images/service/service-1.jpg",
     link: "/service-details",
-    list: ["Background Check", "Quick Response", "Free Consultation", "Over 20 Years Experience", "Expert Agents"]
+    list: ["Fixed Income Strategy", "Asset Securitisation", "Liquidity Planning", "Capital Management", "Market Analysis"]
   },
   {
     id: 2,
-    title: "Insurance Policies",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis, suscipit you take action against fraud. See it the Security Center for and Mobile and Online Banking.",
+    title: "Corporate & Retail Lending Solutions",
+    text: "Structured corporate and retail lending to group and associate entities, supported by transparent evaluation, prudent risk assessment, and long-term financial sustainability.",
     image: "assets/images/service/service-2.jpg",
     link: "/service-details-3",
-    list: ["Background Check", "Quick Response", "Free Consultation", "Over 20 Years Experience", "Expert Agents"]
+    list: ["Structured Lending", "Risk Assessment", "Group Entities", "Financial Sustainability", "Transparent Evaluation"]
   },
   {
     id: 3,
-    title: "All kind of Loans",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis, suscipit you take action against fraud. See it the Security Center for and Mobile and Online Banking.",
+    title: "Equity Investments & Capital Allocation",
+    text: "Research-driven equity investments focused on governance, long-term value creation, disciplined risk management, and strategic capital deployment through rigorous engagement.",
     image: "assets/images/service/service-3.jpg",
     link: "/service-details-7",
-    list: ["Background Check", "Quick Response", "Free Consultation", "Over 20 Years Experience", "Expert Agents"]
+    list: ["Research-Driven", "Active Ownership", "Value Creation", "Strategic Deployment", "Governance Focus"]
   },
   {
     id: 4,
-    title: "Bank Accounts",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis, suscipit you take action against fraud. See it the Security Center for and Mobile and Online Banking.",
+    title: "Diversified Investment & Growth Capital",
+    text: "Strategic Special Purpose Vehicle (SPV) management across high-growth sectors including Automotive, Hospitality, and Infrastructure, focused on unlocking value in emerging markets.",
     image: "assets/images/service/service-4.jpg",
     link: "/service-details-5",
-    list: ["Background Check", "Quick Response", "Free Consultation", "Over 20 Years Experience", "Expert Agents"]
+    list: ["Multi-Sector SPVs", "Automotive & Infra", "Hospitality Ventures", "Emerging Markets", "Strategic Growth"]
   }
 ];
 
+
 export const investmentPhilosophyData = {
     subTitle: "Investment Philosophy",
-    title: "The Finance Guide on All Stage of Life.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis, suscipit you take action against fraud. See it the Security Center for and Mobile and Online Banking.",
+    title: "Capital Preservation Through Strategic Rigor.",
+    description: "We follow a disciplined investment mandate focused on unlocking value within the NBFC landscape. By prioritizing asset-backed opportunities and maintaining strict financial governance, we ensure sustainable growth for our institutional and private stakeholders.",
     points: [
-        "Improving all types of opportunities",
-        "Quick solutions for daily problems",
-        "Community that grows larger"
+        "Prudent Risk-Adjusted Capital Allocation",
+        "Focus on Marketable Fixed-Coupon Securities",
+        "Strategic Management of High-Growth SPVs"
     ],
     experience: {
-        years: 25,
-        text: "of Experience in the Finance Service"
+        years: 5, 
+        text: "Years of Specialized Strategic Investment"
     },
     images: {
         img1: "assets/images/resource/about-2.jpg",
@@ -78,7 +80,13 @@ export const investmentPhilosophyData = {
 export const featuredStrategiesData = {
     subTitle: "Institutional Roadmap",
     mainTitle: "Strategies for Sustainable Value",
-    description: "Indel Capital leverages a resilient gold-backed portfolio and an aggressive phygital expansion strategy to deliver consistent, risk-adjusted growth for our stakeholders."
+    description: "Indel Capital leverages a resilient gold-backed portfolio and an aggressive phygital expansion strategy to deliver consistent, risk-adjusted growth for our stakeholders.",
+    stats: {
+        security: "98%",
+        aum: "5,000",
+        yield: "14.50%",
+        branches: "500+"
+    }
 };
 
 export const testimonialData = [
@@ -186,30 +194,30 @@ export const insightsData = {
     posts: [
         {
             id: 1,
-            date: "Apr 17, 2022",
-            title: "Self-Guided Driving & Tours Walk Of Greater City",
+            date: "Oct 24, 2025",
+            title: "Expanding the Horizon: Strategic Growth in the NBFC Sector",
             image: "assets/images/news/news-1.jpg",
-            author: "Admin",
+            author: "Indel Research",
             commentCount: "0 Comment",
             link: "/blog-details",
             delay: "00ms"
         },
         {
             id: 2,
-            date: "Apr 16, 2022",
-            title: "Assistance For Homes & Properties Real Estate",
+            date: "Jan 12, 2026",
+            title: "Transitioning to Sustainable Finance: Investing in Green Infrastructure",
             image: "assets/images/news/news-2.jpg",
             author: "Admin",
-            commentCount: "4 Comment",
+            commentCount: "2 Comment",
             link: "/blog-details",
             delay: "300ms"
         },
         {
             id: 3,
-            date: "Apr 15, 2022",
-            title: "Long-Term Vision Of Health & Attractive Facility",
+            date: "Feb 05, 2026",
+            title: "The Future of Asset Securitization and Fixed Coupon Securities",
             image: "assets/images/news/news-3.jpg",
-            author: "Admin",
+            author: "Indel Capital",
             commentCount: "1 Comment",
             link: "/blog-details",
             delay: "600ms"
@@ -220,50 +228,50 @@ export const insightsData = {
 export const testimonialSliderOneData = [
     {
         id: 1,
-        name: "Sandra Bullock",
-        designation: "Manager",
+        name: "Strategic LP Partner",
+        designation: "Institutional Investor",
         image: "assets/images/resource/testimonial-1.png",
         rating: 5,
-        text: "“Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque etiam nis quis at arcu nunc neque ac integer sit lobortis diam semper nulla duis in blandit.”"
+        text: "“Indel Capital's disciplined approach to asset securitization and their deep understanding of the NBFC landscape in India have consistently delivered robust risk-adjusted returns for our portfolio.”"
     },
     {
         id: 2,
-        name: "Julien Anthor",
-        designation: "Manager",
+        name: "Financial Director",
+        designation: "Associate Entity",
         image: "assets/images/resource/testimonial-2.png",
         rating: 5,
-        text: "“Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque etiam nis quis at arcu nunc neque ac integer sit lobortis diam semper nulla duis in blandit.”"
+        text: "“Their expertise in structured corporate lending and capital allocation has been pivotal in driving our expansion. The transparency and financial rigor they bring to every transaction are truly commendable.”"
     },
     {
         id: 3,
-        name: "Rolier Demonil",
-        designation: "Manager",
+        name: "Venture Partner",
+        designation: "Growth Capital Lead",
         image: "assets/images/resource/testimonial-3.png",
         rating: 5,
-        text: "“Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque etiam nis quis at arcu nunc neque ac integer sit lobortis diam semper nulla duis in blandit.”"
+        text: "“Managing multi-sector SPVs requires a unique blend of market insight and operational discipline. Indel Capital excels in unlocking value within emerging markets and high-growth infrastructure sectors.”"
     },
     {
         id: 4,
-        name: "Sandra Bullock",
-        designation: "Manager",
+        name: "Compliance Head",
+        designation: "Banking Partner",
         image: "assets/images/resource/testimonial-1.png",
         rating: 5,
-        text: "“Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque etiam nis quis at arcu nunc neque ac integer sit lobortis diam semper nulla duis in blandit.”"
+        text: "“Working with Indel Capital ensures a high level of confidence. Their commitment to governance and long-term value creation sets a benchmark in the Indian strategic investment space.”"
     },
     {
         id: 5,
-        name: "Julien Anthor",
-        designation: "Manager",
+        name: "Chief Investment Officer",
+        designation: "Strategic Asset Mgmt",
         image: "assets/images/resource/testimonial-2.png",
         rating: 5,
-        text: "“Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque etiam nis quis at arcu nunc neque ac integer sit lobortis diam semper nulla duis in blandit.”"
+        text: "“Their focus on marketable fixed-coupon securities and liquid planning provides the stability needed in volatile market conditions. A truly professional arm of the Indel Group.”"
     },
     {
         id: 6,
-        name: "Rolier Demonil",
-        designation: "Manager",
+        name: "Senior Analyst",
+        designation: "Equity Research Firm",
         image: "assets/images/resource/testimonial-3.png",
         rating: 5,
-        text: "“Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque etiam nis quis at arcu nunc neque ac integer sit lobortis diam semper nulla duis in blandit.”"
+        text: "“Indel Capital demonstrates a rare ability to balance aggressive growth in hospitality and automotive sectors with prudent risk assessment and long-term sustainability.”"
     }
 ];

@@ -1,8 +1,7 @@
 "use client";
 
-import CounterUp from "@/components/elements/CounterUp";
 import React, { useEffect, useRef, useState } from "react";
-// Import your CounterUp component here
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 
 const portfolioData = [
   {
@@ -12,9 +11,9 @@ const portfolioData = [
     ticker: "NXF",
     description: "Institutional-grade liquidity protocols streamlining cross-border settlement through blockchain efficiency.",
     status: "Series B",
-    irr: 24.3, // Changed to numbers for the counter
+    irr: 24.3,
     vintage: "2022",
-    multiple: 2.1, // Changed to numbers
+    multiple: 2.1, 
   },
   {
     id: 2,
@@ -46,32 +45,35 @@ const statusColors = {
   "Series B": { text: "#17479e", bg: "rgba(23,71,158,0.12)" },
 };
 
+// Custom Counter Component using Framer Motion
+function MotionCounter({ value, decimals = 1 }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => latest.toFixed(decimals));
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(count, value, { duration: 2, ease: "easeOut" });
+      return controls.stop;
+    }
+  }, [isInView, value, count]);
+
+  // Subscribe to the motion value to update state
+  useEffect(() => {
+    return rounded.onChange((v) => setDisplay(v));
+  }, [rounded]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
 export default function PortfolioHighlights() {
-  const cardsRef = useRef([]);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("ph-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    cardsRef.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, [mounted]);
 
   if (!mounted) return null;
 
@@ -92,11 +94,17 @@ export default function PortfolioHighlights() {
             {portfolioData.map((item, i) => {
               const sc = statusColors[item.status] || statusColors["Series A"];
               return (
-                <div
+                <motion.div
                   key={item.id}
                   className="ph-card"
-                  ref={(el) => (cardsRef.current[i] = el)}
-                  style={{ "--delay": `${i * 120}ms` }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: i * 0.12, 
+                    ease: [0.19, 1, 0.22, 1] 
+                  }}
                 >
                   <div className="ph-card-top">
                     <span className="ph-ticker">{item.ticker}</span>
@@ -115,13 +123,13 @@ export default function PortfolioHighlights() {
                     <div className="ph-metric">
                       <span className="ph-label">Target IRR</span>
                       <span className="ph-value">
-                        <CounterUp end={item.irr} />%
+                        <MotionCounter value={item.irr} />%
                       </span>
                     </div>
                     <div className="ph-metric">
                       <span className="ph-label">MOIC</span>
                       <span className="ph-value">
-                        <CounterUp end={item.multiple} />×
+                        <MotionCounter value={item.multiple} />×
                       </span>
                     </div>
                     <div className="ph-metric">
@@ -129,7 +137,7 @@ export default function PortfolioHighlights() {
                       <span className="ph-value">{item.vintage}</span>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -205,22 +213,14 @@ const css = `
     padding: 40px 32px;
     display: flex;
     flex-direction: column;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    opacity: 0;
-    transform: translateY(30px);
     border-radius: 12px;
-  }
-
-  .ph-card.ph-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: var(--delay);
   }
 
   .ph-card:hover {
     border-color: #17479e;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-10px);
+    transform: translateY(-10px) !important;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   .ph-card-top {

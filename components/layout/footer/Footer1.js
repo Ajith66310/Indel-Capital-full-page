@@ -1,93 +1,217 @@
-import Link from "next/link"
+"use client";
 
-export default function Footer1() {
-    return (
-        <>
-            <footer className="main-footer">
-                <div className="widget-section">
-                    <div className="auto-container">
-                        <div className="row clearfix">
-                            <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
-                                <div className="footer-widget logo-widget">
-                                    <figure className="footer-logo"><Link href="/"><img style={{height: '70px', width:"150px"}} src="assets/images/indel-capital-logo-blue.png" alt="" /></Link></figure>
-                                    <p>Tincidunt neque pretium lectus donec risus. Mauris mi tempor nunc orc leo consequat vitae erat gravida lobortis nec et sagittis.</p>
-                                    <ul className="social-links">
-                                        <li><Link href="/"><i className="fab fa-facebook-f"></i></Link></li>
-                                        <li><Link href="/"><i className="fab fa-twitter"></i></Link></li>
-                                        <li><Link href="/"><i className="fab fa-instagram"></i></Link></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
-                                <div className="footer-widget links-widget ml_40">
-                                    <div className="widget-title">
-                                        <h4>Quick links</h4>
-                                    </div>
-                                    <div className="widget-content">
-                                        <ul className="links-list clearfix">
-                                            <li><Link href="/about">About</Link></li>
-                                            <li><Link href="/">Approach</Link></li>
-                                            <li><Link href="/career">Strategies</Link></li>
-                                            <li><Link href="/career-details">Insights</Link></li>
-                                            <li><Link href="/faq">IR</Link></li>
-                                            <li><Link href="/faq">Careers</Link></li>
-                                            <li><Link href="/faq">Contact</Link></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
-                                <div className="footer-widget links-widget">
-                                    <div className="widget-title">
-                                        <h4>Disclosures</h4>
-                                    </div>
-                                    <div className="widget-content">
-                                        <ul className="links-list clearfix">
-                                            <li><Link href="/">Privacy policy</Link></li>
-                                            <li><Link href="/">Terms & condition</Link></li>
-                                            {/* <li><Link href="/">Credit Card</Link></li>
-                                            <li><Link href="/">Saving Account</Link></li>
-                                            <li><Link href="/">Digital Gift Cards</Link></li>
-                                            <li><Link href="/">Apply for Loans</Link></li>
-                                            <li><Link href="/">Mobile Application</Link></li> */}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-sm-12 footer-column">
-                                <div className="footer-widget contact-widget">
-                                    <div className="widget-title">
-                                        <h4>Contact Us</h4>
-                                    </div>
-                                    <div className="widget-content">
-                                        <ul className="info-list clearfix">
-                                            <li className="mb_20">
-                                                <i className="fas fa-map-marker-alt"></i>
-                                                <p>Flat 20, Reynolds Neck, North Helenaville, FV77 8BT</p>
-                                            </li>
-                                            <li className="mb_20">
-                                                <i className="fas fa-phone"></i>
-                                                <p><Link href="tel:23055873407">+2(305) 587-3407</Link></p>
-                                            </li>
-                                            <li>
-                                                <i className="fas fa-envelope"></i>
-                                                <p><Link href="mailto:info@example.com">info@example.com</Link></p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="footer-bottom centred">
-                    <div className="auto-container">
-                        <div className="copyright"><p>Copyright 2026 by <Link href="/">Indel Capital</Link>. All Right Reserved.</p></div>
-                    </div>
-                </div>
-            </footer>
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
+const quickLinks = [
+  { label: "About", href: "/about" },
+  { label: "Approach", href: "/approach" },
+  { label: "Strategies", href: "/strategies" },
+  { label: "Insights", href: "/insights" },
+  { label: "IR", href: "/ir" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+];
 
-        </>
-    )
+export default function Footer() {
+  const footerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const indelOpacity = useTransform(scrollYProgress, [0, 0.85, 0.95], [0.08, 0.08, 0]);
+  const capitalOpacity = useTransform(scrollYProgress, [0, 0.85, 0.95, 1], [0, 0, 0.08, 0.08]);
+
+  const cssStyles = `
+    .awwwards-footer {
+      background: #020617;
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      padding: 160px 0 60px 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 600px; 
+    }
+
+    .bg-fixed-container {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .giant-static-text {
+      position: absolute;
+      top: 15%; 
+      font-size: clamp(100px, 20vw, 380px);
+      font-weight: 900;
+      text-transform: uppercase;
+      white-space: nowrap;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+      letter-spacing: -0.03em;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #ee3824;
+      margin-bottom: 40px;
+      font-weight: 800;
+    }
+
+    .footer-desc {
+      font-size: 24px;
+      line-height: 1.4;
+      font-family: 'Playfair Display', serif;
+      max-width: 450px;
+      margin-bottom: 40px;
+    }
+
+    .nav-list { list-style: none; padding: 0; margin: 0; }
+    .nav-item { margin-bottom: 12px; }
+    
+    .nav-link {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: all 0.4s ease;
+      display: inline-block;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+      transform: translateX(8px);
+    }
+
+    .footer-bottom {
+      margin-top: 120px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* UPDATED: Hide the background text for both Tablet and Mobile */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .bg-fixed-container { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  `;
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: cssStyles }} />
+      
+      <footer ref={footerRef} className="awwwards-footer">
+        
+        <div className="bg-fixed-container">
+          <motion.div 
+            style={{ opacity: indelOpacity }} 
+            className="giant-static-text"
+          >
+            INDEL
+          </motion.div>
+          
+
+          <motion.div 
+            style={{ opacity: capitalOpacity }} 
+            className="giant-static-text"
+          >
+            CAPITAL
+          </motion.div>
+        </div>
+
+        <div className="container">
+          <div className="footer-grid">
+            <div className="footer-col">
+              <img 
+                src="/assets/images/indel-capital-logo-blue.png" 
+                alt="Indel Logo" 
+                style={{ height: '45px', marginBottom: '30px' }} 
+              />
+              <p className="footer-desc">
+                We design financial futures with <span>uncompromising</span> precision.
+              </p>
+              <Link href="/contact" style={{ borderBottom: '2px solid #ee3824', color: '#fff', textDecoration: 'none', paddingBottom: '5px', fontWeight: '600' }}>
+                Work with us
+              </Link>
+            </div>
+
+            <div className="footer-col">
+              <h4>Directives</h4>
+              <ul className="nav-list">
+                {quickLinks.slice(0, 4).map((link) => (
+                  <li key={link.label} className="nav-item">
+                    <Link href={link.href} className="nav-link">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="footer-col">
+              <h4>Internal</h4>
+              <ul className="nav-list">
+                {quickLinks.slice(4).map((link) => (
+                  <li key={link.label} className="nav-item">
+                    <Link href={link.href} className="nav-link">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="footer-col">
+              <h4>Presence</h4>
+              <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '15px' }}>
+                Reynolds Neck, <br /> North Helenaville <br />
+                <span style={{ color: '#fff' }}>+2 (305) 587-3407</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <div>© 2026 Indel Capital Group</div>
+            <div className="legal-links">
+              <Link href="/privacy" style={{color: 'inherit', textDecoration: 'none', marginLeft: '30px'}}>Privacy</Link>
+              <Link href="/terms" style={{color: 'inherit', textDecoration: 'none', marginLeft: '30px'}}>Terms</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
 }
