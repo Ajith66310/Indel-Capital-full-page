@@ -1,30 +1,32 @@
 'use client'
 import Link from "next/link"
+// Import Lucide icons
+import { ShieldCheck, Headphones, TrendingUp, Timer } from "lucide-react"
 
 export default function Features() {
     const featureData = [
         {
-            icon: "icon-5",
-            title: "Secure International Transaction",
-            desc: "Advanced encryption protocols ensuring your global transfers are safe and instantaneous.",
+            icon: <ShieldCheck size={35} />,
+            title: "Secure Investment Solutions",
+            desc: "Your capital is protected with robust risk-managed strategies and disciplined financial oversight.",
             delay: "0ms"
         },
         {
-            icon: "icon-6",
-            title: "24/7 Expert Support Team",
-            desc: "Our financial specialists are available around the clock to assist with your inquiries.",
+            icon: <Headphones size={35} />,
+            title: "Expert Advisory Support",
+            desc: "Our financial specialists guide you with data-driven insights for smarter wealth decisions.",
             delay: "200ms"
         },
-        {
-            icon: "icon-7",
-            title: "Competitive Processing Fees",
-            desc: "Maximize your capital with the industry's lowest rates on all banking transactions.",
+   {
+            icon: <TrendingUp size={35} strokeWidth={1.5} />,
+            title: "Competitive Returns Strategy",
+            desc: "Optimised investment models designed to deliver strong, stable, and long-term performance.",
             delay: "400ms"
         },
         {
-            icon: "icon-8",
-            title: "Rapid Loan Approval",
-            desc: "Streamlined digital verification for lightning-fast approvals on personal and business loans.",
+            icon: <Timer size={35} strokeWidth={1.5} />,
+            title: "Fast & Hassle-Free Execution",
+            desc: "Streamlined digital processes ensure quick onboarding and seamless strategy deployment.",
             delay: "600ms"
         }
     ];
@@ -54,7 +56,6 @@ export default function Features() {
                     border-right: 1px solid #f0f0f0;
                     position: relative;
                     background: #fff;
-                    /* Hover translation and background change removed */
                 }
 
                 .feature-item:last-child {
@@ -71,22 +72,17 @@ export default function Features() {
                     justify-content: center;
                     margin-bottom: 30px;
                     transition: all 0.4s ease;
+                    color: #eb2525; /* Icon color */
                 }
 
-                .icon-box-new i {
-                    font-size: 35px;
-                    color: #eb2525;
+                /* Target the SVG specifically for Lucide */
+                .icon-box-new :global(svg) {
                     transition: color 0.4s ease;
                 }
 
-                /* Only the icon box turns red on card hover */
                 .feature-item:hover .icon-box-new {
                     background: #eb2525;
-                    /* Rotation removed */
-                }
-
-                .feature-item:hover .icon-box-new i {
-                    color: #fff;
+                    color: #fff; /* Changes Lucide icon color on hover */
                 }
 
                 .feature-item h4 {
@@ -102,8 +98,6 @@ export default function Features() {
                     color: #666;
                     margin-bottom: 0;
                 }
-
-                /* Text color changes on hover removed to keep cards static */
 
                 @media (max-width: 1200px) {
                     .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -126,7 +120,7 @@ export default function Features() {
                                 data-wow-delay={item.delay}
                             >
                                 <div className="icon-box-new">
-                                    <i className={item.icon}></i>
+                                    {item.icon}
                                 </div>
                                 <h4>
                                     <Link href="/service" style={{ color: 'inherit' }}>

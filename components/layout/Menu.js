@@ -36,10 +36,10 @@ export default function Menu() {
                         <li><Link href="/service-details-8">Fixed Term Account</Link></li>
                     </ul>
                 </li>
-                <li><Link href="/strategies">Strategies</Link></li>
-                <li className="dropdown"><Link href="#">Portfolio</Link>
+                {/* <li><Link href="#"></Link>Portfolio</li> */}
+                <li className="dropdown"><Link href="#">Strategies</Link>
                     <ul>
-                        <li className="dropdown"><Link href="/">dropdownn</Link>
+                        <li className="dropdown"><Link href="/strategies">dropdownn</Link>
                             <ul>
                                 <li><Link href="/team">Board of Directors</Link></li>
                                 <li><Link href="/team-details">Director Details</Link></li>
@@ -65,8 +65,8 @@ export default function Menu() {
                         <li><Link href="/error">404 Error</Link></li>
                     </ul>
                 </li>
-                <li><Link href="#">Insights & Research</Link></li>
-                <li><Link href="#">Investor Resources</Link></li>
+                {/* <li><Link href="#">Insights & Research</Link></li> */}
+                {/* <li><Link href="#">Investor Resources</Link></li> */}
                 <li><Link href="/contact-us">Contact Us</Link></li>
 
             </ul>

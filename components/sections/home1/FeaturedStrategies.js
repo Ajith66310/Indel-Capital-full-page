@@ -68,9 +68,9 @@ export default function FeaturedStrategies() {
                                     <span className="indicator">ASSET-BACKED LENDING</span>
                                 </div>
                                 <div className="content-mid">
-                                    <h3 className="card-big-stat" style={{color:"white !important"}}>
-                                        <Counter value={data.stats.security} />%
-                                    </h3>
+                                   <h3 className="card-big-stat">
+        <Counter value={data.stats.security} />%
+    </h3>
                                 </div>
                                 <div className="card-footer">
                                     <h4 className="white-text">Gold-Collateralized Framework</h4>
@@ -270,7 +270,7 @@ const styles = `
     .white-text { color: #ffffff !important; font-size: 24px; font-weight: 800; margin-bottom: 8px; }
     .white-text-dim { color: rgba(255,255,255,0.8) !important; font-size: 15px; line-height: 1.5; }
 
-    .card-big-stat { font-size: 110px; font-weight: 950; line-height: 0.8; letter-spacing: -6px; margin-top: 10px; }
+    .card-big-stat { font-size: 110px; font-weight: 950; line-height: 0.8; letter-spacing: -6px; margin-top: 10px; color: #ffffff !important; }
 
     .scaling-label { font-size: 14px; opacity: 0.8; font-weight: 600; }
     .scaling-value { font-size: 60px; font-weight: 900; margin-top: 5px; line-height: 1; }

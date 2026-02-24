@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function ContactPage() {
-    const [view, setView] = useState("desktop"); // desktop, tablet, mobile
+    const [view, setView] = useState("desktop");
 
     useEffect(() => {
         const handleResize = () => {
@@ -39,20 +39,25 @@ export default function ContactPage() {
                 ...containerStyle, 
                 padding: isMobile ? '0 1rem' : isTablet ? '0 3rem' : '0 6rem'
             }}>
+                <style jsx global>{`
+                    input::placeholder, textarea::placeholder {
+                        color: #cbd5e1 !important;
+                        opacity: 1;
+                    }
+                `}</style>
                 
-                {/* HERO SECTION */}
                 <motion.section 
                     style={{
                         ...heroSection, 
                         flexDirection: (isMobile || isTablet) ? 'column' : 'row', 
-                        alignItems: (isMobile || isTablet) ? 'flex-start' : 'flex-end', 
                         paddingTop: isMobile ? '40px' : '80px',
-                        paddingBottom: '40px'
+                        paddingBottom: '80px',
+                        gap: '60px'
                     }}
                     initial="initial"
                     animate="animate"
                 >
-                    <motion.div style={{...heroLeft, width: '100%'}} variants={fadeInUp}>
+                    <motion.div style={{ flex: '1' }} variants={fadeInUp}>
                         <div style={taglineRow}>
                             <span style={taglineText}>START A PARTNERSHIP</span>
                         </div>
@@ -70,66 +75,16 @@ export default function ContactPage() {
 
                     <motion.div 
                         style={{
-                            ...heroRight, 
-                            borderLeft: (isMobile || isTablet) ? 'none' : '1px solid #eee', 
-                            paddingLeft: (isMobile || isTablet) ? '0' : '40px', 
-                            marginTop: (isMobile || isTablet) ? '30px' : '0',
-                            width: (isMobile || isTablet) ? '100%' : '300px'
+                            ...formWrapper,
+                            flex: '1',
+                            background: '#f8fafc',
+                            padding: '40px',
+                            borderRadius: '20px',
+                            width: '100%'
                         }} 
                         variants={fadeInUp}
                     >
-                        <div style={statBox}>
-                            <span style={statLabel}>GLOBAL PRESENCE</span>
-                            <div style={statValue}>Mumbai • Dubai • London</div>
-                        </div>
-                        <div style={statBox}>
-                            <span style={statLabel}>OUR COMMITMENT</span>
-                            <div style={statValue}>Transparent Growth & Sustainable Capital</div>
-                        </div>
-                    </motion.div>
-                </motion.section>
-
-                {/* INFO STRIP */}
-                <motion.div 
-                    style={{
-                        ...infoStrip, 
-                        gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr 1fr' : 'repeat(3, 1fr)'
-                    }}
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                >
-                    <motion.div style={{...infoCard, borderRight: (isMobile || isTablet) ? 'none' : '1px solid #eee', borderBottom: (isMobile || isTablet) ? '1px solid #eee' : 'none'}} variants={fadeInUp}>
-                        <span style={cardLabel}>Corporate Office</span>
-                        <div style={cardValue}>Indel Capital Tower, <br />Mumbai, MH 400001</div>
-                    </motion.div>
-                    <motion.div style={{...infoCard, borderRight: isMobile ? 'none' : isTablet ? 'none' : '1px solid #eee', borderBottom: isMobile ? '1px solid #eee' : 'none'}} variants={fadeInUp}>
-                        <span style={cardLabel}>Email Channels</span>
-                        <div style={cardValue}>
-                            <Link href="mailto:invest@indelcapital.com" style={linkHover}>invest@indelcapital.com</Link><br/>
-                            <Link href="mailto:partners@indelcapital.com" style={linkHover}>partners@indelcapital.com</Link>
-                        </div>
-                    </motion.div>
-                    <motion.div style={{...infoCard, borderRight: 'none'}} variants={fadeInUp}>
-                        <span style={cardLabel}>Direct Line</span>
-                        <div style={cardValue}>+91 22 0000 0000 <br /> <small style={{opacity: 0.6}}>Mon-Fri, 9am - 6pm</small></div>
-                    </motion.div>
-                </motion.div>
-
-                {/* FORM & MAP SECTION */}
-                <section style={{
-                    ...splitSection, 
-                    gridTemplateColumns: (isMobile || isTablet) ? '1fr' : '1.1fr 0.9fr', 
-                    padding: isMobile ? '40px 0' : '80px 0'
-                }}>
-                    <motion.div 
-                        style={formWrapper}
-                        initial="initial"
-                        whileInView="animate"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                    >
-                        <h2 style={{...sectionHeading, fontSize: isMobile ? '28px' : '36px', marginBottom: '30px'}}>Send a Message</h2>
+                        <h2 style={{...sectionHeading, fontSize: '24px', marginBottom: '30px'}}>Send a Message</h2>
                         <form style={{...formGrid, gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px'}}>
                             <div style={inputGroup}>
                                 <label style={labelStyle}>Full Name</label>
@@ -153,19 +108,62 @@ export default function ContactPage() {
                             </motion.button>
                         </form>
                     </motion.div>
+                </motion.section>
+
+                <section style={{
+                    ...splitSection, 
+                    gridTemplateColumns: (isMobile || isTablet) ? '1fr' : '0.8fr 1.2fr', 
+                    padding: isMobile ? '40px 0' : '80px 0',
+                    borderTop: '1px solid #eee',
+                    gap: '40px'
+                }}>
+                    <motion.div 
+                        style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                    >
+                        <motion.div style={infoCard} variants={fadeInUp}>
+                            <span style={cardLabel}>Corporate Office</span>
+                            <div style={cardValue}>Indel Capital Tower, <br />Mumbai, MH 400001</div>
+                        </motion.div>
+
+                        <motion.div style={infoCard} variants={fadeInUp}>
+                            <span style={cardLabel}>Email Channels</span>
+                            <div style={cardValue}>
+                                <Link href="mailto:invest@indelcapital.com" style={linkHover}>invest@indelcapital.com</Link><br/>
+                                <Link href="mailto:partners@indelcapital.com" style={linkHover}>partners@indelcapital.com</Link>
+                            </div>
+                        </motion.div>
+
+                        <motion.div style={infoCard} variants={fadeInUp}>
+                            <span style={cardLabel}>Direct Line</span>
+                            <div style={cardValue}>+91 22 0000 0000 <br /> <small style={{opacity: 0.6}}>Mon-Fri, 9am - 6pm</small></div>
+                        </motion.div>
+
+                        <motion.div style={statBox} variants={fadeInUp}>
+                            <span style={statLabel}>GLOBAL PRESENCE</span>
+                            <div style={{...statValue, fontSize: '18px'}}>Mumbai • Dubai • London</div>
+                        </motion.div>
+
+                        <motion.div style={statBox} variants={fadeInUp}>
+                            <span style={statLabel}>OUR COMMITMENT</span>
+                            <div style={{...statValue, fontSize: '18px'}}>Transparent Growth & Sustainable Capital</div>
+                        </motion.div>
+                    </motion.div>
 
                     <motion.div 
                         style={{
                             ...mapWrapper, 
-                            height: isMobile ? '300px' : isTablet ? '400px' : '500px',
-                            marginTop: (isMobile || isTablet) ? '40px' : '0'
+                            height: isMobile ? '300px' : '100%',
+                            minHeight: '500px'
                         }}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                     >
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.1160990053!2d72.7410992!3d19.0821978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.1160990422!2d72.74109995!3d19.08219785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                             style={iframeStyle}
                             allowFullScreen
                             loading="lazy"
@@ -177,7 +175,6 @@ export default function ContactPage() {
     );
 }
 
-// --- STYLES ---
 const containerStyle = {
     background: '#ffffff',
     color: '#1a1a1a',
@@ -188,27 +185,6 @@ const containerStyle = {
 const heroSection = {
     display: 'flex',
     justifyContent: 'space-between',
-};
-
-const heroLeft = { flex: '1' };
-
-const heroRight = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '25px',
-};
-
-const taglineRow = {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '15px',
-};
-
-const taglineText = {
-    fontSize: '12px',
-    fontWeight: '700',
-    letterSpacing: '2px',
-    color: '#ee3824',
 };
 
 const heroTitle = {
@@ -222,6 +198,19 @@ const heroSub = {
     color: '#64748b',
     marginTop: '20px',
     lineHeight: '1.6',
+};
+
+const taglineRow = {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '15px',
+};
+
+const taglineText = {
+    fontSize: '12px',
+    fontWeight: '700',
+    letterSpacing: '2px',
+    color: '#ee3824',
 };
 
 const statBox = { display: 'flex', flexDirection: 'column', gap: '5px' };
@@ -238,13 +227,7 @@ const statValue = {
     color: '#17479e',
 };
 
-const infoStrip = {
-    display: 'grid',
-    borderTop: '1px solid #eee',
-    borderBottom: '1px solid #eee',
-};
-
-const infoCard = { padding: '40px 10px' };
+const infoCard = { padding: '10px 0' };
 
 const cardLabel = {
     display: 'block',

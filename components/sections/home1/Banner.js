@@ -61,12 +61,12 @@ export default function Banner() {
                         <div className="auto-container">
                             <div className="content-box" style={{ maxWidth: '100%' }}>
                                 <h2 style={h2Style}>
-                                    <strong style={lineStyle}>Pioneering Financial</strong>
+                                    <strong style={lineStyle}> Invest With Confidence.</strong>
                                     <strong style={lineStyle}> 
-                                        <em style={highlightStyle}>Excellence</em>
+                                        <em style={highlightStyle}>Grow</em> With Clarity.
                                     </strong>
                                 </h2>
-                                <p>Part of the Indel Group legacy, providing diversified financial <br/> services through a robust network of over 250 branches.</p>
+                                <p> At Indel Capital, we help individuals and businesses build a stronger financial future <br/>through disciplined investing, transparent practices, and well-designed financial strategies.</p>
                                 <div className="btn-box">
                                     <Link href="/about" className="theme-btn btn-one">Our Heritage</Link>
                                 </div>

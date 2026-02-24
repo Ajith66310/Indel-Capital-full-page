@@ -77,7 +77,7 @@ export default function Whoweare() {
                                             At Indel Capital, we help individuals and businesses make confident financial decisions with clarity and expert guidance. Our approach is built on trust, transparency, and a deep understanding of what people need to grow and secure their futures.
                                         </p>
                                         <p style={{ fontSize: '16px', color: '#777', fontStyle: 'italic', borderLeft: '3px solid #eb2525', paddingLeft: '15px', marginBottom: '30px' }}>
-                                            We simplify finance through personalised solutions, smart insights, and continuous support — ensuring you’re always moving in the right direction.
+                                            We simplify finance through personalised solutions, smart insights, and continuous support ensuring you’re always moving in the right direction.
                                         </p>
                                         <ul className="list-style-custom">
                                             <li><span>✔️</span> Unlocking better financial possibilities</li>
@@ -103,13 +103,13 @@ export default function Whoweare() {
                                         bottom: '40px',
                                         right: '-20px',
                                         backgroundColor: '#fff',
-                                        padding: '25px',
+                                        padding: '10px',
                                         color: 'white',
                                         borderRadius: '5px',
                                         zIndex: '2',
                                         boxShadow: '10px 10px 30px rgba(0,0,0,0.1)'
                                     }}>
-                                        <h3 style={{ color: 'white', margin: 0, fontSize: '30px', color:"red" }}>35+</h3>
+                                        <h3 style={{ color: 'white', margin: 0, fontSize: '30px', color:"red" }}>5</h3>
                                         <p style={{ margin: 0, fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Years Experience</p>
                                     </div>
                                 </div>
