@@ -1,13 +1,32 @@
 'use client'
 import Link from "next/link"
 import { insightsData } from '@/public/assets/assest.js'
+import LiquidButton from '@/components/LiquidButton.js'
 
 export default function Insights() {
     const data = insightsData;
 
     return (
         <>
-            <section className="news-section  pb_20">
+            <style jsx>{`
+                /* Wrapper to constrain the liquid effect within the card */
+                .btn-wrapper {
+                    width: 160px;
+                    height: 45px;
+                    position: relative;
+                    margin-top: 15px;
+                }
+                
+                /* Ensure the link covers the liquid button area */
+                .liquid-link {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none;
+                }
+            `}</style>
+
+            <section className="news-section pb_20">
                 <div className="auto-container">
                     <div className="sec-title centred mb_70">
                         <h6>{data.subTitle}</h6>
@@ -32,19 +51,16 @@ export default function Insights() {
                                             <h3>
                                                 <Link href={post.link}>{post.title}</Link>
                                             </h3>
-                                            {/* <ul className="post-info mb_25"> */}
-                                                {/* <li>
-                                                    <i className="icon-28"></i>
-                                                    <Link href={post.link}>{post.author}</Link>
-                                                </li> */}
-                                                {/* <li>
-                                                    <i className="icon-29"></i>{post.commentCount}
-                                                </li>
-                                            </ul> */}
+                                            
                                             <div className="btn-box">
-                                                <Link href={post.link} className="theme-btn btn-three">
-                                                    Read More
-                                                </Link>
+                                                <div className="btn-wrapper">
+                                                    <Link href={post.link} className="liquid-link">
+                                                        <LiquidButton 
+                                                            text="Read More" 
+                                                            bgcolor="#eb2525" 
+                                                        />
+                                                    </Link>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

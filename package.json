@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap-touchspin": "^4.7.3",
     "framer-motion": "^12.34.3",
+    "gsap": "^3.14.2",
     "isotope-layout": "^3.0.6",
     "lightgallery": "^2.7.2",
     "lucide-react": "^0.575.0",

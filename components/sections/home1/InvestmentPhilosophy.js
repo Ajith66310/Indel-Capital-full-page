@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import { investmentPhilosophyData } from '@/public/assets/assest.js';
+import LiquidButton from '@/components/LiquidButton.js';
 
 export default function InvestmentPhilosophy() {
     const data = investmentPhilosophyData;
@@ -27,6 +28,7 @@ export default function InvestmentPhilosophy() {
                     display: block;
                     margin-bottom: 10px;
                     font-size: 13px;
+                    text-align: left;
                 }
                 
                 .main-title {
@@ -35,6 +37,7 @@ export default function InvestmentPhilosophy() {
                     font-weight: 800;
                     color: #17479d;
                     margin-bottom: 20px;
+                    text-align: left; 
                 }
 
                 .description-text {
@@ -42,12 +45,14 @@ export default function InvestmentPhilosophy() {
                     line-height: 1.7;
                     color: #555;
                     margin-bottom: 25px;
+                    text-align: left; 
                 }
 
                 .philosophy-list {
                     list-style: none;
                     padding: 0;
                     margin-bottom: 35px;
+                    text-align: left; 
                 }
 
                 .philosophy-list li {
@@ -75,9 +80,17 @@ export default function InvestmentPhilosophy() {
                     font-size: 10px;
                 }
 
+                /* Container for the Liquid Button */
+                .btn-wrapper {
+                    width: 200px;
+                    height: 55px;
+                    margin-top: 10px;
+                }
+
                 .image-holder {
                     position: relative;
                     padding: 20px; 
+                    width: 100%;
                 }
 
                 .image-holder::before {
@@ -112,6 +125,7 @@ export default function InvestmentPhilosophy() {
                     flex-wrap: wrap;
                     align-items: center;
                     gap: 40px;
+                    justify-content: flex-start; 
                 }
 
                 .flex-col {
@@ -120,9 +134,18 @@ export default function InvestmentPhilosophy() {
                 }
 
                 @media (max-width: 991px) {
-                    .philosophy-section { padding: 40px 0; }
-                    .image-holder { margin-top: 20px; }
-                    .flex-row { gap: 30px; }
+                    .philosophy-section { padding: 60px 0; }
+                    .flex-row { flex-direction: column; align-items: flex-start; gap: 30px; }
+                    .flex-col { width: 100%; }
+                    .image-holder { margin-top: 20px; padding: 10px 0; }
+                    .sub-title, .main-title, .description-text, .philosophy-list {
+                        text-align: left !important;
+                    }
+                    .btn-wrapper { margin: 0 auto; } /* Center button on mobile if preferred */
+                }
+
+                @media (max-width: 576px) {
+                    .main-title { font-size: 26px; }
                 }
             `}</style>
 
@@ -139,9 +162,13 @@ export default function InvestmentPhilosophy() {
                                         <li key={index}>{point}</li>
                                     ))}
                                 </ul>
-                                <Link href="/about" className="theme-btn btn-one">
-                                    Discover More
-                                </Link>
+                                
+                                {/* New Liquid Button wrapper */}
+                                <div className="btn-wrapper">
+                                    <Link href="/about" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                                        <LiquidButton text="Discover More" bgcolor="#eb2525" />
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 

@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import { whoweareData } from "@/public/assets/assest";
+import LiquidButton from '@/components/LiquidButton.js';
 
 export default function Whoweare() {
  
@@ -63,6 +64,13 @@ export default function Whoweare() {
                     font-size: 18px;
                     line-height: 1;
                 }
+
+                /* Container for the Liquid Button */
+                .btn-wrapper {
+                    width: 200px;
+                    height: 55px;
+                    margin-top: 10px;
+                }
             `}</style>
 
             <section className="about-style-two pt_120 about-section">
@@ -93,7 +101,11 @@ export default function Whoweare() {
                                         </ul>
                                     </div>
                                     <div className="btn-box">
-                                        <Link href="/about" className="theme-btn btn-one">Discover More</Link>
+                                        <div className="btn-wrapper">
+                                            <Link href="/about" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                                                <LiquidButton text="Discover More" bgcolor="#eb2525" />
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

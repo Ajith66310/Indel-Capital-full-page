@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import LiquidButton from '@/components/LiquidButton.js';
 
 export default function ContactPage() {
     const [view, setView] = useState("desktop");
@@ -44,6 +45,17 @@ export default function ContactPage() {
                         color: #cbd5e1 !important;
                         opacity: 1;
                     }
+                    /* Liquid Button Container Styling */
+                    .liquid-btn-wrapper {
+                        width: 200px;
+                        height: 55px;
+                        margin-top: 20px;
+                    }
+                    @media (max-width: 640px) {
+                        .liquid-btn-wrapper {
+                            width: 100%;
+                        }
+                    }
                 `}</style>
 
                 <motion.section
@@ -58,7 +70,6 @@ export default function ContactPage() {
                     animate="animate"
                 >
                     <motion.div style={{ flex: '1' }} variants={fadeInUp}>
-
                         <h1 style={{
                             ...heroTitle,
                             fontSize: isMobile ? '38px' : isTablet ? '60px' : 'clamp(50px, 6vw, 90px)',
@@ -95,14 +106,13 @@ export default function ContactPage() {
                                 <label style={labelStyle}>Message</label>
                                 <textarea placeholder="Describe your inquiry..." style={textareaStyle} required></textarea>
                             </div>
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="theme-btn btn-one"
-                                style={{ ...submitBtn, width: isMobile ? '100%' : 'fit-content' }}
-                            >
-                                Send Inquiry
-                            </motion.button>
+                            
+                            {/* Integrated Liquid Button */}
+                            <div className="liquid-btn-wrapper">
+                                <button type="submit" style={{ border: 'none', background: 'none', padding: 0, width: '100%', height: '100%', cursor: 'pointer' }}>
+                                    <LiquidButton text="Send Inquiry" bgcolor="#ee3824" />
+                                </button>
+                            </div>
                         </form>
                     </motion.div>
                 </motion.section>
@@ -147,8 +157,6 @@ export default function ContactPage() {
                             <span style={cardLabel}>Phone</span>
                             <div style={cardValue}>+91 90726 06615<br /> <small style={{ opacity: 0.6 }}>Mon - Sat, 10am - 6pm</small></div>
                         </motion.div>
-
-
                     </motion.div>
 
                     <motion.div
@@ -162,8 +170,8 @@ export default function ContactPage() {
                         viewport={{ once: true }}
                     >
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3928.676646751186!2d76.317418!3d10.043519!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080dcb2aa099af%3A0x2284420553f1c1b1!2sIndel%20Corporate%20Office!5e0!3m2!1sen!2sin!4v1771934308320!5m2!1sen!2sin" 
-                             style={iframeStyle}
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.563038848248!2d76.32185247587847!3d10.052899990055272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080c54148e6583%3A0xc665e317c062c9c!2sIndel%20House!5e0!3m2!1sen!2sin!4v1709123456789!5m2!1sen!2sin" 
+                            style={iframeStyle}
                             allowFullScreen
                             loading="lazy"
                         />
@@ -173,6 +181,7 @@ export default function ContactPage() {
         </Layout>
     );
 }
+
 
 const containerStyle = {
     background: '#ffffff',

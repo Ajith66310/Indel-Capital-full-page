@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import LiquidButton from '@/components/LiquidButton.js';
 
 export default function ValueCreation() {
     return (
@@ -81,6 +82,12 @@ export default function ValueCreation() {
                     line-height: 1.6;
                 }
 
+                .btn-wrapper {
+                    width: 220px;
+                    height: 55px;
+                    margin: 50px auto 0;
+                }
+
                 @media (max-width: 991px) {
                     .value-grid { grid-template-columns: repeat(2, 1fr); }
                 }
@@ -123,8 +130,10 @@ export default function ValueCreation() {
                         </div>
                     </div>
 
-                    <div style={{textAlign: 'center', marginTop: '50px'}}>
-                        <Link href="/services" className="theme-btn btn-one">Discover Our Impact</Link>
+                    <div className="btn-wrapper">
+                        <Link href="/services" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                            <LiquidButton text="Discover Our Impact" bgcolor="#eb2525" />
+                        </Link>
                     </div>
                 </div>
             </section>

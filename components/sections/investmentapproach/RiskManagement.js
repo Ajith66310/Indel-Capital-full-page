@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import LiquidButton from '@/components/LiquidButton.js';
 
 export default function RiskManagement() {
     return (
@@ -34,20 +35,16 @@ export default function RiskManagement() {
                     padding: 30px 20px;
                     border-radius: 15px;
                     text-align: center;
-                    /* Use a transparent border initially to prevent layout jumping */
                     border: 1px solid #f1f5f9;
                     transition: border-color 0.4s ease;
                     box-sizing: border-box;
                 }
                 .pillar-card:nth-child(even) {
-                    transform: translateY(30px); /* Keep the initial staggered layout */
+                    transform: translateY(30px);
                 }
 
-                /* UPDATED HOVER STATE */
                 .pillar-card:hover {
-                    /* Only changing the border color */
                     border-color: #eb2525;
-                    /* Removed transform, background, and scale */
                 }
 
                 .pillar-icon {
@@ -123,6 +120,12 @@ export default function RiskManagement() {
                     font-weight: 900;
                 }
 
+                /* Liquid Button Wrapper */
+                .btn-wrapper {
+                    width: 220px;
+                    height: 55px;
+                }
+
                 @media (max-width: 991px) {
                     .risk-container { flex-direction: column; }
                     .risk-pillars-col, .risk-content-col {
@@ -132,6 +135,7 @@ export default function RiskManagement() {
                     }
                     .risk-pillars-col { margin-bottom: 80px; }
                     .pillar-card:nth-child(even) { transform: translateY(0); }
+                    .btn-wrapper { margin: 0 auto; }
                 }
             `}</style>
 
@@ -177,7 +181,11 @@ export default function RiskManagement() {
                         </ul>
 
                         <div className="btn-box">
-                            <Link href="/framework" className="theme-btn btn-one">Explore Framework</Link>
+                            <div className="btn-wrapper">
+                                <Link href="/framework" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                                    <LiquidButton text="Explore Framework" bgcolor="#eb2525" />
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

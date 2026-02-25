@@ -3,7 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { portfolioData } from "@/public/assets/assest";
-
+import LiquidButton from '@/components/LiquidButton.js'; // Ensure path is correct
+import Link from "next/link";
 
 const statusColors = {
   Seed: { text: "#ee3824", bg: "rgba(238,56,36,0.06)" },
@@ -107,9 +108,11 @@ export default function PortfolioHighlights() {
           </div>
 
           <div className="ph-footer">
-            <button className="theme-btn btn-one">
-              Explore Full Portfolio
-            </button>
+            <div className="ph-btn-wrapper">
+              <Link href="/portfolio" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                <LiquidButton text="Explore Full Portfolio" bgcolor="#eb2525" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -265,6 +268,12 @@ const css = `
   .ph-footer {
     display: flex;
     justify-content: center;
+  }
+
+  /* Specific wrapper for the liquid button in this section */
+  .ph-btn-wrapper {
+    width: 260px;
+    height: 56px;
   }
 
   @media (max-width: 1024px) {

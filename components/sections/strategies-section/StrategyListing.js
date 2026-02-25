@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
+import LiquidButton from '@/components/LiquidButton.js';
 
 export default function StrategyListing() {
     const [selectedFilters, setSelectedFilters] = useState({
@@ -61,7 +62,19 @@ export default function StrategyListing() {
                 .meta-item { font-size: 13px; color: #6b7280; }
                 .meta-item strong { color: #1f2937; display: block; margin-bottom: 2px; }
                 .no-results { text-align: center; padding: 100px 0; color: #9ca3af; grid-column: span 2; }
-                @media (max-width: 991px) { .listing-container { flex-direction: column; } .filter-sidebar { flex: 1; } .strategy-grid { grid-template-columns: 1fr; } }
+
+                /* Liquid Button Integration */
+                .btn-wrapper {
+                    width: 160px;
+                    height: 48px;
+                    position: relative;
+                }
+
+                @media (max-width: 991px) { 
+                    .listing-container { flex-direction: column; } 
+                    .filter-sidebar { flex: 1; } 
+                    .strategy-grid { grid-template-columns: 1fr; } 
+                }
             `}</style>
 
             <section className="listing-section">
@@ -134,9 +147,12 @@ export default function StrategyListing() {
                                             <div className="meta-item"><strong>Risk Profile</strong> {item.risk}</div>
                                             <div className="meta-item"><strong>Time Horizon</strong> {item.horizon}</div>
                                         </div>
-                                        <Link href={`/strategies/${item.id}`} className="theme-btn btn-one" style={{fontSize: '14px', padding: '12px 24px', display: 'inline-block'}}>
-                                            View Details
-                                        </Link>
+                                        
+                                        <div className="btn-wrapper">
+                                            <Link href={`/strategies/${item.id}`} style={{ textDecoration: 'none', display: 'block', width: '100%', height: '100%' }}>
+                                                <LiquidButton text="View Details" bgcolor="#eb2525" />
+                                            </Link>
+                                        </div>
                                     </div>
                                 ))
                             ) : (
