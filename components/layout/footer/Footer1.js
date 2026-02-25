@@ -6,18 +6,16 @@ import { useRef } from "react";
 import { FaWhatsapp, FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
 
 const quickLinks = [
-  { label: "About", href: "/about" },
-  { label: "Approach", href: "/approach" },
+  { label: "Who We Are", href: "/who-we-are" },
+  { label: "Investment Approach", href: "/investment-approach" },
   { label: "Strategies", href: "/strategies" },
-  { label: "Insights", href: "/insights" },
-  { label: "IR", href: "/ir" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
   const footerRef = useRef(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: footerRef,
     offset: ["start end", "end end"]
@@ -28,7 +26,7 @@ export default function Footer() {
 
   const cssStyles = `
     .awwwards-footer {
-      background: #020617;
+      background: #050b27;
       color: #ffffff;
       font-family: 'Outfit', sans-serif;
       padding: 160px 0 60px 0;
@@ -109,6 +107,17 @@ export default function Footer() {
       transform: translateX(8px);
     }
 
+    .address-link {
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .address-link:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+
     .social-links {
       display: flex;
       gap: 20px;
@@ -152,22 +161,13 @@ export default function Footer() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: cssStyles }} />
-      
+
       <footer ref={footerRef} className="awwwards-footer">
-        
         <div className="bg-fixed-container">
-          <motion.div 
-            style={{ opacity: indelOpacity }} 
-            className="giant-static-text"
-          >
+          <motion.div style={{ opacity: indelOpacity }} className="giant-static-text">
             INDEL
           </motion.div>
-          
-
-          <motion.div 
-            style={{ opacity: capitalOpacity }} 
-            className="giant-static-text"
-          >
+          <motion.div style={{ opacity: capitalOpacity }} className="giant-static-text">
             CAPITAL
           </motion.div>
         </div>
@@ -175,15 +175,15 @@ export default function Footer() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <img 
-                src="/assets/images/indel-capital-logo-blue.png" 
-                alt="Indel Logo" 
-                style={{ height: '45px', marginBottom: '30px' }} 
+              <img
+                src="/assets/images/indel-capital-logo-blue.png"
+                alt="Indel Logo"
+                style={{ height: '45px', marginBottom: '30px' }}
               />
               <p className="footer-desc">
                 We design financial futures with <span>uncompromising</span> precision.
               </p>
-              
+
               <div className="social-links">
                 <Link href="#" className="social-icon"><FaWhatsapp /></Link>
                 <Link href="#" className="social-icon"><FaInstagram /></Link>
@@ -193,7 +193,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-col">
-              <h4>Directives</h4>
+              <h4>Quick Links</h4>
               <ul className="nav-list">
                 {quickLinks.slice(0, 4).map((link) => (
                   <li key={link.label} className="nav-item">
@@ -204,7 +204,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-col">
-              <h4>Internal</h4>
+              <h4>Touch with us</h4>
               <ul className="nav-list">
                 {quickLinks.slice(4).map((link) => (
                   <li key={link.label} className="nav-item">
@@ -215,19 +215,28 @@ export default function Footer() {
             </div>
 
             <div className="footer-col">
-              <h4>Presence</h4>
-              <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '15px' }}>
-                Reynolds Neck, <br /> North Helenaville <br />
-                <span style={{ color: '#fff' }}>+2 (305) 587-3407</span>
-              </p>
+              <h4>Location</h4>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Indel+House+Changampuzha+Nagar+South+Kalamassery+Ernakulam+Kerala+682033" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="address-link"
+              >
+                <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '15px' }}>
+                  Indel House, Changampuzha Nagar, South Kalamassery, Ernakulam<br />
+                  Kerala 682033 <br />
+                  <span style={{ color: '#fff' }}>+91 90726 06615</span>
+                </p>
+              </a>
             </div>
+
           </div>
 
           <div className="footer-bottom">
-            <div>© 2026 Indel Capital Group</div>
+            <div>© 2026 Indel Capital</div>
             <div className="legal-links">
-              <Link href="/privacy" style={{color: 'inherit', textDecoration: 'none', marginLeft: '30px'}}>Privacy</Link>
-              <Link href="/terms" style={{color: 'inherit', textDecoration: 'none', marginLeft: '30px'}}>Terms</Link>
+              <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '30px' }}>Privacy</Link>
+              <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '30px' }}>Terms</Link>
             </div>
           </div>
         </div>
