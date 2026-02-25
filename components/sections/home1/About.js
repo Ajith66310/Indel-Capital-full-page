@@ -112,7 +112,7 @@ export default function About() {
 
             <div className="btn-container">
               <Link href="/contact" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
-                <LiquidButton text="Get in touch" bgcolor="#eb2525" />
+                <LiquidButton text="Discover More" bgcolor="#eb2525" />
               </Link>
             </div>
           </div>
