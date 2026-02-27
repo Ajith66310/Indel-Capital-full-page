@@ -170,7 +170,7 @@ export default function ContactPage() {
                         viewport={{ once: true }}
                     >
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.563038848248!2d76.32185247587847!3d10.052899990055272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080c54148e6583%3A0xc665e317c062c9c!2sIndel%20House!5e0!3m2!1sen!2sin!4v1709123456789!5m2!1sen!2sin" 
+                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6822464151255!2d76.31478527479418!3d10.043057890064578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080dcb2aa099af%3A0x2284420553f1c1b1!2sIndel%20Corporate%20Office!5e0!3m2!1sen!2sin!4v1772168459596!5m2!1sen!2sin"
                             style={iframeStyle}
                             allowFullScreen
                             loading="lazy"
