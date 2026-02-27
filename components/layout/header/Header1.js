@@ -21,7 +21,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
             <div className="top-inner">
               <ul className="links-list clearfix">
                 <li><Link href="/career">Career</Link></li>
-                <li><Link href="/blogs">Blogs</Link></li>
+                <li><Link href="/blog-page">Blogs</Link></li>
                 <li><Link href="/faq">FAQ</Link></li>
               </ul>
               <ul className="info-list clearfix">

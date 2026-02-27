@@ -5,8 +5,7 @@ export default function Home() {
 
     return (
         <>
-            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Blog Details">
-                {/* sidebar-page-container */}
+            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Blog Details" breadcrumbImg='assets/images/background/page-title.jpg'>
                 <section className="sidebar-page-container pt_120 pb_120">
                     <div className="auto-container">
                         <div className="row clearfix">
@@ -216,9 +215,7 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                {/* sidebar-page-container end */}
                 
-                {/* subscribe-section */}
                 <section className="subscribe-section">
                         <div className="pattern-layer" style={{ backgroundImage: "url(assets/images/shape/shape-5.png)" }}></div>
                         <div className="auto-container">
@@ -241,7 +238,6 @@ export default function Home() {
                             </div>
                         </div>
                 </section>
-                {/* subscribe-section end */}
 
             </Layout>
         </>

@@ -9,7 +9,6 @@ export default function Insights() {
     return (
         <>
             <style jsx>{`
-                /* Wrapper to constrain the liquid effect within the card */
                 .btn-wrapper {
                     width: 160px;
                     height: 45px;
@@ -17,7 +16,6 @@ export default function Insights() {
                     margin-top: 15px;
                 }
                 
-                /* Ensure the link covers the liquid button area */
                 .liquid-link {
                     display: block;
                     width: 100%;
