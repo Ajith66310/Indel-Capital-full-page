@@ -87,23 +87,23 @@ export default function InvestmentPhilosophy() {
                     margin-top: 10px;
                 }
 
-                .image-holder {
-                    position: relative;
-                    padding: 20px; 
-                    width: 100%;
-                }
+                // .image-holder {
+                //     position: relative;
+                //     padding: 20px; 
+                //     width: 100%;
+                // }
 
-                .image-holder::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 80%;
-                    height: 85%;
-                    border: 8px solid #f0f4f9;
-                    border-radius: 30px; 
-                    z-index: 0;
-                }
+                // .image-holder::before {
+                //     content: '';
+                //     position: absolute;
+                //     top: 0;
+                //     left: 0;
+                //     width: 80%;
+                //     height: 85%;
+                //     border: 8px solid #f0f4f9;
+                //     border-radius: 30px; 
+                //     z-index: 0;
+                // }
 
                 .main-img-wrapper {
                     position: relative;
@@ -137,7 +137,7 @@ export default function InvestmentPhilosophy() {
                     .philosophy-section { padding: 60px 0; }
                     .flex-row { flex-direction: column; align-items: flex-start; gap: 30px; }
                     .flex-col { width: 100%; }
-                    .image-holder { margin-top: 20px; padding: 10px 0; }
+                    // .image-holder { margin-top: 20px; padding: 10px 0; }
                     .sub-title, .main-title, .description-text, .philosophy-list {
                         text-align: left !important;
                     }
@@ -163,7 +163,6 @@ export default function InvestmentPhilosophy() {
                                     ))}
                                 </ul>
                                 
-                                {/* New Liquid Button wrapper */}
                                 <div className="btn-wrapper">
                                     <Link href="/about" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
                                         <LiquidButton text="Discover More" bgcolor="#eb2525" />

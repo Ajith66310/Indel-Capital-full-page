@@ -45,7 +45,7 @@ export default function Menu() {
                     </ul> */}
                 </li>
 
-                <li><Link href="/contact-us">Contact Us</Link></li>
+                <li><Link href="/contact-us">Contact</Link></li>
             </ul>
 
             

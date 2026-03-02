@@ -28,16 +28,21 @@ export default function Subscribe() {
                     display: block;
                 }
 
-                @media (max-width: 767px) {
-                    .form-group {
-                        flex-direction: column;
-                    }
-                    .btn-wrapper {
-                        width: 100%;
-                        margin-left: 0;
-                        margin-top: 15px;
-                    }
-                }
+            @media (max-width: 767px) {
+        .form-group {
+            flex-direction: row;
+        }
+
+        .btn-wrapper {
+            width: 120px; 
+            height: 60px;
+            margin-left: 8px;
+        }
+
+        .form-inner {
+            margin-left: 0 !important; 
+        }
+    }
             `}</style>
 
             <section className="subscribe-section">
