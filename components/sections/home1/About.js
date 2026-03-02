@@ -68,7 +68,6 @@ export default function About() {
         .feature-item i { color: #eb2525; font-size: 24px; }
         .feature-item h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
 
-        /* Updated Button Wrapper */
         .btn-container {
           width: 200px;
           height: 60px;
@@ -77,7 +76,7 @@ export default function About() {
 
         @media (max-width: 991px) { 
           .about-section { padding: 60px 0; }
-          .about-grid { grid-template-columns: 1fr; text-align: center; } 
+          .about-grid { grid-template-columns: 1fr;  } 
           .btn-container { margin: 20px auto 0; }
           .main-image { width: 100%; }
         }

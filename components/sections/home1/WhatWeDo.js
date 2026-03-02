@@ -91,12 +91,11 @@ export default function WhatWeDo() {
                     letter-spacing: 1px;
                 }
 
-                /* MODIFIED: Title is now smaller when active/hovered */
                 .panel.active h3 {
                     transform: rotate(0);
                     position: relative;
                     bottom: 0; left: 0;
-                    font-size: 22px; /* Decreased from 28px to make it smaller on hover */
+                    font-size: 22px;
                     margin-bottom: 12px;
                     white-space: normal;
                     line-height: 1.2;
@@ -170,10 +169,20 @@ export default function WhatWeDo() {
                     .panel::after { display: none; }
                     .panel-content { position: relative; padding: 20px; color: #000; height: auto; }
                     .panel h3 { position: relative; transform: rotate(0); bottom: 0; left: 0; color: #17479d; font-size: 20px; white-space: normal; }
+                    
+                    .panel-list { 
+                        grid-template-columns: 1fr; 
+                        gap: 4px; 
+                        margin-bottom: 15px; 
+                    }
+                    .panel-list li {
+                        padding: 2px 0;
+                        color: #333; /* Darker text for better visibility on white bg */
+                    }
+
                     .panel-details { display: none; height: auto; opacity: 1; visibility: visible; }
                     .panel.active .panel-details { display: block; }
-                    .panel-details p { color: #555; }
-                    .panel-list { grid-template-columns: 1fr; }
+                    .panel-details p { color: #555; margin-bottom: 10px; }
                 }
             `}</style>
 
@@ -199,7 +208,7 @@ export default function WhatWeDo() {
                                         <p>{item.text}</p>
                                         <ul className="panel-list">
                                             {item.list.slice(0, 4).map((li, idx) => (
-                                                <li key={idx}>{li}</li>
+                                                <li key={idx}>• {li}</li>
                                             ))}
                                         </ul>
                                         <Link href={item.link} className="btn-red">
