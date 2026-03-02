@@ -41,7 +41,7 @@ export default function Subscribe() {
             `}</style>
 
             <section className="subscribe-section">
-                <div className="pattern-layer" style={{ backgroundImage: 'url(assets/images/shape/shape-5.png)' }}></div>
+                {/* <div className="pattern-layer" style={{ backgroundImage: 'url(assets/images/shape/shape-5.png)' }}></div> */}
                 <div className="auto-container">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12 col-sm-12 text-column">

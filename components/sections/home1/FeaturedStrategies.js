@@ -107,7 +107,7 @@ export default function FeaturedStrategies() {
             <section className="indel-bento-section">
                 <div className="container-compact">
                     <div className="header-wrapper">
-                        <span className="badge-modern">FeaturedStrategies</span>
+                        <span className="badge-modern">Featured Strategies</span>
                         <h2 className="title-bold">Precision in Capital Management.</h2>
                         <p className="description-text">We navigate complex financial landscapes to provide structured investment opportunities that balance high-growth potential with institutional-grade security.</p>
                     </div>
