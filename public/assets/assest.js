@@ -152,7 +152,7 @@ export const slides = [
             bgImage: 'url(assets/images/banner/banner-1.jpg)',
             titleLine1: 'Invest With Confidence.',
             titleLine2: 'Grow With Clarity.',
-            description: <>At Indel Capital, we help individuals and businesses build a stronger financial future <br/>through disciplined investing, transparent practices, and well-designed financial strategies.</>,
+            description: <>At Indel Capital, we help individuals and businesses build a stronger financial future.</>,
             btnText: 'Get Started',
             btnLink: '/about'
         },

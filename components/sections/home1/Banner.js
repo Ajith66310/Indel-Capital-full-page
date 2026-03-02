@@ -48,6 +48,9 @@ export default function Banner() {
     return (
         <>
             <style jsx>{`
+
+
+
                 @media (max-width: 767px) {
     .content-box p br {
         display: none;
@@ -55,12 +58,21 @@ export default function Banner() {
     .content-box p {
         font-size: 16px;
     }
+             .title-line1 {
+        font-size: clamp(18px, 4.5vw, 28px) !important;
+        font-weight: 700 !important;
+    }
+    .title-line2 {
+        font-size: clamp(18px, 4.5vw, 28px) !important;
+    }
+
+       
     .banner-section,
     .banner-carousel,
     .slide-item {
         height: 500px !important;
-        min-height: 490px !important;
-        max-height: 490px !important;
+        min-height: 450px !important;
+        max-height: 450px !important;
     }
 }
 
@@ -91,8 +103,8 @@ export default function Banner() {
                             <div className="auto-container">
                                 <div className="content-box" style={{ maxWidth: '100%' }}>
                                     <h2 style={h2Style}>
-                                        <strong style={lineStyle}>{slide.titleLine1}</strong>
-                                        <strong style={lineStyle}>
+                                        <strong style={lineStyle} className="title-line1">{slide.titleLine1}</strong>
+                                        <strong style={lineStyle} className="title-line2">
                                             {slide.titleLine2}
                                         </strong>
                                     </h2>

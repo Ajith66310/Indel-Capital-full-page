@@ -13,6 +13,52 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
           color: #000000 !important;
           transition: all 0.3s ease;
         }
+
+        .top-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+        }
+
+        .links-list, .info-list {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+
+        .links-list li, .info-list li {
+          margin-right: 20px;
+        }
+
+        .info-list li:last-child {
+          margin-right: 0;
+        }
+
+        @media (max-width: 767px) {
+          .header-top {
+            display: block !important; 
+          }
+          
+          .top-inner {
+            flex-direction: row; 
+            justify-content: space-between;
+            padding: 5px 0;
+          }
+
+          .links-list li, .info-list li {
+            margin-right: 10px;
+            font-size: 13px; 
+          }
+
+          @media (max-width: 480px) {
+            .info-list li:first-child {
+              display: none; 
+            }
+          }
+        }
       `}</style>
 
       <header className={`main-header header-style-one ${scroll ? "fixed-header" : ""}`}>
@@ -24,6 +70,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                 <li><Link href="/blog-page">Blogs</Link></li>
                 <li><Link href="/faq">FAQ</Link></li>
               </ul>
+              
               <ul className="info-list clearfix">
                 <li>
                   <Link href="mailto:info@example.com">your@domain.com</Link>
@@ -35,6 +82,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
             </div>
           </div>
         </div>
+
         <div className="header-lower">
           <div className="large-container">
             <div className="outer-box">
@@ -72,7 +120,15 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
             <div className="outer-box">
               <div className="logo-box">
                 <div className="shape"></div>
-                <figure className="logo"><Link href="/"><img style={{ width: "120px", height: "50px", marginLeft: "35px" }} src="assets/images/indel-capital-logo.png" alt="" /></Link></figure>
+                <figure className="logo">
+                  <Link href="/">
+                    <img 
+                      style={{ width: "120px", height: "50px", marginLeft: "35px" }} 
+                      src="assets/images/indel-capital-logo.png" 
+                      alt="Indel Capital" 
+                    />
+                  </Link>
+                </figure>
               </div>
               <div className="menu-area">
                 <nav className="main-menu clearfix">
