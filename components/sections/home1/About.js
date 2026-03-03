@@ -25,8 +25,8 @@ export default function About() {
 
         .image-wrapper { 
           position: relative; 
-          display: flex;
-          justify-content: center;
+          display: inline-block;
+          margin: 0 auto;
         }
 
         .main-image { 
@@ -37,25 +37,26 @@ export default function About() {
           box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
           clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
           object-fit: cover;
+          display: block;
         }
 
         .exp-card {
           position: absolute;
-          bottom: -10px;
-          right: 5%;
+          bottom: 20px; 
+          right: -20px; 
           background: #fff;
           color: #17479e;
-          padding: clamp(15px, 3vw, 30px);
+          padding: 20px;
           border-radius: 15px;
           text-align: center;
           border: 5px solid #fff;
           box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
           z-index: 10;
-          min-width: 120px;
+          min-width: 130px;
         }
 
         .exp-card h2 { 
-          font-size: clamp(30px, 4vw, 40px); 
+          font-size: 36px; 
           font-weight: 800; 
           line-height: 1; 
           margin: 0; 
@@ -68,6 +69,7 @@ export default function About() {
           font-weight: 700; 
           line-height: 1.2; 
           display: block;   
+          margin-top: 5px;
         }
 
         .sub-t { 
@@ -143,7 +145,7 @@ export default function About() {
           } 
           
           .image-wrapper {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
           }
 
           .feature-item {
@@ -153,42 +155,36 @@ export default function About() {
           .btn-container { 
             margin: 0 auto; 
           }
-          
-          .sub-t { justify-content: center; }
         }
 
         @media (max-width: 575px) {
           .about-section { padding: 50px 0; }
-          .main-t {
-             letter-spacing: -0.5px;
-          }
           .exp-card {
             padding: 15px;
             right: 0;
-            bottom: 0;
+            bottom: 0; 
+            min-width: 110px;
           }
-          .feature-item {
-            padding: 15px;
-          }
+          .exp-card h2 { font-size: 28px; }
         }
       `}</style>
 
       <section className="about-section">
         <div className="about-grid">
-          {/* Image Side */}
-          <div className="image-wrapper">
-            <img 
-              src="assets/images/resource/about-1.jpg" 
-              alt="About Professional Team" 
-              className="main-image" 
-            />
-            <div className="exp-card">
-              <h2>{aboutData.experienceYears}</h2>
-              <span>Years of<br />Experience</span>
+          <div style={{ textAlign: 'center' }}>
+            <div className="image-wrapper">
+              <img 
+                src="assets/images/resource/about-1.jpg" 
+                alt="About Professional Team" 
+                className="main-image" 
+              />
+              <div className="exp-card">
+                <h2>{aboutData.experienceYears}</h2>
+                <span>Years of<br />Experience</span>
+              </div>
             </div>
           </div>
 
-          {/* Content Side */}
           <div className="content-side">
             <span className="sub-t">{aboutData.subTitle}</span>
             <h2 className="main-t">{aboutData.mainTitle}</h2>
