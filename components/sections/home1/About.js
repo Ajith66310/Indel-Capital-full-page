@@ -80,6 +80,12 @@ export default function About() {
           .btn-container { margin: 20px auto 0; }
           .main-image { width: 100%; }
         }
+                    @media (max-width: 575px) {
+    .main-t{
+        font-size: clamp(20px, 6vw, 26px) !important; 
+        white-space: nowrap; 
+        letter-spacing: -1px;
+    }
       `}</style>
 
       <section className="about-section">

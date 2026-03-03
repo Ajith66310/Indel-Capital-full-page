@@ -184,21 +184,30 @@ export default function WhatWeDo() {
                     .panel.active .panel-details { display: block; }
                     .panel-details p { color: #555; margin-bottom: 10px; }
                 }
+
+                @media (max-width: 575px) {
+    .sec-title h2 {
+        font-size: clamp(20px, 6vw, 26px) !important; 
+        white-space: nowrap; 
+        letter-spacing: -1px;
+    }
+}
             `}</style>
 
             <section className="wwd-container">
                 <div className="container">
                     <div className="sec-title">
                         <h6 style={{ color: '#eb2525', textTransform: 'uppercase', letterSpacing: '3px', fontWeight: '700', fontSize: '14px', marginBottom: '10px' }}>What we do</h6>
-                        <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#17479d', letterSpacing: '-0.5px' }}>Strategic Investment Solutions</h2>
-                    </div>
+                        <h2 className="responsive-h2" style={{ fontWeight: '800', color: '#17479d', letterSpacing: '-0.5px' }}>
+                            Strategic Investment Solutions
+                        </h2>                    </div>
 
                     <div className="accordion-wrapper">
                         {WhatWeDoData.map((item) => (
-                            <div 
+                            <div
                                 key={item.id}
                                 className={`panel ${activeIndex === item.id ? 'active' : ''}`}
-                                onClick={() => setActiveIndex(item.id)} 
+                                onClick={() => setActiveIndex(item.id)}
                                 onMouseEnter={() => handleMouseEnter(item.id)}
                             >
                                 <img src={item.image} className="panel-image" alt={item.title} />

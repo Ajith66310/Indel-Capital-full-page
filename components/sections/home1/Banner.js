@@ -2,8 +2,9 @@
 import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { slides } from "@/public/assets/assest"
 import LiquidButton from "@/components/LiquidButton"
+import { slides } from "@/public/assets/assest"
+
 const swiperOptions = {
     modules: [Autoplay, Pagination, Navigation],
     slidesPerView: 1,
@@ -22,6 +23,8 @@ const swiperOptions = {
         clickable: true,
     },
 }
+
+
 
 export default function Banner() {
 
@@ -48,33 +51,48 @@ export default function Banner() {
     return (
         <>
             <style jsx>{`
+                /* Desktop and Tablet Height (LG / MD) */
+                .banner-section,
+                .banner-carousel,
+                .slide-item {
+                    height: 700px;
+                    min-height: 600px;
+                }
 
+                .bg-layer {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover !important;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
 
-
+                /* Mobile Screen Height (SM) */
                 @media (max-width: 767px) {
-    .content-box p br {
-        display: none;
-    }
-    .content-box p {
-        font-size: 16px;
-    }
-             .title-line1 {
-        font-size: clamp(18px, 4.5vw, 28px) !important;
-        font-weight: 700 !important;
-    }
-    .title-line2 {
-        font-size: clamp(18px, 4.5vw, 28px) !important;
-    }
-
-       
-    .banner-section,
-    .banner-carousel,
-    .slide-item {
-        height: 500px !important;
-        min-height: 450px !important;
-        max-height: 450px !important;
-    }
-}
+                    .banner-section,
+                    .banner-carousel,
+                    .slide-item {
+                        height: 500px !important;
+                        min-height: 450px !important;
+                        max-height: 450px !important;
+                    }
+                    .content-box p br {
+                        display: none;
+                    }
+                    .content-box p {
+                        font-size: 16px;
+                    }
+                    .title-line1 {
+                        font-size: clamp(18px, 4.5vw, 28px) !important;
+                        font-weight: 700 !important;
+                    }
+                    .title-line2 {
+                        font-size: clamp(18px, 4.5vw, 28px) !important;
+                    }
+                }
 
                 .liquid-banner-wrapper {
                     width: 220px;
@@ -93,7 +111,6 @@ export default function Banner() {
 
             <section className="banner-section p_relative">
                 <Swiper {...swiperOptions} className="banner-carousel">
-
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index} className="slide-item p_relative">
                             <div className="bg-layer" style={{ backgroundImage: slide.bgImage }}></div>

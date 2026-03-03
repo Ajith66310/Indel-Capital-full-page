@@ -21,7 +21,7 @@ export const aboutData = {
   experienceYears: 5, 
   ratingText: "Investment Arm of Indel Group",
   subTitle: "About Us",
-  mainTitle: "Our Strategic Investment Management - Since 2021",
+  mainTitle: "Our Strategic Investment Management",
   description: "Indel Capital Ventures and Investments Private Limited is the investment arm of the Indel Group, incorporated in 2021 and headquartered in Mumbai with a Corporate Office in Kochi. We focus on the prudent deployment and professional management of funds, driven by financial discipline, transparency, and a long-term value creation approach.",
 };
 
@@ -145,34 +145,32 @@ export const investmentPhilosophyData = {
         img2: "assets/images/resource/about-3.jpg"
     }
 };
-
-
 export const slides = [
-        {
-            bgImage: 'url(assets/images/banner/banner-1.jpg)',
-            titleLine1: 'Invest With Confidence.',
-            titleLine2: 'Grow With Clarity.',
-            description: <>At Indel Capital, we help individuals and businesses build a stronger financial future.</>,
-            btnText: 'Get Started',
-            btnLink: '/about'
-        },
-        {
-            bgImage: 'url(assets/images/banner/banner-2.jpg)',
-            titleLine1: 'Structured Investing for a ',
-            titleLine2: 'Strong Financial Future.',
-            description: <>Unlock the value of your investments with our specialized <br/> gold loan products and strategic credit solutions.</>,
-            btnText: 'View Solutions',
-            btnLink: '/services'
-        },
-        {
-            bgImage: 'url(assets/images/banner/banner-3.jpg)',
-            titleLine1: 'Accelerating Your',
-            titleLine2: 'Wealth Journey Online',
-            description: <>Experience seamless, technology-driven financial growth <br/> with Indel Capital's digital-first investment platforms.</>,
-            btnText: 'Get Started',
-            btnLink: '/contact'
-        }
-    ];
+    {
+        bgImage: 'url(assets/images/banner/banner-1.jpg)',
+        titleLine1: 'Invest With Confidence.',
+        titleLine2: 'Grow With Clarity.',
+        description: <>we help individuals and businesses build a strong financial future. </>,
+        btnText: 'Get Started',
+        btnLink: '/about'
+    },
+    {
+        bgImage: 'url(assets/images/banner/banner-2.jpg)',
+        titleLine1: 'Structured Investing for a ',
+        titleLine2: 'Strong Financial Future.',
+        description: <>Unlock the value of your investments with our specialized gold loan products and strategic credit solutions.</>,
+        btnText: 'View Solutions',
+        btnLink: '/services'
+    },
+    {
+        bgImage: 'url(assets/images/banner/banner-3.jpg)',
+        titleLine1: 'Accelerating Your',
+        titleLine2: 'Wealth Journey Online',
+        description: <>Experience seamless, technology-driven financial growth with Indel Capital's digital-first investment platforms.</>,
+        btnText: 'Get Started',
+        btnLink: '/contact'
+    }
+];
 
     
 
