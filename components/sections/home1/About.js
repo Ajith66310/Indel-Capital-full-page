@@ -207,7 +207,7 @@ export default function About() {
             </div>
 
             <div className="btn-container">
-              <Link href="/contact" style={{ textDecoration: 'none' }}>
+              <Link href="/who-we-are" style={{ textDecoration: 'none' }}>
                 <LiquidButton text="Discover More" bgcolor="#eb2525" />
               </Link>
             </div>

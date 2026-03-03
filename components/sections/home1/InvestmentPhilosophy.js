@@ -164,7 +164,7 @@ export default function InvestmentPhilosophy() {
                                 </ul>
                                 
                                 <div className="btn-wrapper">
-                                    <Link href="/about" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                                    <Link href="/investment-approach" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
                                         <LiquidButton text="Discover More" bgcolor="#eb2525" />
                                     </Link>
                                 </div>

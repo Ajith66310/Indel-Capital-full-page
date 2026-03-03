@@ -153,10 +153,10 @@ export default function ApproachOverview() {
                     margin-right: 12px;
                 }
 
-                .btn-wrapper {
-                    width: 200px;
-                    height: 55px;
-                }
+                // .btn-wrapper {
+                //     width: 200px;
+                //     height: 55px;
+                // }
 
                 @media (max-width: 991px) {
                     .approach-image-col, .approach-content-col {
@@ -173,9 +173,9 @@ export default function ApproachOverview() {
                     .photo-a img {
                         min-height: 220px;
                     }
-                    .btn-wrapper {
-                        margin: 0 auto;
-                    }
+                    // .btn-wrapper {
+                    //     margin: 0 auto;
+                    // }
                 }
             `}</style>
 
@@ -226,11 +226,11 @@ export default function ApproachOverview() {
                         </div>
 
                         <div className="btn-box">
-                            <div className="btn-wrapper">
+                            {/* <div className="btn-wrapper">
                                 <Link href="/" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
                                     <LiquidButton text="Explore More" bgcolor="#eb2525" />
                                 </Link>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

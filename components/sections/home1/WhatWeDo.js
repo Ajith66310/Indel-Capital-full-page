@@ -153,18 +153,18 @@ export default function WhatWeDo() {
                     color: rgba(255,255,255,0.9); 
                 }
 
-                .btn-red {
-                    background: #eb2525;
-                    color: white !important;
-                    padding: 10px 24px;
-                    border-radius: 4px;
-                    font-size: 14px;
-                    font-weight: 600;
-                    display: inline-block;
-                    transition: 0.3s;
-                }
+                // .btn-red {
+                //     background: #eb2525;
+                //     color: white !important;
+                //     padding: 10px 24px;
+                //     border-radius: 4px;
+                //     font-size: 14px;
+                //     font-weight: 600;
+                //     display: inline-block;
+                //     transition: 0.3s;
+                // }
 
-                .btn-red:hover { background: #c11e1e; transform: translateY(-2px); }
+                // .btn-red:hover { background: #c11e1e; transform: translateY(-2px); }
 
                 @media (max-width: 991px) {
                     .wwd-container { padding: 40px 20px; }
@@ -223,9 +223,9 @@ export default function WhatWeDo() {
                                                 <li key={idx}>• {li}</li>
                                             ))}
                                         </ul>
-                                        <Link href={item.link} className="btn-red">
+                                        {/* <Link href={item.link} className="btn-red">
                                             Explore Services
-                                        </Link>
+                                        </Link> */}
                                     </div>
                                 </div>
                             </div>

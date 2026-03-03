@@ -109,7 +109,7 @@ export default function PortfolioHighlights() {
 
           <div className="ph-footer">
             <div className="ph-btn-wrapper">
-              <Link href="/portfolio" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+              <Link href="/strategies" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
                 <LiquidButton text="Explore Full Portfolio" bgcolor="#eb2525" />
               </Link>
             </div>

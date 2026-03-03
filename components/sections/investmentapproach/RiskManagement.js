@@ -120,11 +120,10 @@ export default function RiskManagement() {
                     font-weight: 900;
                 }
 
-                /* Liquid Button Wrapper */
-                .btn-wrapper {
-                    width: 220px;
-                    height: 55px;
-                }
+                // .btn-wrapper {
+                //     width: 220px;
+                //     height: 55px;
+                // }
 
                 @media (max-width: 991px) {
                     .risk-container { flex-direction: column; }
@@ -135,7 +134,7 @@ export default function RiskManagement() {
                     }
                     .risk-pillars-col { margin-bottom: 80px; }
                     .pillar-card:nth-child(even) { transform: translateY(0); }
-                    .btn-wrapper { margin: 0 auto; }
+                    // .btn-wrapper { margin: 0 auto; }
                 }
             `}</style>
 
@@ -182,9 +181,9 @@ export default function RiskManagement() {
 
                         <div className="btn-box">
                             <div className="btn-wrapper">
-                                <Link href="/framework" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                                {/* <Link href="/framework" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
                                     <LiquidButton text="Explore Framework" bgcolor="#eb2525" />
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                     </div>

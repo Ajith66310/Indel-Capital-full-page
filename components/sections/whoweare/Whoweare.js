@@ -65,12 +65,11 @@ export default function Whoweare() {
                     line-height: 1;
                 }
 
-                /* Container for the Liquid Button */
-                .btn-wrapper {
-                    width: 200px;
-                    height: 55px;
-                    margin-top: 10px;
-                }
+                // .btn-wrapper {
+                //     width: 200px;
+                //     height: 55px;
+                //     margin-top: 10px;
+                // }
             `}</style>
 
             <section className="about-style-two pt_120 about-section">
@@ -102,9 +101,9 @@ export default function Whoweare() {
                                     </div>
                                     <div className="btn-box">
                                         <div className="btn-wrapper">
-                                            <Link href="/about" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+                                            {/* <Link href="/about" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
                                                 <LiquidButton text="Discover More" bgcolor="#eb2525" />
-                                            </Link>
+                                            </Link> */}
                                         </div>
                                     </div>
                                 </div>
