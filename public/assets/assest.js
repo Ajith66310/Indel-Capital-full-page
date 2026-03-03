@@ -152,7 +152,7 @@ export const slides = [
         titleLine2: 'Grow With Clarity.',
         description:<>Build a secure financial future through disciplined investing and well-designed strategies.</>,
         btnText: 'Get Started',
-        btnLink: '/contact'
+        btnLink: '/contact-us'
     },
     {
         bgImage: 'url(assets/images/banner/banner-2.jpg)',
@@ -168,7 +168,7 @@ export const slides = [
         titleLine2: 'Wealth Journey Online',
         description:<>Experience seamless, technology-driven growth with Indel Capital’s digital-first platforms.</>,
         btnText: 'Get Started',
-        btnLink: '/contact'
+        btnLink: '/contact-us'
     }
 ];
 
