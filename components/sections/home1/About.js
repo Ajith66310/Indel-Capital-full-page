@@ -7,53 +7,100 @@ export default function About() {
   return (
     <>
       <style jsx>{`
-        .about-section { padding: 120px 0; background: #fff; }
+        .about-section { 
+          padding: clamp(60px, 10vw, 120px) 0; 
+          background: #fff; 
+          overflow: hidden;
+        }
+
         .about-grid { 
           display: grid; 
           grid-template-columns: 1fr 1fr; 
-          gap: 60px; 
+          gap: clamp(30px, 5vw, 60px); 
           align-items: center; 
           max-width: 1200px; 
           margin: 0 auto; 
-          padding: 0 15px;
+          padding: 0 20px;
         }
 
-        .image-wrapper { position: relative; padding-bottom: 30px; }
+        .image-wrapper { 
+          position: relative; 
+          display: flex;
+          justify-content: center;
+        }
+
         .main-image { 
-          width: 90%; 
+          width: 100%;
+          max-width: 500px;
+          height: auto;
           border-radius: 20px; 
           box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
           clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+          object-fit: cover;
         }
+
         .exp-card {
           position: absolute;
-          bottom: 0;
-          right: 0;
+          bottom: -10px;
+          right: 5%;
           background: #fff;
           color: #17479e;
-          padding: 30px;
+          padding: clamp(15px, 3vw, 30px);
           border-radius: 15px;
           text-align: center;
           border: 5px solid #fff;
           box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
           z-index: 10;
+          min-width: 120px;
         }
-        .exp-card h2 { font-size: 40px; font-weight: 800; line-height: 1; margin: 0; }
+
+        .exp-card h2 { 
+          font-size: clamp(30px, 4vw, 40px); 
+          font-weight: 800; 
+          line-height: 1; 
+          margin: 0; 
+          color: #ee3824;
+        }
+
         .exp-card span { 
-          font-size: 12px; 
+          font-size: 11px; 
           text-transform: uppercase; 
           font-weight: 700; 
           line-height: 1.2; 
           display: block;   
         }
-        .sub-t { color: #eb2525; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        .main-t { font-size: 42px; font-weight: 800; color: #212226; line-height: 1.2; margin-bottom: 20px; }
-        
-        .exprnc {
-          color: #ee3824 !important;
+
+        .sub-t { 
+          color: #eb2525; 
+          font-weight: 700; 
+          text-transform: uppercase; 
+          letter-spacing: 2px; 
+          margin-bottom: 15px; 
+          display: block; 
+          font-size: 14px;
         }
 
-        .feature-list { display: grid; gap: 20px; margin: 35px 0; }
+        .main-t { 
+          font-size: clamp(28px, 4vw, 42px); 
+          font-weight: 800; 
+          color: #212226; 
+          line-height: 1.2; 
+          margin-bottom: 20px; 
+        }
+
+        .description {
+          font-size: 16px;
+          line-height: 1.7;
+          color: #666;
+          margin-bottom: 30px;
+        }
+
+        .feature-list { 
+          display: grid; 
+          gap: 15px; 
+          margin-bottom: 40px; 
+        }
+
         .feature-item { 
           display: flex; 
           gap: 15px; 
@@ -61,43 +108,87 @@ export default function About() {
           border-radius: 12px; 
           background: #f9f9f9; 
           border-left: 4px solid transparent; 
-          transition: 0.3s;
-          text-align: left;
+          transition: all 0.3s ease;
         }
-        .feature-item:hover { border-left-color: #eb2525; background: #fff; transform: translateX(10px); box-shadow: 5px 5px 20px rgba(0,0,0,0.05); }
-        .feature-item i { color: #eb2525; font-size: 24px; }
-        .feature-item h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+
+        .feature-item:hover { 
+          border-left-color: #eb2525; 
+          background: #fff; 
+          transform: translateX(10px); 
+          box-shadow: 5px 5px 20px rgba(0,0,0,0.05); 
+        }
+
+        .feature-item i { 
+          color: #eb2525; 
+          font-size: 24px; 
+          flex-shrink: 0;
+        }
+
+        .feature-item h3 { 
+          font-size: 18px; 
+          font-weight: 700; 
+          margin-bottom: 5px; 
+          color: #212226;
+        }
 
         .btn-container {
           width: 200px;
-          height: 60px;
-          margin-top: 20px;
+          height: 55px;
         }
 
         @media (max-width: 991px) { 
-          .about-section { padding: 60px 0; }
-          .about-grid { grid-template-columns: 1fr;  } 
-          .btn-container { margin: 20px auto 0; }
-          .main-image { width: 100%; }
+          .about-grid { 
+            grid-template-columns: 1fr; 
+            text-align: center;
+          } 
+          
+          .image-wrapper {
+            margin-bottom: 40px;
+          }
+
+          .feature-item {
+            text-align: left;
+          }
+
+          .btn-container { 
+            margin: 0 auto; 
+          }
+          
+          .sub-t { justify-content: center; }
         }
-                    @media (max-width: 575px) {
-    .main-t{
-        font-size: clamp(20px, 6vw, 26px) !important; 
-        white-space: nowrap; 
-        letter-spacing: -1px;
-    }
+
+        @media (max-width: 575px) {
+          .about-section { padding: 50px 0; }
+          .main-t {
+             letter-spacing: -0.5px;
+          }
+          .exp-card {
+            padding: 15px;
+            right: 0;
+            bottom: 0;
+          }
+          .feature-item {
+            padding: 15px;
+          }
+        }
       `}</style>
 
       <section className="about-section">
         <div className="about-grid">
+          {/* Image Side */}
           <div className="image-wrapper">
-            <img src="assets/images/resource/about-1.jpg" alt="About" className="main-image" />
+            <img 
+              src="assets/images/resource/about-1.jpg" 
+              alt="About Professional Team" 
+              className="main-image" 
+            />
             <div className="exp-card">
-              <h2 className="exprnc">{aboutData.experienceYears}</h2>
+              <h2>{aboutData.experienceYears}</h2>
               <span>Years of<br />Experience</span>
             </div>
           </div>
 
+          {/* Content Side */}
           <div className="content-side">
             <span className="sub-t">{aboutData.subTitle}</span>
             <h2 className="main-t">{aboutData.mainTitle}</h2>
@@ -107,7 +198,7 @@ export default function About() {
               {AboutFeatures.map((item) => (
                 <div className="feature-item" key={item.id}>
                   <i className={item.icon}></i>
-                  <div>
+                  <div className="feature-text">
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
                   </div>
@@ -116,7 +207,7 @@ export default function About() {
             </div>
 
             <div className="btn-container">
-              <Link href="/contact" style={{ display: 'block', width: '100%', height: '100%', textDecoration: 'none' }}>
+              <Link href="/contact" style={{ textDecoration: 'none' }}>
                 <LiquidButton text="Discover More" bgcolor="#eb2525" />
               </Link>
             </div>

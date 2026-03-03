@@ -15,7 +15,7 @@ export const metadata = {
         description: 'A Structured Path to Financial Freedom',
         images: [
             {
-                url: './logo-icon.png', 
+                url: './favicon.ico', 
                 width: 800,
                 height: 600,
             },

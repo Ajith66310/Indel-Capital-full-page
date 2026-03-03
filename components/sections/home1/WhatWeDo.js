@@ -23,6 +23,15 @@ export default function WhatWeDo() {
                 .sec-title {
                     text-align: center;
                     margin-bottom: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .responsive-h2 {
+                    font-size: clamp(24px, 5vw, 42px);
+                    width: 100%;
+                    text-align: center;
                 }
 
                 .accordion-wrapper {
@@ -169,29 +178,22 @@ export default function WhatWeDo() {
                     .panel::after { display: none; }
                     .panel-content { position: relative; padding: 20px; color: #000; height: auto; }
                     .panel h3 { position: relative; transform: rotate(0); bottom: 0; left: 0; color: #17479d; font-size: 20px; white-space: normal; }
-                    
-                    .panel-list { 
-                        grid-template-columns: 1fr; 
-                        gap: 4px; 
-                        margin-bottom: 15px; 
-                    }
-                    .panel-list li {
-                        padding: 2px 0;
-                        color: #333; /* Darker text for better visibility on white bg */
-                    }
-
+                    .panel-list { grid-template-columns: 1fr; gap: 4px; margin-bottom: 15px; }
+                    .panel-list li { padding: 2px 0; color: #333; }
                     .panel-details { display: none; height: auto; opacity: 1; visibility: visible; }
                     .panel.active .panel-details { display: block; }
                     .panel-details p { color: #555; margin-bottom: 10px; }
                 }
 
                 @media (max-width: 575px) {
-    .sec-title h2 {
-        font-size: clamp(20px, 6vw, 26px) !important; 
-        white-space: nowrap; 
-        letter-spacing: -1px;
-    }
-}
+                    .sec-title h2.responsive-h2 {
+                        /* Improved clamp for smaller mobile screens */
+                        font-size: clamp(20px, 8vw, 28px) !important; 
+                        white-space: normal; /* Changed from nowrap to allow centering on wrap */
+                        letter-spacing: -0.5px;
+                        line-height: 1.2;
+                    }
+                }
             `}</style>
 
             <section className="wwd-container">
@@ -200,7 +202,8 @@ export default function WhatWeDo() {
                         <h6 style={{ color: '#eb2525', textTransform: 'uppercase', letterSpacing: '3px', fontWeight: '700', fontSize: '14px', marginBottom: '10px' }}>What we do</h6>
                         <h2 className="responsive-h2" style={{ fontWeight: '800', color: '#17479d', letterSpacing: '-0.5px' }}>
                             Strategic Investment Solutions
-                        </h2>                    </div>
+                        </h2>
+                    </div>
 
                     <div className="accordion-wrapper">
                         {WhatWeDoData.map((item) => (
