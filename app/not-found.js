@@ -26,12 +26,12 @@ export default function Error404() {
                 }
             `}</style>
 
-            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="404 Error" breadcrumbImg='assets/images/background/page-title.jpg' >
+            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="404 Error" breadcrumbImg='/assets/images/background/page-title.jpg' >
                 <section className="error-section centred pt_120 pb_120">
                     <div className="auto-container">
                         <div className="inner-box">
                             <figure className="error-image">
-                                <img src="assets/images/icons/error-1.png" alt="404 Error" />
+                                <img src="/assets/images/icons/error-1.png" alt="404 Error" />
                             </figure>
                             <h2>Sorry, Something Went Wrong.</h2>
                             

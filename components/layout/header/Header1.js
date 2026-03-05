@@ -92,7 +92,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                   <Link href="/">
                     <img
                       style={{ width: "100px", height: "auto" }}
-                      src="assets/images/indel-capital-logo.png"
+                      src="/assets/images/indel-capital-logo.png"
                       alt="Indel Capital"
                     />
                   </Link>
