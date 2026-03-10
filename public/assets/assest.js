@@ -155,7 +155,7 @@ export const slides = [
         btnLink: '/contact-us'
     },
     {
-        bgImage: 'url(assets/images/banner/banner-6.jpg)',
+        bgImage: 'url(assets/images/banner/banner-2.jpeg)',
         titleLine1: 'Structured Investing for',
         titleLine2: 'Financial Future.',
         description:<>Unlock investment value with specialized asset yield products and strategic credit solutions.</>,
@@ -163,7 +163,7 @@ export const slides = [
         btnLink: '/strategies'
     },
     {
-        bgImage: 'url(assets/images/banner/banner-3.jpg)',
+        bgImage: 'url(assets/images/banner/banner-3.jpeg)',
         titleLine1: 'Accelerating Your',
         titleLine2: 'Wealth Journey Online',
         description:<>Experience seamless, technology-driven growth with Indel Capital’s digital-first platforms.</>,
