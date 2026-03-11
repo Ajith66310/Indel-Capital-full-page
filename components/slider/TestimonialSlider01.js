@@ -61,12 +61,12 @@ export default function TestimonialSlider1() {
                                         <img src={item.image} alt={item.name} />
                                     </figure>
                                     <h4>{item.name}</h4>
-                                    <span className="designation">{item.designation}</span>
-                                    <ul className="rating mb_6 clearfix">
+                                    {/* <span className="designation">{item.designation}</span> */}
+                                    {/* <ul className="rating mb_6 clearfix">
                                         {[...Array(item.rating)].map((_, i) => (
                                             <li key={`star-${item.id}-${index}-${i}`}><i className="icon-26"></i></li>
                                         ))}
-                                    </ul>
+                                    </ul> */}
                                     <p>{item.text}</p>
                                 </div>
                             </div>

@@ -94,7 +94,7 @@ export const WhatWeDoData = [
     id: 1,
     title: "Fixed Coupon Securities & Asset Securitisation",
     text: "Strategic investments in marketable fixed coupon securities and securitised NBFC assets, aligned with liquidity planning, market conditions, and disciplined capital management.",
-    image: "assets/images/service/service-2.jpg",
+    image: "assets/images/service/service-1.jpeg",
     link: "/service-details",
     list: ["Fixed Income Strategy", "Asset Securitisation", "Liquidity Planning", "Capital Management", "Market Analysis"]
   },
@@ -102,7 +102,7 @@ export const WhatWeDoData = [
     id: 2,
     title: "Corporate & Retail Lending Solutions",
     text: "Structured corporate and retail lending to group and associate entities, supported by transparent evaluation, prudent risk assessment, and long-term financial sustainability.",
-    image: "assets/images/service/service-2.jpg",
+    image: "assets/images/service/service-2.jpeg",
     link: "/service-details-3",
     list: ["Structured Lending", "Risk Assessment", "Group Entities", "Financial Sustainability", "Transparent Evaluation"]
   },
@@ -110,7 +110,7 @@ export const WhatWeDoData = [
     id: 3,
     title: "Equity Investments & Capital Allocation",
     text: "Research-driven equity investments focused on governance, long-term value creation, disciplined risk management, and strategic capital deployment through rigorous engagement.",
-    image: "assets/images/service/service-3.jpg",
+    image: "assets/images/service/service-3.jpeg",
     link: "/service-details-7",
     list: ["Research-Driven", "Active Ownership", "Value Creation", "Strategic Deployment", "Governance Focus"]
   },
@@ -118,7 +118,7 @@ export const WhatWeDoData = [
     id: 4,
     title: "Diversified Investment & Growth Capital",
     text: "Strategic Special Purpose Vehicle (SPV) management across high-growth sectors including Automotive, Hospitality, and Infrastructure, focused on unlocking value in emerging markets.",
-    image: "assets/images/service/service-4.jpg",
+    image: "assets/images/service/service-4.jpeg",
     link: "/service-details-5",
     list: ["Multi-Sector SPVs", "Automotive & Infra", "Hospitality Ventures", "Emerging Markets", "Strategic Growth"]
   }
@@ -262,55 +262,53 @@ export const insightsData = {
 export const testimonialSliderOneData = [
     {
         id: "t1",
-        name: "Aravind Menon",
+        name: "Arjun K M",
         designation: "Managing Director",
-        image: "assets/images/resource/testimonial-1.png",
+        image: "assets/images/testimonial/testimonials-1.jpeg",
         rating: 5,
-        text: "“Indel Capital has been a dependable partner in our financial planning. Their structured approach and clear communication made every decision easier for us.”"
+        text: "“Indel Capital is a reliable partner in our investment strategy. Their disciplined approach and market insights help us make very confident financial decisions.”"
     },
     {
         id: "t2",
-        name: "Priya Nair",
+        name: "Vishnu Menon",
         designation: "CFO",
-        image: "assets/images/resource/testimonial-2.png",
+        image: "assets/images/testimonial/testimonials-2.jpeg",
         rating: 5,
-        text: "“The team provided tailored insights that genuinely helped us optimise our investments. We appreciate the transparency and consistent guidance.”"
+        text: "“The Indel team delivers thoughtful guidance backed by research. Their clear communication and professionalism make them a trusted partner for long-term growth.”"
     },
     {
         id: "t3",
-        name: "Rohit Shetty",
-        designation: "Director",
-        image: "assets/images/resource/testimonial-3.png",
+        name: "Lakshmi K K",
+        designation: "CFO",
+        image: "assets/images/testimonial/testimonials-3.jpeg",
         rating: 5,
-        text: "“Our experience with Indel has been smooth and professional. The timely updates and strategic recommendations added real value to our portfolio.”"
+        text: "“Indel Capital combines deep market knowledge with a disciplined approach. Their transparent process has helped us significantly optimize our financial planning.”"
     },
     {
         id: "t4",
-        name: "Aravind Menon",
-        designation: "Managing Director",
-        image: "assets/images/resource/testimonial-1.png",
+        name: "Rahul Krishnan",
+        designation: "Director",
+        image: "assets/images/testimonial/testimonials-4.jpeg",
         rating: 5,
-        text: "“Indel Capital has been a dependable partner in our financial planning. Their structured approach and clear communication made every decision easier for us.”"
+        text: "“Our experience with Indel Capital is consistently positive. Their strategic insights and timely communication add immense value to every investment decision.”"
     },
     {
         id: "t5",
-        name: "Priya Nair",
-        designation: "CFO",
-        image: "assets/images/resource/testimonial-2.png",
+        name: "Anjali Nair",
+        designation: "Managing Director",
+        image: "assets/images/testimonial/testimonials-5.jpeg",
         rating: 5,
-        text: "“The team provided tailored insights that genuinely helped us optimise our investments. We appreciate the transparency and consistent guidance.”"
+        text: "“Indel stands out for disciplined management and transparent advice. Their dedicated team focuses on sustainable value and long-term financial stability for us.”"
     },
     {
         id: "t6",
-        name: "Rohit Shetty",
+        name: "Suresh Pillai",
         designation: "Director",
-        image: "assets/images/resource/testimonial-3.png",
+        image: "assets/images/testimonial/testimonials-6.jpeg",
         rating: 5,
-        text: "“Our experience with Indel has been smooth and professional. The timely updates and strategic recommendations added real value to our portfolio.”"
+        text: "“Working with Indel Capital is always smooth and productive. Their structured strategy and responsive support provide total confidence in our financial future.”"
     }
 ];
-
-
   export const whoweareData = {
         subTitle: "Who we are",
         mainTitle: "Your Trusted Finance Partner for Every Stage of Life.",
