@@ -21,7 +21,7 @@ const LiquidButton = ({ text, bgcolor }) => {
       gsap.set(bg, { clipPath: `circle(0% at ${x}px ${y}px)` });
       tweenRef.current = gsap.to(bg, {
         clipPath: `circle(150% at ${x}px ${y}px)`,
-        duration: 0.6,
+        duration: 1,
         ease: "power2.out",
       });
     };
@@ -34,7 +34,7 @@ const LiquidButton = ({ text, bgcolor }) => {
       if (tweenRef.current) tweenRef.current.kill();
       tweenRef.current = gsap.to(bg, {
         clipPath: `circle(0% at ${x}px ${y}px)`,
-        duration: 0.6,
+        duration: 1,
         ease: "power2.in",
       });
     };
