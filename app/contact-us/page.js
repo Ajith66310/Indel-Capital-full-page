@@ -87,7 +87,7 @@ export default function ContactPage() {
                             flex: '1',
                             background: '#f8fafc',
                             padding: '40px',
-                            borderRadius: '20px',
+                            borderRadius: '5px',
                             width: '100%'
                         }}
                         variants={fadeInUp}

@@ -50,15 +50,31 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
 
           .links-list li, .info-list li {
             margin-right: 10px;
-            font-size: 13px; 
-          }
-
-          @media (max-width: 480px) {
-            .info-list li:first-child {
-              display: none; 
-            }
+            font-size: 12px;
           }
         }
+
+           @media (max-width: 480px) {
+      .top-inner {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 0;
+      }
+    
+      .links-list, .info-list {
+        flex-wrap: nowrap;
+        width: auto;
+      }
+    
+      .links-list li, .info-list li {
+        margin-right: 6px;
+        font-size: 10px;
+      }
+    
+      .info-list li.email-item {
+        display: list-item !important;
+      }
+      }
       `}</style>
 
       <header className={`main-header header-style-one ${scroll ? "fixed-header" : ""}`}>
@@ -70,9 +86,9 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                 <li><Link href="/blog-page">Blogs</Link></li>
                 <li><Link href="/faq">FAQ</Link></li>
               </ul>
-              
+
               <ul className="info-list clearfix">
-                <li>
+                <li className="email-item">
                   <Link href="mailto:info@example.com">your@domain.com</Link>
                 </li>
                 <li className="number-hover">
@@ -122,10 +138,10 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
                 <div className="shape"></div>
                 <figure className="logo">
                   <Link href="/">
-                    <img 
-                      style={{ width: "120px", height: "50px", marginLeft: "35px" }} 
-                      src="/assets/images/indel-capital-logo.png" 
-                      alt="Indel Capital" 
+                    <img
+                      style={{ width: "120px", height: "50px", marginLeft: "35px" }}
+                      src="/assets/images/indel-capital-logo.png"
+                      alt="Indel Capital"
                     />
                   </Link>
                 </figure>

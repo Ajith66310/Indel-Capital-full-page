@@ -149,13 +149,38 @@ export default function Footer() {
       color: rgba(255, 255, 255, 0.3);
     }
 
+    .legal-links {
+      display: flex;
+    }
+
     @media (max-width: 1024px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .bg-fixed-container { display: none; }
     }
 
     @media (max-width: 600px) {
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        margin-top: 60px;
+      }
+
+      .legal-links {
+        justify-content: center;
+        width: 100%;
+      }
+
+      /* Overriding the inline marginLeft on small screens */
+      .legal-links a {
+        margin: 0 15px !important;
+      }
+
+      .footer-desc {
+        font-size: 20px;
+      }
     }
   `;
 
@@ -218,7 +243,7 @@ export default function Footer() {
             <div className="footer-col">
               <h4>Location</h4>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Indel+House+Changampuzha+Nagar+South+Kalamassery+Ernakulam+Kerala+682033" 
+                href="https://maps.google.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="address-link"
@@ -230,7 +255,6 @@ export default function Footer() {
                 </p>
               </a>
             </div>
-
           </div>
 
           <div className="footer-bottom">
