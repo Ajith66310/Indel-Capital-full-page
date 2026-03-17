@@ -189,10 +189,10 @@ export default function About() {
                 alt="About Professional Team"
                 className="main-image"
               />
-              <div className="exp-card">
+              {/* <div className="exp-card">
                 <h2>{aboutData.experienceYears}</h2>
                 <span>Years of<br />Experience</span>
-              </div>
+              </div> */}
             </div>
           </div>
 
