@@ -75,7 +75,7 @@ export default function Home() {
     return (
         <>
             <style dangerouslySetInnerHTML={{ __html: css }} />
-            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Core Investor FAQ" breadcrumbImg='assets/images/background/page-title.jpg'>
+            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="FAQ" breadcrumbImg='assets/images/background/page-title.jpg'>
                 
                 <section className="indel-faq-section">
                     <div className="auto-container">

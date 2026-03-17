@@ -21,7 +21,7 @@ export default function Blogs() {
         { id: 15, date: "Nov 02, 2025", title: "Sustainability in Tech: What's Next?", image: "https://images.pexels.com/photos/2510425/pexels-photo-2510425.jpeg",  link: "/blog-details", delay: "00ms" },
     ];
 
-    const [visiblePosts, setVisiblePosts] = useState(allPosts.slice(0, 3)); // Start with 3
+    const [visiblePosts, setVisiblePosts] = useState(allPosts.slice(0, 3)); 
     const [isFetching, setIsFetching] = useState(false);
     const loaderRef = useRef(null);
 

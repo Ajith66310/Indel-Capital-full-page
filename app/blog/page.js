@@ -5,7 +5,7 @@ export default function Home() {
 
     return (
         <>
-            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Blog Grid">
+            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Blog Grid" >
                 <div>
                     {/* news-style-two */}
                     <section className="news-style-two blog-grid pt_120 pb_120">
