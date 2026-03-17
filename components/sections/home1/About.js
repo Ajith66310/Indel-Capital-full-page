@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from 'react';
 import Link from "next/link";
 import { AboutFeatures, aboutData } from '@/public/assets/assest.js';
 import LiquidButton from '@/components/LiquidButton.js';
@@ -33,11 +34,12 @@ export default function About() {
           width: 100%;
           max-width: 500px;
           height: auto;
-          border-radius: 20px; 
           box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
-          clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);        
           object-fit: cover;
           display: block;
+          transition: transform 0.1s ease-out;
+          will-change: transform;
         }
 
         .exp-card {
@@ -47,12 +49,22 @@ export default function About() {
           background: #fff;
           color: #17479e;
           padding: 20px;
-          border-radius: 15px;
           text-align: center;
           border: 5px solid #fff;
           box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
           z-index: 10;
           min-width: 130px;
+
+          opacity: 0;
+          transform: translateY(12px) scale(0.95);
+          pointer-events: none;
+          transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        .image-wrapper:hover .exp-card {
+          opacity: 1;
+          transform: translateY(0px) scale(1);
+          pointer-events: auto;
         }
 
         .exp-card h2 { 
@@ -114,7 +126,6 @@ export default function About() {
         }
 
         .feature-item:hover { 
-          border-left-color: #eb2525; 
           background: #fff; 
           transform: translateX(10px); 
           box-shadow: 5px 5px 20px rgba(0,0,0,0.05); 
@@ -173,10 +184,10 @@ export default function About() {
         <div className="about-grid">
           <div style={{ textAlign: 'center' }}>
             <div className="image-wrapper">
-              <img 
-                src="assets/images/about-us/home-about-us-img.jpeg" 
-                alt="About Professional Team" 
-                className="main-image" 
+              <img
+                src="assets/images/about-us/home-about-us-img.jpeg"
+                alt="About Professional Team"
+                className="main-image"
               />
               <div className="exp-card">
                 <h2>{aboutData.experienceYears}</h2>
