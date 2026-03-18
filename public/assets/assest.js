@@ -309,21 +309,7 @@ export const testimonialSliderOneData = [
         text: "“Working with Indel Capital is always smooth and productive. Their structured strategy and responsive support provide total confidence in our financial future.”"
     }
 ];
-  export const whoweareData = {
-        subTitle: "Who we are",
-        mainTitle: "Your Trusted Finance Partner for Every Stage of Life.",
-        descriptionMain: "At Indel Capital, we help individuals and businesses make confident financial decisions with clarity and expert guidance. Our approach is built on trust, transparency, and a deep understanding of what people need to grow and secure their futures.",
-        descriptionQuote: "We simplify finance through personalised solutions, smart insights, and continuous support ensuring you’re always moving in the right direction.",
-        experienceYears: "5",
-        experienceText: "Years Experience",
-        imagePath: "assets/images/who-we-are/who-we-are-img1.png",
-        points: [
-            "Unlocking better financial possibilities",
-            "Fast, practical solutions for everyday financial needs",
-            "A growing community built on trust and progress"
-        ]
-    };
-
+ 
     export  const mainCards = [
         {
             id: 'vision',
