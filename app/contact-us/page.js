@@ -3,11 +3,18 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import LiquidButton from '@/components/LiquidButton.js';
+
+const selectOptions = [
+    { value: "invest", label: "I wish to Invest" },
+    { value: "callback", label: "Call me Back" },
+    { value: "know_more", label: "I want to know more" },
+];
 
 export default function ContactPage() {
     const [view, setView] = useState("desktop");
+    const [form, setForm] = useState({ name: '', email: '', phone: '', help: '', message: '' });
 
     useEffect(() => {
         const handleResize = () => {
@@ -23,10 +30,40 @@ export default function ContactPage() {
     const isMobile = view === "mobile";
     const isTablet = view === "tablet";
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm(f => ({ ...f, [name]: value }));
+    };
+
+ 
+
     const fadeInUp = {
-        initial: { opacity: 0, y: 20 },
+        initial: { opacity: 0, y: 30 },
         animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5, ease: "easeOut" }
+        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    };
+
+    // Shared style for standard inputs
+    const inputStyle = {
+        width: '100%',
+        padding: '12px 15px',
+        borderRadius: '8px',
+        border: '1px solid #d1d5db',
+        fontSize: '15px',
+        color: '#1a1a1a',
+        background: '#ffffff',
+        outline: 'none',
+        marginTop: '6px',
+        boxSizing: 'border-box'
+    };
+
+    const labelStyle = {
+        fontSize: '12px',
+        fontWeight: '700',
+        textTransform: 'uppercase',
+        letterSpacing: '1px',
+        color: '#17479e',
+        display: 'block'
     };
 
     return (
@@ -37,141 +74,229 @@ export default function ContactPage() {
             breadcrumbImg={'assets/images/background/page-title.jpg'}
         >
             <div style={{
-                ...containerStyle,
-                padding: isMobile ? '0 1rem' : isTablet ? '0 3rem' : '0 6rem'
+                background: '#ffffff',
+                color: '#1a1a1a',
+                fontFamily: "'Outfit', sans-serif",
+                overflowX: 'hidden',
+                padding: isMobile ? '0 1rem' : isTablet ? '0 3rem' : '0 6rem',
             }}>
-                <style jsx global>{`
-                    input::placeholder, textarea::placeholder {
-                        color: #cbd5e1 !important;
-                        opacity: 1;
-                    }
-                    /* Liquid Button Container Styling */
-                    .liquid-btn-wrapper {
-                        width: 200px;
-                        height: 55px;
-                        margin-top: 20px;
-                    }
-                    @media (max-width: 640px) {
-                        .liquid-btn-wrapper {
-                            width: 100%;
-                        }
-                    }
-                `}</style>
 
                 <motion.section
                     style={{
-                        ...heroSection,
+                        display: 'flex',
                         flexDirection: (isMobile || isTablet) ? 'column' : 'row',
+                        justifyContent: 'space-between',
                         paddingTop: isMobile ? '40px' : '80px',
                         paddingBottom: '80px',
-                        gap: '60px'
+                        gap: '60px',
                     }}
                     initial="initial"
                     animate="animate"
                 >
                     <motion.div style={{ flex: '1' }} variants={fadeInUp}>
-                        <h1 style={{
-                            ...heroTitle,
-                            fontSize: isMobile ? '38px' : isTablet ? '60px' : 'clamp(50px, 6vw, 90px)',
-                            lineHeight: 1.1
+                        <p style={{
+                            fontSize: '11px', fontWeight: '800', letterSpacing: '4px',
+                            textTransform: 'uppercase', color: '#ee3824', marginBottom: '20px'
                         }}>
-                            LET'S <br /> <span style={{ color: '#ee3824' }}>CONNECT.</span>
+                            INDEL CAPITAL
+                        </p>
+                        <h1 style={{
+                            fontWeight: '800',
+                            color: '#17479e',
+                            margin: 0,
+                            fontSize: isMobile ? '38px' : isTablet ? '60px' : 'clamp(50px, 6vw, 90px)',
+                            lineHeight: 1.05,
+                        }}>
+                            LET'S<br /><span style={{ color: '#ee3824' }}>CONNECT.</span>
                         </h1>
-                        <p style={{ ...heroSub, fontSize: isMobile ? '16px' : '18px' }}>
-                            For inquiries or additional information regarding our investment strategies and structured solutions, please contact Indel Capital’s team.</p>
+                        <p style={{
+                            maxWidth: '420px', color: '#64748b',
+                            marginTop: '24px', lineHeight: '1.7',
+                            fontSize: isMobile ? '15px' : '17px',
+                        }}>
+                            For inquiries or additional information regarding our investment strategies and structured solutions, please contact Indel Capital's team.
+                        </p>
+
+                        <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                            {[
+                                { label: 'South Kalamassery, Ernakulam, Kerala 682033' },
+                                { label: '+91 90726 06615' },
+                                { label: 'Mon – Sat, 10am – 6pm' },
+                            ].map(({ label }) => (
+                                <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                    <span style={{ fontSize: '14px', color: '#475569' }}>{label}</span>
+                                </div>
+                            ))}
+                        </div>
                     </motion.div>
 
                     <motion.div
                         style={{
-                            ...formWrapper,
                             flex: '1',
                             background: '#f8fafc',
-                            padding: '40px',
-                            borderRadius: '5px',
-                            width: '100%'
+                            padding: isMobile ? '28px 20px' : '44px',
+                            borderRadius: '16px',
+                            width: '100%',
+                            boxShadow: '0 4px 40px rgba(23,71,158,0.07)',
+                            border: '1px solid #e8edf5',
+                            position: 'relative',
                         }}
                         variants={fadeInUp}
                     >
-                        <h2 style={{ ...sectionHeading, fontSize: '24px', marginBottom: '30px' }}>Send a Message</h2>
-                        <form style={{ ...formGrid, gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px' }}>
-                            <div style={inputGroup}>
-                                <label style={labelStyle}>Full Name</label>
-                                <input type="text" placeholder="Full Name" style={inputStyle} required />
-                            </div>
-                            <div style={inputGroup}>
-                                <label style={labelStyle}>Email</label>
-                                <input type="email" placeholder="username@company.com" style={inputStyle} required />
-                            </div>
-                            <div style={{ ...inputGroup, gridColumn: isMobile ? 'auto' : 'span 2' }}>
-                                <label style={labelStyle}>Message</label>
-                                <textarea placeholder="Describe your inquiry..." style={textareaStyle} required></textarea>
-                            </div>
-                            
-                            {/* Integrated Liquid Button */}
-                            <div className="liquid-btn-wrapper">
-                                <button type="submit" style={{ border: 'none', background: 'none', padding: 0, width: '100%', height: '100%', cursor: 'pointer' }}>
-                                    <LiquidButton text="Send Inquiry" bgcolor="#ee3824" />
-                                </button>
-                            </div>
-                        </form>
+                        <h2 style={{ color: '#17479e', fontWeight: '700', fontSize: '22px', marginBottom: '8px', marginTop: 0 }}>
+                            Send a Message
+                        </h2>
+                     
+
+                        <AnimatePresence mode="wait">
+                            { (
+                                <form
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '20px',
+                                        paddingTop:'20px',
+                                    }}
+                                >
+                                    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px' }}>
+                                        <div>
+                                            <label style={labelStyle}>Full Name</label>
+                                            <input
+                                                name="name"
+                                                type="text"
+                                                placeholder="Full Name"
+                                                value={form.name}
+                                                onChange={handleChange}
+                                                required
+                                                style={inputStyle}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label style={labelStyle}>Email Address</label>
+                                            <input
+                                                name="email"
+                                                type="email"
+                                                placeholder="user@company.com"
+                                                value={form.email}
+                                                onChange={handleChange}
+                                                required
+                                                style={inputStyle}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px' }}>
+                                        <div>
+                                            <label style={labelStyle}>Mobile Number</label>
+                                            <input
+                                                name="phone"
+                                                type="tel"
+                                                placeholder="+91"
+                                                value={form.phone}
+                                                onChange={handleChange}
+                                                required
+                                                style={inputStyle}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label style={labelStyle}>How can we help?</label>
+                                            <select
+                                                name="help"
+                                                value={form.help}
+                                                onChange={handleChange}
+                                                required
+                                                style={{ ...inputStyle, appearance: 'auto' }}
+                                            >
+                                                <option value="">Select an option</option>
+                                                {selectOptions.map(opt => (
+                                                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label style={labelStyle}>Message</label>
+                                        <textarea
+                                            name="message"
+                                            placeholder="Describe your inquiry..."
+                                            value={form.message}
+                                            onChange={handleChange}
+                                            required
+                                            rows={4}
+                                            style={{ ...inputStyle, minHeight: '120px', resize: 'vertical' }}
+                                        />
+                                    </div>
+
+                                    <div style={{ width: isMobile ? '100%' : '200px', height: '55px', marginTop: '10px' }}>
+                                        <button
+                                            type="submit"
+                                            style={{ border: 'none', background: 'none', padding: 0, width: '100%', height: '100%', cursor: 'pointer' }}
+                                        >
+                                            <LiquidButton text="Submit" bgcolor="#ee3824" />
+                                        </button>
+                                    </div>
+                                </form>
+                            )}
+                        </AnimatePresence>
                     </motion.div>
                 </motion.section>
 
+                {/* Map and Office Details Section - Remains unchanged */}
                 <section style={{
-                    ...splitSection,
+                    display: 'grid',
                     gridTemplateColumns: (isMobile || isTablet) ? '1fr' : '0.8fr 1.2fr',
                     padding: isMobile ? '40px 0' : '80px 0',
                     borderTop: '1px solid #eee',
-                    gap: '40px'
+                    gap: '40px',
                 }}>
                     <motion.div
-                        style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}
+                        style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true }}
                     >
+                        {[
+                            { label: 'BUSINESS FOCUS', value: 'Investments & Financial Services' },
+                            { label: 'CORE VALUES', value: 'Integrity, Transparency, Responsible Growth' },
+                        ].map(({ label, value }) => (
+                            <motion.div key={label} variants={fadeInUp} style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                                <span style={{ fontSize: '11px', fontWeight: '700', color: '#ee3824', letterSpacing: '2px' }}>{label}</span>
+                                <span style={{ fontSize: '17px', fontWeight: '500', color: '#17479e' }}>{value}</span>
+                            </motion.div>
+                        ))}
 
-                        <motion.div style={statBox} variants={fadeInUp}>
-                            <span style={statLabel}>BUSINESS FOCUS</span>
-                            <div style={{ ...statValue, fontSize: '18px' }}>Investments & Financial Services</div>
-                        </motion.div>
-
-                        <motion.div style={statBox} variants={fadeInUp}>
-                            <span style={statLabel}>CORE VALUES</span>
-                            <div style={{ ...statValue, fontSize: '18px' }}>Integrity, Transparency, Responsible Growth</div>
-                        </motion.div>
-
-                        <motion.div style={infoCard} variants={fadeInUp}>
-                            <span style={cardLabel}>Corporate Office</span>
-                            <div style={cardValue}>Indel House, Changampuzha Nagar, South Kalamassery, Ernakulam<br />Kerala 682033</div>
-                        </motion.div>
-
-                        <motion.div style={infoCard} variants={fadeInUp}>
-                            <span style={cardLabel}>Email </span>
-                            <div style={cardValue}>
-                                <Link href="mailto:invest@indelcapital.com" style={linkHover}>your@domain.com</Link><br />
-                            </div>
-                        </motion.div>
-
-                        <motion.div style={infoCard} variants={fadeInUp}>
-                            <span style={cardLabel}>Phone</span>
-                            <div style={cardValue}>+91 90726 06615<br /> <small style={{ opacity: 0.6 }}>Mon - Sat, 10am - 6pm</small></div>
-                        </motion.div>
+                        {[
+                            { label: 'Corporate Office', value: 'Indel House, South Kalamassery, Kerala 682033' },
+                            { label: 'Email', value: 'your@domain.com' },
+                            { label: 'Phone', value: '+91 90726 06615' },
+                        ].map(({ label, value }) => (
+                            <motion.div key={label} variants={fadeInUp} style={{ padding: '10px 0', borderBottom: '1px solid #f0f0f0' }}>
+                                <span style={{ display: 'block', fontSize: '10px', textTransform: 'uppercase', fontWeight: '800', color: '#ee3824', letterSpacing: '2.5px', marginBottom: '8px' }}>
+                                    {label}
+                                </span>
+                                <span style={{ fontSize: '15px', fontWeight: '500', color: '#17479e' }}>
+                                    {value}
+                                </span>
+                            </motion.div>
+                        ))}
                     </motion.div>
 
                     <motion.div
                         style={{
-                            ...mapWrapper,
-                            height: isMobile ? '300px' : '100%',
-                            minHeight: '500px'
+                            borderRadius: '16px', overflow: 'hidden',
+                            boxShadow: '0 10px 40px rgba(23,71,158,0.10)',
+                            minHeight: '400px',
+                            border: '1px solid #e8edf5',
                         }}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
                     >
                         <iframe
-                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6822464151255!2d76.31478527479418!3d10.043057890064578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080dcb2aa099af%3A0x2284420553f1c1b1!2sIndel%20Corporate%20Office!5e0!3m2!1sen!2sin!4v1772168459596!5m2!1sen!2sin"
-                            style={iframeStyle}
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6822464151255!2d76.31478527479418!3d10.043057890064578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080dcb2aa099af%3A0x2284420553f1c1b1!2sIndel%20Corporate%20Office!5e0!3m2!1sen!2sin!4v1772168459596!5m2!1sen!2sin"
+                            style={{ width: '100%', height: '100%', border: 0 }}
                             allowFullScreen
                             loading="lazy"
                         />
@@ -181,106 +306,3 @@ export default function ContactPage() {
         </Layout>
     );
 }
-
-
-const containerStyle = {
-    background: '#ffffff',
-    color: '#1a1a1a',
-    fontFamily: '"DM Sans", sans-serif',
-    overflowX: 'hidden'
-};
-
-const heroSection = {
-    display: 'flex',
-    justifyContent: 'space-between',
-};
-
-const heroTitle = {
-    fontWeight: '800',
-    color: '#17479e',
-    margin: 0,
-};
-
-const heroSub = {
-    maxWidth: '500px',
-    color: '#64748b',
-    marginTop: '20px',
-    lineHeight: '1.6',
-};
-
-
-const statBox = { display: 'flex', flexDirection: 'column', gap: '5px' };
-
-const statLabel = {
-    fontSize: '11px',
-    fontWeight: '700',
-    color: '#ee3824',
-};
-
-const statValue = {
-    fontSize: '15px',
-    fontWeight: '500',
-    color: '#17479e',
-};
-
-const infoCard = { padding: '10px 0' };
-
-const cardLabel = {
-    display: 'block',
-    fontSize: '11px',
-    textTransform: 'uppercase',
-    fontWeight: '700',
-    color: '#ee3824',
-    marginBottom: '10px'
-};
-
-const cardValue = {
-    fontSize: '16px',
-    fontWeight: '500',
-    color: '#17479e',
-};
-
-const linkHover = { color: 'inherit', textDecoration: 'none' };
-
-const splitSection = { display: 'grid' };
-
-const formWrapper = { display: 'flex', flexDirection: 'column' };
-
-const sectionHeading = { color: '#17479e', fontWeight: '700' };
-
-const formGrid = { display: 'grid' };
-
-const inputGroup = { display: 'flex', flexDirection: 'column', gap: '8px' };
-
-const labelStyle = {
-    fontSize: '12px',
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    color: '#1a1a1a',
-};
-
-const inputStyle = {
-    border: 'none',
-    borderBottom: '1.5px solid #d1d5db',
-    padding: '10px 0',
-    fontSize: '16px',
-    outline: 'none',
-    background: 'transparent',
-};
-
-const textareaStyle = { ...inputStyle, minHeight: '100px', resize: 'none' };
-
-const submitBtn = {
-    marginTop: '20px',
-    padding: '16px 40px',
-    cursor: 'pointer',
-    border: 'none'
-};
-
-const mapWrapper = {
-    borderRadius: '12px',
-    overflow: 'hidden',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)'
-};
-
-const iframeStyle = { width: '100%', height: '100%', border: 0 };
