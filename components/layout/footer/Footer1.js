@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { FaWhatsapp, FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const quickLinks = [
   { label: "Who We Are", href: "/who-we-are" },
@@ -16,42 +19,78 @@ const quickLinks = [
 
 export default function Footer() {
   const footerRef = useRef(null);
+  const indelRef = useRef(null);
+  const capitalRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: footerRef,
-    offset: ["start end", "end end"]
-  });
+  useEffect(() => {
+    const footer = footerRef.current;
+    const indelEl = indelRef.current;
+    const capitalEl = capitalRef.current;
+    if (!footer || !indelEl || !capitalEl) return;
 
-  const indelOpacity = useTransform(scrollYProgress, [0, 0.85, 0.95], [0.08, 0.08, 0]);
-  const capitalOpacity = useTransform(scrollYProgress, [0, 0.85, 0.95, 1], [0, 0, 0.08, 0.08]);
+    // Set initial states
+    gsap.set(indelEl, { opacity: 0.08 });
+    gsap.set(capitalEl, { opacity: 0 });
+
+    // INDEL: fades out as you scroll through the footer
+    const indelTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: footer,
+        start: "top bottom",   // when footer enters viewport
+        end: "bottom bottom",  // when footer bottom hits viewport bottom
+        scrub: true,
+      },
+    });
+
+    indelTl
+      .to(indelEl, { opacity: 0.08, duration: 0.7, ease: "none" })
+      .to(indelEl, { opacity: 0, duration: 0.3, ease: "none" });
+
+    // CAPITAL: fades in after INDEL fades out
+    const capitalTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: footer,
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+
+    capitalTl
+      .to(capitalEl, { opacity: 0, duration: 0.7, ease: "none" })
+      .to(capitalEl, { opacity: 0.08, duration: 0.3, ease: "none" });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   const cssStyles = `
     .awwwards-footer {
       background: #0c1951;
       color: #ffffff;
       font-family: 'Outfit', sans-serif;
-      padding: 160px 0 60px 0;
+      padding: 120px 0 60px 0;
       position: relative;
       overflow: hidden;
-      min-height: 600px; 
+      min-height: 600px;
     }
 
     .bg-fixed-container {
       position: absolute;
-      top: 0px;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       pointer-events: none;
       z-index: 1;
     }
 
     .giant-static-text {
       position: absolute;
-      top: 15%; 
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-size: clamp(100px, 20vw, 380px);
       font-weight: 900;
       text-transform: uppercase;
@@ -60,6 +99,7 @@ export default function Footer() {
       color: transparent;
       -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
       letter-spacing: -0.03em;
+      will-change: opacity;
     }
 
     .container {
@@ -94,7 +134,7 @@ export default function Footer() {
 
     .nav-list { list-style: none; padding: 0; margin: 0; }
     .nav-item { margin-bottom: 12px; }
-    
+
     .nav-link {
       font-size: 18px;
       color: rgba(255, 255, 255, 0.5);
@@ -149,9 +189,7 @@ export default function Footer() {
       color: rgba(255, 255, 255, 0.3);
     }
 
-    .legal-links {
-      display: flex;
-    }
+    .legal-links { display: flex; }
 
     @media (max-width: 1024px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -160,7 +198,7 @@ export default function Footer() {
 
     @media (max-width: 600px) {
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-      
+
       .footer-bottom {
         flex-direction: column;
         text-align: center;
@@ -173,14 +211,11 @@ export default function Footer() {
         width: 100%;
       }
 
-      /* Overriding the inline marginLeft on small screens */
       .legal-links a {
         margin: 0 15px !important;
       }
 
-      .footer-desc {
-        font-size: 20px;
-      }
+      .footer-desc { font-size: 20px; }
     }
   `;
 
@@ -190,12 +225,8 @@ export default function Footer() {
 
       <footer ref={footerRef} className="awwwards-footer">
         <div className="bg-fixed-container">
-          <motion.div style={{ opacity: indelOpacity }} className="giant-static-text">
-            INDEL
-          </motion.div>
-          <motion.div style={{ opacity: capitalOpacity }} className="giant-static-text">
-            CAPITAL
-          </motion.div>
+          <div ref={indelRef} className="giant-static-text">INDEL</div>
+          <div ref={capitalRef} className="giant-static-text">CAPITAL</div>
         </div>
 
         <div className="container">
@@ -204,12 +235,11 @@ export default function Footer() {
               <img
                 src="/assets/images/indel-capital-logo-blue.png"
                 alt="Indel Logo"
-                style={{ height: '45px', marginBottom: '30px' }}
+                style={{ height: "45px", marginBottom: "30px" }}
               />
               <p className="footer-desc">
                 We design financial futures with <span>uncompromising</span> precision.
               </p>
-
               <div className="social-links">
                 <Link href="#" className="social-icon"><FaWhatsapp /></Link>
                 <Link href="#" className="social-icon"><FaInstagram /></Link>
@@ -242,16 +272,16 @@ export default function Footer() {
 
             <div className="footer-col">
               <h4>Location</h4>
-              <a 
-                href="https://maps.google.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="address-link"
               >
-                <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '15px' }}>
+                <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: "1.8", fontSize: "15px" }}>
                   Indel House, Changampuzha Nagar, South Kalamassery, Ernakulam<br />
-                  Kerala 682033 <br />
-                  <span style={{ color: '#fff' }}>+91 90726 06615</span>
+                  Kerala 682033<br />
+                  <span style={{ color: "#fff" }}>+91 90726 06615</span>
                 </p>
               </a>
             </div>
@@ -260,8 +290,8 @@ export default function Footer() {
           <div className="footer-bottom">
             <div>© 2026 Indel Capital</div>
             <div className="legal-links">
-              <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '30px' }}>Privacy</Link>
-              <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '30px' }}>Terms</Link>
+              <Link href="/privacy" style={{ color: "inherit", textDecoration: "none", marginLeft: "30px" }}>Privacy</Link>
+              <Link href="/terms" style={{ color: "inherit", textDecoration: "none", marginLeft: "30px" }}>Terms</Link>
             </div>
           </div>
         </div>
