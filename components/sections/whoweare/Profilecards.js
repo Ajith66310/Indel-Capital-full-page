@@ -206,7 +206,7 @@ export default function Profilecards() {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 30px;
+          gap: 50px;
           margin-top: 50px;
         }
 

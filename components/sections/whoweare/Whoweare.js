@@ -78,7 +78,7 @@ export default function Whoweare() {
                         <div className="col-lg-6 col-md-12 col-sm-12 content-column">
                             <div className="content_block_three">
                                 <div className="content-box mr_110">
-                                    <div className="sec-title mb_20">
+                                    <div className=" mb_20">
                                         <h6 style={{ color: '#eb2525', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '700', marginBottom: '10px' }}>
                                             {whoweareData.subTitle}
                                         </h6>
