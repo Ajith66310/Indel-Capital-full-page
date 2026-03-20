@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
@@ -12,7 +12,7 @@ const NAV_ITEMS = [
     children: [
       { label: "Who we are", href: "/who-we-are" },
       { label: "How we invest", href: "/investment-approach" },
-      { label: "FAQ", href: "/FAQ" },
+      { label: "FAQ", href: "/faq" },
     ],
   },
   { label: "Strategies", href: "/strategies" },
@@ -31,7 +31,7 @@ const NAV_ITEMS = [
   },
 ]
 
-function NavItem({ item, scroll }) {
+function NavItem({ item, linkColor }) {
   const [open, setOpen] = useState(false)
   const hasChildren = !!item.children
 
@@ -44,7 +44,7 @@ function NavItem({ item, scroll }) {
       <Link
         href={item.href}
         className={styles.navLink}
-        style={{ color: scroll ? "#333333" : "#ffffff" }}
+        style={{ color: linkColor }}
       >
         {item.label}
         {hasChildren && (
@@ -109,19 +109,27 @@ function MobileDrawer({ open, onClose }) {
           <ul className={styles.mobileNavList}>
             {NAV_ITEMS.map((item) => (
               <li key={item.label} className={styles.mobileNavItem}>
-                <div className={styles.mobileNavRow}>
+                <div
+                  className={styles.mobileNavRow}
+                  onClick={() => item.children && toggle(item.label)}
+                  style={{ cursor: item.children ? "pointer" : "default" }}
+                >
                   <Link
                     href={item.href}
                     className={styles.mobileNavLink}
-                    onClick={!item.children ? onClose : undefined}
+                    onClick={(e) => {
+                      if (item.children) {
+                        e.preventDefault()
+                      } else {
+                        onClose()
+                      }
+                    }}
                   >
                     {item.label}
                   </Link>
                   {item.children && (
-                    <button
+                    <span
                       className={`${styles.mobileAccordionBtn} ${openKey === item.label ? styles.mobileAccordionBtnOpen : ""}`}
-                      onClick={() => toggle(item.label)}
-                      aria-label={`Toggle ${item.label}`}
                     >
                       <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
                         <path
@@ -132,7 +140,7 @@ function MobileDrawer({ open, onClose }) {
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </button>
+                    </span>
                   )}
                 </div>
                 {item.children && (
@@ -173,10 +181,23 @@ function MobileDrawer({ open, onClose }) {
 
 export default function Header1({ scroll }) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const toggleMobile = () => setMobileOpen((p) => !p)
 
+  const isScrolled = mounted && scroll
+  const linkColor = isScrolled ? "#333333" : "#ffffff"
+  const logoSrc = isScrolled
+    ? "/assets/images/indel-capital-logo-blue.png"
+    : "/assets/images/indel-capital-logo.png"
+  const togglerColor = isScrolled ? "#000" : "#fff"
+
   return (
-    <header className={`${styles.mainHeader} ${scroll ? styles.fixedHeader : ""}`}>
+    <header className={`${styles.mainHeader} ${isScrolled ? styles.fixedHeader : ""}`}>
       <div className={styles.headerLower}>
         <div className={styles.customContainer}>
           <div className={styles.outerBox}>
@@ -185,7 +206,7 @@ export default function Header1({ scroll }) {
               <Link href="/">
                 <img
                   className={styles.logoImg}
-                  src={scroll ? "/assets/images/indel-capital-logo-blue.png" : "/assets/images/indel-capital-logo.png"}
+                  src={logoSrc}
                   alt="Indel Capital"
                   width={120}
                   height="auto"
@@ -197,7 +218,7 @@ export default function Header1({ scroll }) {
               <div
                 className={styles.mobileNavToggler}
                 onClick={toggleMobile}
-                style={{ color: scroll ? "#000" : "#fff" }}
+                style={{ color: togglerColor }}
               >
                 <span className={styles.iconBar} />
                 <span className={styles.iconBar} />
@@ -207,7 +228,7 @@ export default function Header1({ scroll }) {
               <nav className={styles.mainMenu}>
                 <ul className={styles.navigation}>
                   {NAV_ITEMS.map((item) => (
-                    <NavItem key={item.label} item={item} scroll={scroll} />
+                    <NavItem key={item.label} item={item} linkColor={linkColor} />
                   ))}
                 </ul>
               </nav>
