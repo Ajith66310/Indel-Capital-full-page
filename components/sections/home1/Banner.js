@@ -3,7 +3,6 @@ import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import LiquidButton from "@/components/LiquidButton"
-import { slides } from "@/public/assets/assest"
 
 const swiperOptions = {
     modules: [Autoplay, Pagination, Navigation],
@@ -24,9 +23,33 @@ const swiperOptions = {
     },
 }
 
-
-
 export default function Banner() {
+    const slides = [
+        {
+            bgImage: 'url(assets/images/banner/banner-1.jpeg)',
+            titleLine1: 'Invest With Confidence.',
+            titleLine2: 'Grow With Clarity.',
+            description: <>Build a secure financial future through disciplined investing and well-designed strategies.</>,
+            btnText: 'Get Started',
+            btnLink: '/contact-us'
+        },
+        {
+            bgImage: 'url(assets/images/banner/banner-2.jpeg)',
+            titleLine1: 'Structured Investing for',
+            titleLine2: 'Financial Future.',
+            description: <>Unlock investment value with specialized asset yield products and strategic credit solutions.</>,
+            btnText: 'View Solutions',
+            btnLink: '/strategies'
+        },
+        {
+            bgImage: 'url(assets/images/banner/banner-3.jpeg)',
+            titleLine1: 'Accelerating Your',
+            titleLine2: 'Wealth Journey Online',
+            description: <>Experience seamless, technology-driven growth with Indel Capital’s digital-first platforms.</>,
+            btnText: 'Get Started',
+            btnLink: '/contact-us'
+        }
+    ];
 
     const h2Style = {
         fontSize: 'clamp(32px, 8vw, 60px)',
@@ -54,8 +77,8 @@ export default function Banner() {
                 .banner-section,
                 .banner-carousel,
                 .slide-item {
-                    height: 700px;
-                    min-height: 600px;
+                    height: 900px !important; 
+                    min-height: 900px !important;
                 }
 
                 .bg-layer {
@@ -77,20 +100,10 @@ export default function Banner() {
                         min-height: 450px !important;
                         max-height: 450px !important;
                     }
-                    .content-box p br {
-                        display: none;
-                    }
                     .content-box p {
                         font-size: 16px;
                         line-height: 1.4;
                         margin-bottom: 20px;
-                    }
-                    .title-line1 {
-                        font-size: clamp(18px, 4.5vw, 28px) !important;
-                        font-weight: 700 !important;
-                    }
-                    .title-line2 {
-                        font-size: clamp(18px, 4.5vw, 28px) !important;
                     }
                 }
 
@@ -99,13 +112,6 @@ export default function Banner() {
                     height: 60px;
                     position: relative;
                     margin-top: 20px;
-                }
-
-                @media (max-width: 575px) {
-                    .liquid-banner-wrapper {
-                        width: 180px;
-                        height: 50px;
-                    }
                 }
             `}</style>
 
@@ -121,19 +127,13 @@ export default function Banner() {
                                 <div className="content-box" style={{ maxWidth: '100%' }}>
                                     <h2 style={h2Style}>
                                         <strong style={lineStyle} className="title-line1">{slide.titleLine1}</strong>
-                                        <strong style={lineStyle} className="title-line2">
-                                            {slide.titleLine2}
-                                        </strong>
+                                        <strong style={lineStyle} className="title-line2">{slide.titleLine2}</strong>
                                     </h2>
                                     <p>{slide.description}</p>
-
                                     <div className="btn-box">
                                         <div className="liquid-banner-wrapper">
                                             <Link href={slide.btnLink} style={{ textDecoration: 'none' }}>
-                                                <LiquidButton
-                                                    text={slide.btnText}
-                                                    bgcolor="#ee3824"
-                                                />
+                                                <LiquidButton text={slide.btnText} bgcolor="#ee3824" />
                                             </Link>
                                         </div>
                                     </div>
@@ -141,7 +141,6 @@ export default function Banner() {
                             </div>
                         </SwiperSlide>
                     ))}
-
                     <div className="owl-nav">
                         <button type="button" className="owl-prev h1p"><span className="icon-3"></span></button>
                         <button type="button" className="owl-next h1n"><span className="icon-4"></span></button>

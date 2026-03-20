@@ -19,13 +19,13 @@
   
 .banner-carousel .slide-item{
   position: relative;
-  padding: 180px 0px 225px 0px;
+  padding: 220px 0px 225px 0px;
 }
 
 .banner-carousel .slide-item:before{
   position: absolute;
   content: '';
-  background: #303030;
+  background: #000;
   width: 100%;
   height: 100%;
   left: 0px;

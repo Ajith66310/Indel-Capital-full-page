@@ -1,0 +1,166 @@
+.mainHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.5s ease;
+  background: transparent;
+}
+
+.fixedHeader {
+  position: fixed !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideInDown 0.5s;
+}
+
+@keyframes slideInDown {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+.customContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.headerLower {
+  background: transparent !important;
+}
+
+.outerBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoFigure {
+  margin: 0;
+  padding: 0;
+}
+
+.logoImg {
+  width: 120px;
+  height: auto;
+  padding-top: 10px;
+  display: block;
+}
+
+.menuArea {
+  display: flex;
+  align-items: center;
+}
+
+.mobileNavToggler {
+  display: none;
+}
+
+.mainMenu {
+  display: block;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.navListItem {
+  position: relative;
+  display: inline-block;
+  list-style: none;
+}
+
+.navLink {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--manrope, sans-serif);
+  padding: 30px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #eb292c !important;
+}
+
+.dropdownArrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.hasDropdown:hover .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+.subMenu {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  z-index: 9999;
+  min-width: 175px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-top: 3px solid #0056b3;
+  padding: 10px 0;
+  list-style: none;
+  margin: 0;
+}
+
+.subMenuItem {
+  padding: 0;
+  margin: 0;
+  display: block;
+  list-style: none;
+}
+
+.subLink {
+  display: block;
+  padding: 12px 20px;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.subLink:hover {
+  background: #f8f9fa;
+  color: #0056b3;
+}
+
+@media (max-width: 1024px) {
+  .customContainer {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .mainMenu {
+    display: none;
+  }
+
+  .mobileNavToggler {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .customContainer {
+    padding: 0 20px;
+  }
+}

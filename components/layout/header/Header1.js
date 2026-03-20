@@ -1,164 +1,125 @@
 'use client'
+import { useState } from "react"
 import Link from "next/link"
-import Menu from "../Menu"
 import MobileMenu from "../MobileMenu"
+import styles from "./Header1.module.css"
 
-export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSidebar, handlePopup, handleSidebar }) {
+const NAV_ITEMS = [
+  {
+    label: "About us",
+    href: "/",
+    children: [
+      { label: "Who we are", href: "/who-we-are" },
+      { label: "How we invest", href: "/investment-approach" },
+      { label: "FAQ", href: "/FAQ" },
+    ],
+  },
+  { label: "Strategies", href: "/strategies" },
+  {
+    label: "Insights",
+    href: "/",
+    children: [{ label: "Blog", href: "/blog-page" }],
+  },
+  {
+    label: "Contact Us",
+    href: "/",
+    children: [
+      { label: "Contact", href: "/contact-us" },
+      { label: "Career", href: "/career" },
+    ],
+  },
+]
+
+function NavItem({ item, scroll }) {
+  const [open, setOpen] = useState(false)
+  const hasChildren = !!item.children
+
   return (
-    <>
-      <style jsx>{`
-        .links-list li a:hover,
-        .info-list li a:hover,
-        .info-list li:hover {
-          color: #000000 !important;
-          transition: all 0.3s ease;
-        }
+    <li
+      className={`${styles.navListItem} ${hasChildren ? styles.hasDropdown : ""}`}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <Link
+        href={item.href}
+        className={styles.navLink}
+        style={{ color: scroll ? "#333333" : "#ffffff" }}
+      >
+        {item.label}
+        {hasChildren && (
+          <span className={styles.dropdownArrow}>
+            <svg
+              width="10"
+              height="6"
+              viewBox="0 0 10 6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L5 5L9 1"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        )}
+      </Link>
 
-        .top-inner {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-        }
+      {hasChildren && open && (
+        <ul className={styles.subMenu}>
+          {item.children.map((child) => (
+            <li key={child.href} className={styles.subMenuItem}>
+              <Link href={child.href} className={styles.subLink}>
+                {child.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  )
+}
 
-        .links-list, .info-list {
-          display: flex;
-          align-items: center;
-          margin: 0;
-          padding: 0;
-          list-style: none;
-        }
+export default function Header1({ scroll, handleMobileMenu }) {
+  return (
+    <header className={`${styles.mainHeader} ${scroll ? styles.fixedHeader : ""}`}>
+      <div className={styles.headerLower}>
+        <div className={styles.customContainer}>
+          <div className={styles.outerBox}>
+            <figure className={styles.logoFigure}>
+              <Link href="/">
+                <img
+                  className={styles.logoImg}
+                  src={`/assets/images/indel-capital-logo${scroll ? "-blue.png" : ".png"}`}
+                  alt="Indel Capital"
+                />
+              </Link>
+            </figure>
 
-        .links-list li, .info-list li {
-          margin-right: 20px;
-        }
-
-        .info-list li:last-child {
-          margin-right: 0;
-        }
-
-        @media (max-width: 767px) {
-          .header-top {
-            display: block !important; 
-          }
-          
-          .top-inner {
-            flex-direction: row; 
-            justify-content: space-between;
-            padding: 5px 0;
-          }
-
-          .links-list li, .info-list li {
-            margin-right: 10px;
-            font-size: 12px;
-          }
-        }
-
-           @media (max-width: 480px) {
-      .top-inner {
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        gap: 0;
-      }
-    
-      .links-list, .info-list {
-        flex-wrap: nowrap;
-        width: auto;
-      }
-    
-      .links-list li, .info-list li {
-        margin-right: 6px;
-        font-size: 10px;
-      }
-    
-      .info-list li.email-item {
-        display: list-item !important;
-      }
-      }
-      `}</style>
-
-      <header className={`main-header header-style-one ${scroll ? "fixed-header" : ""}`}>
-        <div className="header-top">
-          <div className="large-container">
-            <div className="top-inner">
-              <ul className="links-list clearfix">
-                <li><Link href="/career">Career</Link></li>
-                <li><Link href="/blog-page">Blogs</Link></li>
-                <li><Link href="/faq">FAQ</Link></li>
-              </ul>
-
-              <ul className="info-list clearfix">
-                <li className="email-item">
-                  <Link href="mailto:info@example.com">your@domain.com</Link>
-                </li>
-                <li className="number-hover">
-                  +91 90726 06615
-                </li>
-              </ul>
+            <div className={styles.menuArea}>
+              <div
+                className={styles.mobileNavToggler}
+                onClick={handleMobileMenu}
+                style={{ color: scroll ? "#000" : "#fff", cursor: "pointer" }}
+              >
+                <i className="icon-bar"></i>
+                <i className="icon-bar"></i>
+                <i className="icon-bar"></i>
+              </div>
+              <nav className={styles.mainMenu}>
+                <ul className={styles.navigation}>
+                  {NAV_ITEMS.map((item) => (
+                    <NavItem key={item.label} item={item} scroll={scroll} />
+                  ))}
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
-
-        <div className="header-lower">
-          <div className="large-container">
-            <div className="outer-box">
-              <div className="logo-box">
-                <div className="shape"></div>
-                <figure className="logo">
-                  <Link href="/">
-                    <img
-                      style={{ width: "100px", height: "auto" }}
-                      src="/assets/images/indel-capital-logo.png"
-                      alt="Indel Capital"
-                    />
-                  </Link>
-                </figure>
-              </div>
-
-              <div className="menu-area">
-                <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
-                  <i className="icon-bar"></i>
-                  <i className="icon-bar"></i>
-                  <i className="icon-bar"></i>
-                </div>
-                <nav className="main-menu navbar-expand-md navbar-light clearfix">
-                  <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                    <Menu />
-                  </div>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={`sticky-header ${scroll ? "animated slideInDown" : ""}`}>
-          <div className="large-container">
-            <div className="outer-box">
-              <div className="logo-box">
-                <div className="shape"></div>
-                <figure className="logo">
-                  <Link href="/">
-                    <img
-                      style={{ width: "120px", height: "50px", marginLeft: "35px" }}
-                      src="/assets/images/indel-capital-logo.png"
-                      alt="Indel Capital"
-                    />
-                  </Link>
-                </figure>
-              </div>
-              <div className="menu-area">
-                <nav className="main-menu clearfix">
-                  <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                    <Menu />
-                  </div>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <MobileMenu handleMobileMenu={handleMobileMenu} />
-      </header>
-    </>
+      </div>
+      <MobileMenu handleMobileMenu={handleMobileMenu} />
+    </header>
   )
 }

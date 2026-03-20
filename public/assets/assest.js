@@ -145,32 +145,7 @@ export const investmentPhilosophyData = {
         img2: "assets/images/resource/about-3.jpg"
     }
 };
-export const slides = [
-    {
-        bgImage: 'url(assets/images/banner/banner-1.jpeg)',
-        titleLine1: 'Invest With Confidence.',
-        titleLine2: 'Grow With Clarity.',
-        description:<>Build a secure financial future through disciplined investing and well-designed strategies.</>,
-        btnText: 'Get Started',
-        btnLink: '/contact-us'
-    },
-    {
-        bgImage: 'url(assets/images/banner/banner-2.jpeg)',
-        titleLine1: 'Structured Investing for',
-        titleLine2: 'Financial Future.',
-        description:<>Unlock investment value with specialized asset yield products and strategic credit solutions.</>,
-        btnText: 'View Solutions',
-        btnLink: '/strategies'
-    },
-    {
-        bgImage: 'url(assets/images/banner/banner-3.jpeg)',
-        titleLine1: 'Accelerating Your',
-        titleLine2: 'Wealth Journey Online',
-        description:<>Experience seamless, technology-driven growth with Indel Capital’s digital-first platforms.</>,
-        btnText: 'Get Started',
-        btnLink: '/contact-us'
-    }
-];
+
 
     
 

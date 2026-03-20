@@ -741,8 +741,8 @@ img {
 .header-top{
   position: relative;
   width: 100%;
-  background: #ee3824;
-  padding: 10px 0px;
+  background: #17479e;
+  padding: 0px 0px;
 }
 
 .header-top .top-inner{
@@ -750,7 +750,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 215px;
 }
 
 .header-top .links-list{
@@ -787,6 +786,7 @@ img {
   position: relative;
   margin-right: 40px;
   color: #fff;
+  font-size: small !important;
 }
 
 .header-top .info-list li:last-child{
@@ -816,7 +816,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 80px;
 }
 
 .main-header .outer-box .logo-box {
@@ -957,7 +957,7 @@ img {
   position: absolute;
   content: "\f107";
   font-family: 'Font Awesome 5 Pro';
-  top: 37px;
+  top: 32px;
   right: 0px;
   font-weight: 500;
   transition: all 500ms ease;

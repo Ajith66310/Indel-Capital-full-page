@@ -11,7 +11,7 @@ export default function Features() {
                 .feature-section-custom {
                     position: relative;
                     padding: 0;
-                    margin-top: -60px;
+                    margin-top: -225px;
                     z-index: 10;
                 }
 

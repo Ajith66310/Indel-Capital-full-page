@@ -1,9 +1,10 @@
 'use client'
 import Link from "next/link"
 import LiquidButton from '@/components/LiquidButton.js'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 export default function Blogs() {
+   
     const allPosts = [
         { id: 1, date: "Oct 12, 2025", title: "The Future of Web Development in 2024", image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg",  link: "/blog-details", delay: "00ms" },
         { id: 2, date: "Oct 15, 2025", title: "Mastering GSAP for Stunning Web Animations", image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg", link: "/blog-details", delay: "300ms" },
@@ -21,28 +22,7 @@ export default function Blogs() {
         { id: 15, date: "Nov 02, 2025", title: "Sustainability in Tech: What's Next?", image: "https://images.pexels.com/photos/2510425/pexels-photo-2510425.jpeg",  link: "/blog-details", delay: "00ms" },
     ];
 
-    const [visiblePosts, setVisiblePosts] = useState(allPosts.slice(0, 3)); 
-    const [isFetching, setIsFetching] = useState(false);
-    const loaderRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && visiblePosts.length < allPosts.length) {
-                loadMore();
-            }
-        }, { threshold: 1.0 });
-
-        if (loaderRef.current) observer.observe(loaderRef.current);
-        return () => observer.disconnect();
-    }, [visiblePosts]);
-
-    const loadMore = () => {
-        setIsFetching(true);
-        setTimeout(() => {
-            setVisiblePosts(prev => allPosts.slice(0, prev.length + 3));
-            setIsFetching(false);
-        }, 800);
-    };
+    const [visiblePosts] = useState(allPosts); 
 
     return (
         <>
@@ -50,32 +30,6 @@ export default function Blogs() {
                 .news-section { padding-top: 100px; background-color: #fafafa; }
                 .btn-wrapper { width: 160px; height: 45px; position: relative; margin-top: 15px; }
                 .liquid-link { display: block; width: 100%; height: 100%; text-decoration: none; }
-                
-                .infinite-loader {
-                    display: flex;
-                    justify-content: center;
-                    padding: 40px 0;
-                    width: 100%;
-                }
-                .dot-spinner {
-                    width: 40px;
-                    height: 10px;
-                    display: flex;
-                    gap: 5px;
-                }
-                .dot {
-                    width: 10px;
-                    height: 10px;
-                    background-color: #eb2525;
-                    border-radius: 50%;
-                    animation: bounce 0.6s infinite alternate;
-                }
-                .dot:nth-child(2) { animation-delay: 0.2s; }
-                .dot:nth-child(3) { animation-delay: 0.4s; }
-
-                @keyframes bounce {
-                    to { transform: translateY(-10px); opacity: 0.5; }
-                }
             `}</style>
 
             <section className="news-section pb_100">
@@ -110,17 +64,6 @@ export default function Blogs() {
                                 </div>
                             </div>
                         ))}
-                    </div>
-
-                    <div ref={loaderRef} className="infinite-loader">
-                        {isFetching && (
-                            <div className="dot-spinner">
-                                <div className="dot"></div>
-                                <div className="dot"></div>
-                                <div className="dot"></div>
-                            </div>
-                        )}
-                        
                     </div>
                 </div>
             </section>
