@@ -1,7 +1,8 @@
 'use client'
 import { useState } from "react"
 import Link from "next/link"
-import MobileMenu from "../MobileMenu"
+import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
 import styles from "./Header1.module.css"
 
 const NAV_ITEMS = [
@@ -48,13 +49,7 @@ function NavItem({ item, scroll }) {
         {item.label}
         {hasChildren && (
           <span className={styles.dropdownArrow}>
-            <svg
-              width="10"
-              height="6"
-              viewBox="0 0 10 6"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
               <path
                 d="M1 1L5 5L9 1"
                 stroke="currentColor"
@@ -82,32 +77,133 @@ function NavItem({ item, scroll }) {
   )
 }
 
-export default function Header1({ scroll, handleMobileMenu }) {
+function MobileDrawer({ open, onClose }) {
+  const [openKey, setOpenKey] = useState(null)
+  const toggle = (label) => setOpenKey(openKey === label ? null : label)
+
+  return (
+    <>
+      <div
+        className={`${styles.mobileBackdrop} ${open ? styles.mobileBackdropActive : ""}`}
+        onClick={onClose}
+      />
+      <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuActive : ""}`}>
+
+        <button className={styles.mobileCloseBtn} onClick={onClose} aria-label="Close menu">
+          <i className="fas fa-times" />
+        </button>
+
+        <div className={styles.mobileNavLogo}>
+          <Link href="/" onClick={onClose}>
+            <img
+              src="/assets/images/indel-capital-logo-blue.png"
+              alt="Indel Capital"
+              width={120}
+              height="auto"
+              style={{ display: "block" }}
+            />
+          </Link>
+        </div>
+
+        <div className={styles.mobileMenuOuter}>
+          <ul className={styles.mobileNavList}>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.label} className={styles.mobileNavItem}>
+                <div className={styles.mobileNavRow}>
+                  <Link
+                    href={item.href}
+                    className={styles.mobileNavLink}
+                    onClick={!item.children ? onClose : undefined}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children && (
+                    <button
+                      className={`${styles.mobileAccordionBtn} ${openKey === item.label ? styles.mobileAccordionBtnOpen : ""}`}
+                      onClick={() => toggle(item.label)}
+                      aria-label={`Toggle ${item.label}`}
+                    >
+                      <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                        <path
+                          d="M1 1L5 5L9 1"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {item.children && (
+                  <ul className={`${styles.mobileSubMenu} ${openKey === item.label ? styles.mobileSubMenuOpen : ""}`}>
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href} className={styles.mobileSubLink} onClick={onClose}>
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.mobileContactInfo}>
+          <h4>Contact Info</h4>
+          <ul>
+            <li><Link href="tel:+919072606615">+91 90726 06615</Link></li>
+            <li><Link href="mailto:info@indelcapital.com">info@indelcapital.com</Link></li>
+          </ul>
+        </div>
+
+        <div className={styles.mobileSocialLinks}>
+          <Link href="#" className={styles.mobileSocialIcon}><FaWhatsapp /></Link>
+          <Link href="#" className={styles.mobileSocialIcon}><FaInstagram /></Link>
+          <Link href="#" className={styles.mobileSocialIcon}><FaYoutube /></Link>
+          <Link href="#" className={styles.mobileSocialIcon}><FaXTwitter /></Link>
+        </div>
+
+      </div>
+    </>
+  )
+}
+
+export default function Header1({ scroll }) {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const toggleMobile = () => setMobileOpen((p) => !p)
+
   return (
     <header className={`${styles.mainHeader} ${scroll ? styles.fixedHeader : ""}`}>
       <div className={styles.headerLower}>
         <div className={styles.customContainer}>
           <div className={styles.outerBox}>
-            <figure className={styles.logoFigure}>
+
+            <div className={styles.logoWrap}>
               <Link href="/">
                 <img
                   className={styles.logoImg}
-                  src={`/assets/images/indel-capital-logo${scroll ? "-blue.png" : ".png"}`}
+                  src={scroll ? "/assets/images/indel-capital-logo-blue.png" : "/assets/images/indel-capital-logo.png"}
                   alt="Indel Capital"
+                  width={120}
+                  height="auto"
                 />
               </Link>
-            </figure>
+            </div>
 
             <div className={styles.menuArea}>
               <div
                 className={styles.mobileNavToggler}
-                onClick={handleMobileMenu}
-                style={{ color: scroll ? "#000" : "#fff", cursor: "pointer" }}
+                onClick={toggleMobile}
+                style={{ color: scroll ? "#000" : "#fff" }}
               >
-                <i className="icon-bar"></i>
-                <i className="icon-bar"></i>
-                <i className="icon-bar"></i>
+                <span className={styles.iconBar} />
+                <span className={styles.iconBar} />
+                <span className={styles.iconBar} />
               </div>
+
               <nav className={styles.mainMenu}>
                 <ul className={styles.navigation}>
                   {NAV_ITEMS.map((item) => (
@@ -116,10 +212,12 @@ export default function Header1({ scroll, handleMobileMenu }) {
                 </ul>
               </nav>
             </div>
+
           </div>
         </div>
       </div>
-      <MobileMenu handleMobileMenu={handleMobileMenu} />
+
+      <MobileDrawer open={mobileOpen} onClose={toggleMobile} />
     </header>
   )
 }
