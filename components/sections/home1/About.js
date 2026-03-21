@@ -17,21 +17,23 @@ export default function About() {
   return (
     <>
       <style jsx>{`
-        .about-section { 
-          padding: clamp(60px, 10vw, 120px) 0; 
-          background: #fff; 
-          overflow: hidden;
-        }
-
-        .about-grid { 
-          display: grid; 
-          grid-template-columns: 1fr 1fr; 
-          gap: clamp(30px, 5vw, 60px); 
-          align-items: center; 
-          max-width: 1200px; 
-          margin: 0 auto; 
-          padding: 0 20px;
-        }
+.about-section { 
+  padding: 50px 0; 
+  background: #fff; 
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+       .about-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 50px; 
+  align-items: center; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 20px;
+}
 
         .image-wrapper { 
           position: relative; 
@@ -39,17 +41,17 @@ export default function About() {
           margin: 0 auto;
         }
 
-        .main-image { 
-          width: 100%;
-          max-width: 500px;
-          height: auto;
-          box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
-          clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);        
-          object-fit: cover;
-          display: block;
-          transition: transform 0.1s ease-out;
-          will-change: transform;
-        }
+ .main-image { 
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);        
+  object-fit: cover;
+  display: block;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
 
         .exp-card {
           position: absolute;
@@ -103,14 +105,14 @@ export default function About() {
           font-size: 14px;
         }
 
-      .main-t { 
-        font-size: clamp(22px, 4vw, 42px); 
-        font-weight: 800; 
-        color: #212226; 
-        line-height: 1.2; 
-        margin-bottom: 20px;
-        text-align: center;   
-      }
+    .main-t { 
+       font-size: 32px; 
+       font-weight: 800; 
+       color: #212226; 
+       line-height: 1.2; 
+       margin-bottom: 20px;
+       text-align: start;   
+   }
 
       .description {
         font-size: 16px;

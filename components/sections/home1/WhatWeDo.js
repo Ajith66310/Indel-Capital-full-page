@@ -37,7 +37,7 @@ export default function WhatWeDo() {
                 .accordion-wrapper {
                     display: flex;
                     flex-direction: row;
-                    height: 550px;
+                    height: 500px;
                     gap: 12px;
                     transition: all 0.5s ease;
                 }
@@ -86,7 +86,7 @@ export default function WhatWeDo() {
                 }
 
                 .panel h3 {
-                    font-size: 20px;
+                    font-size: 16px;
                     font-weight: 700;
                     white-space: nowrap;
                     margin: 0;
