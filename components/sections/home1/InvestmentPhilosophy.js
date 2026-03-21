@@ -139,7 +139,7 @@ export default function InvestmentPhilosophy() {
                 }
 
                 @media (max-width: 576px) {
-                    .main-title { font-size: 26px; }
+                    .main-title { font-size: 22px; }
                     .main-img-wrapper { height: 280px; }
                 }
             `}</style>

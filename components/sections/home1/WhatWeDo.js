@@ -187,9 +187,9 @@ export default function WhatWeDo() {
 
                 @media (max-width: 575px) {
                     .sec-title h2.responsive-h2 {
-                        /* Improved clamp for smaller mobile screens */
-                        font-size: clamp(20px, 8vw, 28px) !important; 
-                        white-space: normal; /* Changed from nowrap to allow centering on wrap */
+                        font-size: clamp(22px, 4vw, 42px); 
+                        white-space: normal; 
+                        text-align: center;   
                         letter-spacing: -0.5px;
                         line-height: 1.2;
                     }

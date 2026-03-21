@@ -1,8 +1,17 @@
 "use client";
 import { useEffect } from 'react';
 import Link from "next/link";
-import { AboutFeatures, aboutData } from '@/public/assets/assest.js';
+import { AboutFeatures } from '@/public/assets/assest.js';
 import LiquidButton from '@/components/LiquidButton.js';
+
+const aboutData = {
+  experienceYears: 5,
+  ratingText: "Investment Arm of Indel Group",
+  subTitle: "About Us",
+  mainTitle: "Our Strategic Investment Management",
+  description: "Indel Capital Ventures and Investments Private Limited is the investment arm of the Indel Group, incorporated in 2021 and headquartered in Mumbai with a Corporate Office in Kochi. We focus on the prudent deployment and professional management of funds, driven by financial discipline, transparency, and a long-term value creation approach.",
+};
+
 
 export default function About() {
   return (
@@ -94,20 +103,22 @@ export default function About() {
           font-size: 14px;
         }
 
-        .main-t { 
-          font-size: clamp(28px, 4vw, 42px); 
-          font-weight: 800; 
-          color: #212226; 
-          line-height: 1.2; 
-          margin-bottom: 20px; 
-        }
+      .main-t { 
+        font-size: clamp(22px, 4vw, 42px); 
+        font-weight: 800; 
+        color: #212226; 
+        line-height: 1.2; 
+        margin-bottom: 20px;
+        text-align: center;   
+      }
 
-        .description {
-          font-size: 16px;
-          line-height: 1.7;
-          color: #666;
-          margin-bottom: 30px;
-        }
+      .description {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #666;
+        margin-bottom: 30px;
+        text-align: left;     
+      }
 
         .feature-list { 
           display: grid; 

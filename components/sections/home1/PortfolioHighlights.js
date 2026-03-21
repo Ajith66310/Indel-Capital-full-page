@@ -150,7 +150,7 @@ const css = `
     margin-bottom: 10px;
   }
 
-  .ph-title {
+  {
     font-size: clamp(32px, 5vw, 42px);
     font-weight: 800;
     color: #212226;
@@ -158,6 +158,15 @@ const css = `
     margin: 0;
   }
 
+        @media (max-width: 575px) {
+                     .ph-title {
+                        font-size: clamp(22px, 4vw, 42px); 
+                        white-space: normal; 
+                        text-align: center;   
+                        letter-spacing: -0.5px;
+                        line-height: 1.2;
+                    }
+                }
   .ph-subtitle {
     font-size: 18px;
     color: #4a5568;

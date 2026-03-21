@@ -17,13 +17,7 @@ export const AboutFeatures = [
   },
 ];
 
-export const aboutData = {
-  experienceYears: 5, 
-  ratingText: "Investment Arm of Indel Group",
-  subTitle: "About Us",
-  mainTitle: "Our Strategic Investment Management",
-  description: "Indel Capital Ventures and Investments Private Limited is the investment arm of the Indel Group, incorporated in 2021 and headquartered in Mumbai with a Corporate Office in Kochi. We focus on the prudent deployment and professional management of funds, driven by financial discipline, transparency, and a long-term value creation approach.",
-};
+
 
  export   const featureData = [
         {
@@ -149,17 +143,7 @@ export const investmentPhilosophyData = {
 
     
 
-export const featuredStrategiesData = {
-    subTitle: "Institutional Roadmap",
-    mainTitle: "Strategies for Sustainable Value",
-    description: "Indel Capital leverages a resilient gold-backed portfolio and an aggressive phygital expansion strategy to deliver consistent, risk-adjusted growth for our stakeholders.",
-    stats: {
-        security: "98%",
-        aum: "5,000",
-        yield: "14.50%",
-        branches: "500+"
-    }
-};
+
 
 export const testimonialData = [
     {

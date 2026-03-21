@@ -1,20 +1,19 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { featuredStrategiesData } from '@/public/assets/assest.js';
 import { motion, useMotionValue, animate, useInView } from "framer-motion";
 
 function Counter({ value, suffix = "" }) {
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, margin: "-50px" });
     const [displayValue, setDisplayValue] = useState("0");
-    
+
     const numericValue = parseFloat(value.toString().replace(/[^0-9.]/g, '')) || 0;
     const count = useMotionValue(0);
 
     useEffect(() => {
         if (inView) {
-            const controls = animate(count, numericValue, { 
-                duration: 2, 
+            const controls = animate(count, numericValue, {
+                duration: 2,
                 ease: "easeOut",
                 onUpdate: (latest) => {
                     if (value.toString().includes('.')) {
@@ -32,6 +31,18 @@ function Counter({ value, suffix = "" }) {
 }
 
 export default function FeaturedStrategies() {
+    
+    const featuredStrategiesData = {
+        subTitle: "Institutional Roadmap",
+        mainTitle: "Strategies for Sustainable Value",
+        description: "Indel Capital leverages a resilient gold-backed portfolio and an aggressive phygital expansion strategy to deliver consistent, risk-adjusted growth for our stakeholders.",
+        stats: {
+            security: "98%",
+            aum: "5,000",
+            yield: "14.50%",
+            branches: "500+"
+        }
+    };
     const data = featuredStrategiesData;
 
     const strategies = [
@@ -40,7 +51,7 @@ export default function FeaturedStrategies() {
             className: "bento-card card-red card-wide",
             type: "main-stat",
             label: "STRUCTURED FINANCE",
-            value: data.stats.security || "100", 
+            value: data.stats.security || "100",
             suffix: "%",
             title: "Asset-Backed Security Model",
             description: "Indel Capital specializes in collateralized debt obligations and structured credit, ensuring every investment is backed by tangible high-liquidity assets to protect institutional interest."
@@ -60,7 +71,7 @@ export default function FeaturedStrategies() {
             id: 2,
             className: "bento-card card-white",
             type: "yield",
-            icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2v20M17 5H9.5a4.5 4.5 0 000 9h5a4.5 4.5 0 010 9H7"/></svg>,
+            icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2v20M17 5H9.5a4.5 4.5 0 000 9h5a4.5 4.5 0 010 9H7" /></svg>,
             iconClass: "blue",
             title: "Strategic Yields",
             value: data.stats.yield || "12.5",
@@ -72,7 +83,7 @@ export default function FeaturedStrategies() {
             id: 3,
             className: "bento-card card-white",
             type: "tech",
-            icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>,
+            icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>,
             iconClass: "red",
             title: "Capital Tech",
             description: "Advanced risk-assessment algorithms and automated credit scoring systems drive our decision-making efficiency.",
@@ -114,7 +125,7 @@ export default function FeaturedStrategies() {
 
                     <div className="bento-layout">
                         {strategies.map((item, index) => (
-                            <motion.div 
+                            <motion.div
                                 key={item.id}
                                 custom={index}
                                 initial="hidden"
@@ -205,9 +216,9 @@ export default function FeaturedStrategies() {
                                                 <p className="white-text-dim">{item.description}</p>
                                             </div>
                                             <div className="network-map">
-                                                <div className="map-dot" style={{top:'25%', left:'45%'}}></div>
-                                                <div className="map-dot" style={{top:'55%', left:'55%'}}></div>
-                                                <div className="map-dot" style={{top:'75%', left:'35%'}}></div>
+                                                <div className="map-dot" style={{ top: '25%', left: '45%' }}></div>
+                                                <div className="map-dot" style={{ top: '55%', left: '55%' }}></div>
+                                                <div className="map-dot" style={{ top: '75%', left: '35%' }}></div>
                                             </div>
                                         </>
                                     )}
@@ -263,5 +274,5 @@ const styles = `
     .map-dot { position: absolute; width: 6px; height: 6px; background: #ee3824; border-radius: 50%; box-shadow: 0 0 15px #ee3824; animation: pulse 2s infinite; }
     @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
     @media (max-width: 1024px) { .bento-layout { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; } .card-wide { grid-column: span 2; } .title-bold { font-size: 38px; } .bento-card { min-height: 300px; } }
-    @media (max-width: 768px) { .header-wrapper { text-align: center; } .description-text { margin: 0 auto; text-align: center; } .bento-layout { grid-template-columns: 1fr; grid-auto-rows: auto; } .card-wide { grid-column: span 1; } .card-big-stat { font-size: 80px; } .scaling-value { font-size: 50px; } .title-bold { font-size: 32px; } .card-inner { padding: 25px; } .bento-card { min-height: 280px; } }
+    @media (max-width: 768px) { .header-wrapper { text-align: center; } .description-text { margin: 0 10px; text-align: start; } .bento-layout { grid-template-columns: 1fr; grid-auto-rows: auto; } .card-wide { grid-column: span 1; } .card-big-stat { font-size: 80px; } .scaling-value { font-size: 50px; } .title-bold { font-size: 22px; } .card-inner { padding: 25px; } .bento-card { min-height: 280px; } }
 `;

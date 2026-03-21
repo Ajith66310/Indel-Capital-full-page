@@ -22,13 +22,17 @@ export default function Insights() {
                     height: 100%;
                     text-decoration: none;
                 }
+
+                    @media (max-width: 576px) {
+                    .mainHeading { font-size: 22px; }
+                }
             `}</style>
 
             <section className="news-section pb_20">
                 <div className="auto-container">
                     <div className="sec-title centred mb_70">
                         <h6>{data.subTitle}</h6>
-                        <h2>{data.mainTitle}</h2>
+                        <h2 className="mainHeading">{data.mainTitle}</h2>
                     </div>
                     <div className="row clearfix">
                         {data.posts.map((post) => (
