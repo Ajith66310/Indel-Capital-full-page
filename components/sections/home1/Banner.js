@@ -35,8 +35,8 @@ export default function Banner() {
         },
         {
             bgImage: 'url(assets/images/banner/banner-2.jpeg)',
-            titleLine1: 'Structured Investing for',
-            titleLine2: 'Financial Future.',
+            titleLine1: 'Better Strategies',
+            titleLine2: 'for Your Investments',
             description: <>Unlock investment value with specialized asset yield products and strategic credit solutions.</>,
             btnText: 'View Solutions',
             btnLink: '/strategies'

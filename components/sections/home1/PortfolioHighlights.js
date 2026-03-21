@@ -128,7 +128,13 @@ const css = `
     font-family: 'Outfit', sans-serif;
     color: #212226;
   }
-
+   .ph-title {
+     font-size: clamp(32px, 4vw, 42px); 
+     white-space: normal; 
+     text-align: center;   
+     letter-spacing: -0.5px;
+     line-height: 1.2;
+       }
   .ph-container {
     max-width: 1200px;
     margin: 0 auto;
