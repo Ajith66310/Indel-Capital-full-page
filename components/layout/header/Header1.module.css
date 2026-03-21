@@ -127,8 +127,8 @@
   min-width: 175px;
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-top: 3px solid #0056b3;
-  padding: 10px 0;
+  /* border-top: 1px solid #0056b3; */
+  padding: 0px 0px;
   list-style: none;
   margin: 0;
 }

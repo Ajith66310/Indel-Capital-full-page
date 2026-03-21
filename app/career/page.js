@@ -2,7 +2,7 @@
 import { AboutFeatures, aboutData } from '@/public/assets/assest.js';
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 export default function Home() {
     const allJobs = [
@@ -12,29 +12,6 @@ export default function Home() {
         { id: 4, title: "Senior Operations Director", dept: "Operations", loc: "Manhattan, NY", date: "July 22, 2023" },
         { id: 5, title: "Office Administration Manager", dept: "Administration", loc: "Manhattan, NY", date: "July 22, 2023" }
     ];
-
-    const [visibleJobs, setVisibleJobs] = useState(allJobs.slice(0, 3)); 
-    const [isFetching, setIsFetching] = useState(false);
-    const loaderRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && visibleJobs.length < allJobs.length) {
-                loadMoreJobs();
-            }
-        }, { threshold: 0.1 });
-
-        if (loaderRef.current) observer.observe(loaderRef.current);
-        return () => observer.disconnect();
-    }, [visibleJobs]);
-
-    const loadMoreJobs = () => {
-        setIsFetching(true);
-        setTimeout(() => {
-            setVisibleJobs(prev => allJobs.slice(0, prev.length + 2));
-            setIsFetching(false);
-        }, 800);
-    };
 
     return (
         <>
@@ -68,13 +45,6 @@ export default function Home() {
                         .apply-btn { background: #17479e; color: #fff !important; padding: 16px 40px; border-radius: 14px; font-weight: 700; font-size: 16px; text-decoration: none; transition: 0.3s all ease; text-align: center; box-shadow: 0 10px 20px rgba(23, 71, 158, 0.15); }
                         .apply-btn:hover { background: #eb2525; box-shadow: 0 10px 20px rgba(235, 37, 37, 0.2); transform: scale(1.05); }
 
-                        .infinite-loader { display: flex; justify-content: center; padding: 40px 0; width: 100%; min-height: 20px; }
-                        .dot-spinner { display: flex; gap: 5px; }
-                        .dot { width: 10px; height: 10px; background-color: #eb2525; border-radius: 50%; animation: bounce 0.6s infinite alternate; }
-                        .dot:nth-child(2) { animation-delay: 0.2s; }
-                        .dot:nth-child(3) { animation-delay: 0.4s; }
-                        @keyframes bounce { to { transform: translateY(-10px); opacity: 0.5; } }
-
                         @media (max-width: 1200px) { .job-card { grid-template-columns: 80px 1fr 1fr; padding: 30px; } .apply-btn { grid-column: span 3; } }
                         @media (max-width: 991px) { .career-header h2 { font-size: 36px; } .job-card { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 20px; padding: 40px 20px; } .job-meta { flex-direction: row; justify-content: center; flex-wrap: wrap; margin-bottom: 10px; } .apply-btn { width: 100%; grid-column: auto; } }
                         @media (max-width: 575px) { .job-meta { flex-direction: column; align-items: center; } }
@@ -87,7 +57,7 @@ export default function Home() {
                                 <h2>Explore Your Next Career Move</h2>
                             </div>
                             
-                            {visibleJobs.map((job) => (
+                            {allJobs.map((job) => (
                                 <div className="job-card" key={job.id}>
                                     <img src={`assets/images/resource/career-${job.id}.jpg`} alt={job.title} className="job-img" />
                                     <div className="job-info">
@@ -103,16 +73,6 @@ export default function Home() {
                                     </Link>
                                 </div>
                             ))}
-
-                            <div ref={loaderRef} className="infinite-loader">
-                                {isFetching && (
-                                    <div className="dot-spinner">
-                                        <div className="dot"></div>
-                                        <div className="dot"></div>
-                                        <div className="dot"></div>
-                                    </div>
-                                )}
-                            </div>
                         </div>
                     </section>
                 </div>
