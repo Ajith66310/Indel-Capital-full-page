@@ -45,7 +45,7 @@ export default function Banner() {
             bgImage: 'url(assets/images/banner/banner-3.jpeg)',
             titleLine1: 'Accelerating Your',
             titleLine2: 'Wealth Journey ',
-            description: <>Experience seamless, technology-driven growth with Indel Capital’s digital-first platforms.</>,
+            description: <>Experience seamless, technology-driven growth with Indel Capital's digital-first platforms.</>,
             btnText: 'Get Started',
             btnLink: '/contact-us'
         }
@@ -92,6 +92,13 @@ export default function Banner() {
                     background-repeat: no-repeat;
                 }
 
+                .liquid-banner-wrapper {
+                    width: 220px;
+                    height: 60px;
+                    position: relative;
+                    margin-top: 20px;
+                }
+
                 @media (max-width: 767px) {
                     .banner-section,
                     .banner-carousel,
@@ -100,18 +107,33 @@ export default function Banner() {
                         min-height: 450px !important;
                         max-height: 450px !important;
                     }
-                    .content-box p {
-                        font-size: 16px;
-                        line-height: 1.4;
-                        margin-bottom: 20px;
-                    }
-                }
 
-                .liquid-banner-wrapper {
-                    width: 220px;
-                    height: 60px;
-                    position: relative;
-                    margin-top: 20px;
+                    .content-box {
+                        padding-top: 50px !important;
+                    }
+
+                    .title-line1,
+                    .title-line2 {
+                        font-size: 20px !important;
+                        line-height: 1.2 !important;
+                    }
+
+                    .content-box h2 {
+                        font-size: 20px !important;
+                        margin-bottom: 10px !important;
+                    }
+
+                    .content-box p {
+                        font-size: 12px !important;
+                        line-height: 1.4 !important;
+                        margin-bottom: 8px !important;
+                    }
+
+                    .liquid-banner-wrapper {
+                        width: 150px !important;
+                        height: 44px !important;
+                        margin-top: 8px !important;
+                    }
                 }
             `}</style>
 

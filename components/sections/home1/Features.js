@@ -96,7 +96,7 @@ export default function Features() {
                                     {item.icon}
                                 </div>
                                 <h4>
-                                    <Link href="/" style={{ color: 'inherit' }}>
+                                    <Link href="#" style={{ color: 'inherit' }}>
                                         {item.title}
                                     </Link>
                                 </h4>
