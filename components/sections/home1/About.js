@@ -168,9 +168,7 @@ export default function About() {
             text-align: center;
           } 
           
-          .image-wrapper {
-            margin-bottom: 60px;
-          }
+         
 
           .feature-item {
             text-align: left;
@@ -189,8 +187,23 @@ export default function About() {
             bottom: 0; 
             min-width: 110px;
           }
+             .main-image { 
+            width: 100%;
+            max-width: 500px;
+            height: 450px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1); 
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);        
+            object-fit: cover;
+            display: block;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
           .exp-card h2 { font-size: 28px; }
         }
+          .sub-t{
+          text-align: start;
+          }
+          
       `}</style>
 
       <section className="about-section">
