@@ -13,7 +13,7 @@ const strategies = [
 ];
 
 const riskColors = {
-  "Low Risk":     { bg: "#f0fdf4", text: "#16a34a", dot: "#22c55e" },
+  "Low Risk":    { bg: "#f0fdf4", text: "#16a34a", dot: "#22c55e" },
   "Medium Risk": { bg: "#fffbeb", text: "#d97706", dot: "#f59e0b" },
   "High Risk":   { bg: "#fff1f2", text: "#dc2626", dot: "#ef4444" },
 };
@@ -91,6 +91,13 @@ const FilterDropdown = ({ label, options, selected, onSelect }) => {
   );
 };
 
+const FILTER_GROUPS = [
+  { key: "asset",   label: "Asset Class",  opts: ["Equities","Fixed Income","Real Estate","Private Equity"] },
+  { key: "geo",     label: "Geography",    opts: ["Global","North America","Europe","APAC"] },
+  { key: "risk",    label: "Risk Profile", opts: ["Low Risk","Medium Risk","High Risk"] },
+  { key: "horizon", label: "Time Horizon", opts: ["1-3 Years","3-5 Years","5+ Years"] },
+];
+
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
   .sl-root * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -102,11 +109,44 @@ const CSS = `
   .sl-subtitle { font-size: 15px; color: #64748b; margin-top: 6px; }
   .sl-count-badge { font-size: 13px; font-weight: 700; color: #64748b; background: #fff; border: 1px solid #e5e7eb; padding: 6px 14px; border-radius: 20px; white-space: nowrap; }
   .sl-count-badge span { color: #eb2525; }
-  .sl-filterbar { background: #ffffff; border: 1px solid #e9edf2; border-radius: 10px; padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 32px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-  .sl-filter-divider {  height: 24px; background: #e5e7eb; margin: 0 4px; }
+
+  .sl-filterbar { background: #fff; border: 1px solid #e9edf2; border-radius: 10px; padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 32px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .sl-filter-divider { width: 1px; height: 24px; background: #e5e7eb; margin: 0 4px; }
   .sl-reset-btn { margin-left: auto; background: none; border: none; cursor: pointer; font-size: 13px; font-weight: 700; color: #9ca3af; font-family: inherit; display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: 4px; transition: color 0.2s; }
   .sl-reset-btn:hover { color: #eb2525; }
   .sl-reset-btn.active { color: #eb2525; }
+
+  .sl-mobile-filter-btn {
+    display: none; width: 100%; padding: 12px 16px;
+    background: #fff; border: 1.5px solid #e5e7eb; border-radius: 10px;
+    font-size: 14px; font-weight: 600; color: #374151; font-family: inherit;
+    cursor: pointer; align-items: center; justify-content: space-between;
+    margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: all 0.2s;
+  }
+  .sl-mobile-filter-btn.has-filters { border-color: #eb2525; color: #eb2525; background: #fff8f8; }
+  .sl-mobile-filter-btn-left { display: flex; align-items: center; gap: 8px; }
+  .sl-mobile-filter-badge { background: #eb2525; color: #fff; border-radius: 20px; font-size: 11px; font-weight: 800; padding: 2px 8px; }
+
+  .sl-mobile-drawer {
+    display: none; background: #fff; border: 1px solid #e9edf2;
+    border-radius: 10px; margin-bottom: 20px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .sl-mobile-drawer.open { display: block; }
+  .sl-drawer-section { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; }
+  .sl-drawer-section:last-child { border-bottom: none; }
+  .sl-drawer-label { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #94a3b8; margin-bottom: 10px; }
+  .sl-drawer-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sl-drawer-chip {
+    padding: 7px 14px; border-radius: 20px; border: 1.5px solid #e5e7eb;
+    font-size: 13px; font-weight: 600; color: #374151; background: #fff;
+    cursor: pointer; font-family: inherit; transition: all 0.15s;
+  }
+  .sl-drawer-chip.selected { border-color: #eb2525; color: #eb2525; background: #fff8f8; }
+  .sl-drawer-footer { padding: 12px 16px; display: flex; justify-content: flex-end; border-top: 1px solid #f1f5f9; }
+  .sl-drawer-reset { background: none; border: none; font-size: 13px; font-weight: 700; color: #eb2525; font-family: inherit; cursor: pointer; padding: 6px 10px; border-radius: 4px; }
+
   .sl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .sl-card { background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #edf0f5; transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; position: relative; }
   .sl-card:hover { border-color: #ee3824; }
@@ -121,21 +161,26 @@ const CSS = `
   .sl-meta-row { display: flex; justify-content: space-between; align-items: center; }
   .sl-meta-key { font-size: 12px; color: #94a3b8; font-weight: 500; display: flex; align-items: center; gap: 5px; }
   .sl-meta-val { font-size: 13px; font-weight: 700; color: #1e293b; }
-  
-  .sl-btn-container {
-    width: 100%;
-    height: 48px;
-    position: relative;
-  }
-  
+  .sl-btn-container { width: 100%; height: 48px; position: relative; }
   .sl-empty { grid-column: 1/-1; text-align: center; padding: 80px 40px; background: #fff; border-radius: 10px; border: 1px dashed #e2e8f0; }
   .sl-empty p { color: #94a3b8; font-size: 15px; }
+
   @media (max-width: 1024px) { .sl-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px) { .sl-grid { grid-template-columns: 1fr; } .sl-title { font-size: 26px; } }
+  @media (max-width: 640px) {
+    .sl-grid { grid-template-columns: 1fr; }
+    .sl-title { font-size: 26px; }
+    .sl-filterbar { display: none; }
+    .sl-mobile-filter-btn { display: flex; }
+  }
+  @media (min-width: 641px) {
+    .sl-mobile-filter-btn { display: none !important; }
+    .sl-mobile-drawer { display: none !important; }
+  }
 `;
 
 export default function StrategyListing() {
   const [selectedFilters, setSelectedFilters] = useState({ asset: [], geo: [], risk: [], horizon: [] });
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const el = document.createElement("style");
@@ -152,7 +197,10 @@ export default function StrategyListing() {
     });
   };
 
+  const clearAll = () => setSelectedFilters({ asset: [], geo: [], risk: [], horizon: [] });
+
   const hasFilters = Object.values(selectedFilters).some(v => v.length > 0);
+  const totalActive = Object.values(selectedFilters).flat().length;
 
   const filtered = useMemo(() => strategies.filter(s =>
     (selectedFilters.asset.length === 0 || selectedFilters.asset.includes(s.asset)) &&
@@ -163,82 +211,121 @@ export default function StrategyListing() {
 
   return (
     <div className="sl-root">
-        <div className="sl-wrap">
+      <div className="sl-wrap">
 
-          <div className="sl-header">
-            <div className="sl-header-left">
-              <div className="sl-eyebrow">Investment Strategies</div>
-              <h2 className="sl-title">Structured Portfolios</h2>
-              <p className="sl-subtitle">Curated strategies aligned to your financial objectives.</p>
-            </div>
-            <div className="sl-count-badge">
-              Showing <span>{filtered.length}</span> of {strategies.length} strategies
-            </div>
+        <div className="sl-header">
+          <div className="sl-header-left">
+            <div className="sl-eyebrow">Investment Strategies</div>
+            <h2 className="sl-title">Structured Portfolios</h2>
+            <p className="sl-subtitle">Curated strategies aligned to your financial objectives.</p>
           </div>
-
-          <div className="sl-filterbar">
-            <FilterDropdown label="Asset Class" options={["Equities","Fixed Income","Real Estate","Private Equity"]} selected={selectedFilters.asset} onSelect={v => handleFilterChange("asset", v)} />
-            <div className="sl-filter-divider" />
-            <FilterDropdown label="Geography" options={["Global","North America","Europe","APAC"]} selected={selectedFilters.geo} onSelect={v => handleFilterChange("geo", v)} />
-            <div className="sl-filter-divider" />
-            <FilterDropdown label="Risk Profile" options={["Low Risk","Medium Risk","High Risk"]} selected={selectedFilters.risk} onSelect={v => handleFilterChange("risk", v)} />
-            <div className="sl-filter-divider" />
-            <FilterDropdown label="Time Horizon" options={["1-3 Years","3-5 Years","5+ Years"]} selected={selectedFilters.horizon} onSelect={v => handleFilterChange("horizon", v)} />
-            <button className={`sl-reset-btn ${hasFilters ? "active" : ""}`} onClick={() => setSelectedFilters({asset:[],geo:[],risk:[],horizon:[]})}>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
-              Reset
-            </button>
-          </div>
-
-          <div className="sl-grid">
-            {filtered.length > 0 ? filtered.map(item => {
-              const rc = riskColors[item.risk];
-              return (
-                <div key={item.id} className="sl-card">
-                  <div className="sl-card-header">
-                    <div className="sl-asset-icon">
-                      <svg viewBox="0 0 24 24"><path d={assetIcons[item.asset]} /></svg>
-                    </div>
-                    <span className="sl-risk-pill" style={{ background: rc.bg, color: rc.text }}>
-                      <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: rc.dot, marginRight: 5, verticalAlign: "middle" }} />
-                      {item.risk}
-                    </span>
-                  </div>
-
-                  <div className="sl-card-body">
-                    <span className="sl-asset-tag">{item.asset}</span>
-                    <h4 className="sl-card-title">{item.title}</h4>
-
-                    <div className="sl-meta">
-                      <div className="sl-meta-row">
-                        <span className="sl-meta-key">Region</span>
-                        <span className="sl-meta-val">{item.geo}</span>
-                      </div>
-                      <div className="sl-meta-row">
-                        <span className="sl-meta-key">Risk</span>
-                        <span className="sl-meta-val">{item.risk}</span>
-                      </div>
-                      <div className="sl-meta-row">
-                        <span className="sl-meta-key">Horizon</span>
-                        <span className="sl-meta-val">{item.horizon}</span>
-                      </div>
-                    </div>
-
-                    <div className="sl-btn-container">
-                      <Link href={`/strategies/${item.id}`} style={{ textDecoration: 'none' }}>
-                        <LiquidButton text="View Analysis" bgcolor="#17479e" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            }) : (
-              <div className="sl-empty">
-                <p>No strategies match your selected filters.</p>
-              </div>
-            )}
+          <div className="sl-count-badge">
+            Showing <span>{filtered.length}</span> of {strategies.length} strategies
           </div>
         </div>
+
+        <div className="sl-filterbar">
+          <FilterDropdown label="Asset Class" options={["Equities","Fixed Income","Real Estate","Private Equity"]} selected={selectedFilters.asset} onSelect={v => handleFilterChange("asset", v)} />
+          <div className="sl-filter-divider" />
+          <FilterDropdown label="Geography" options={["Global","North America","Europe","APAC"]} selected={selectedFilters.geo} onSelect={v => handleFilterChange("geo", v)} />
+          <div className="sl-filter-divider" />
+          <FilterDropdown label="Risk Profile" options={["Low Risk","Medium Risk","High Risk"]} selected={selectedFilters.risk} onSelect={v => handleFilterChange("risk", v)} />
+          <div className="sl-filter-divider" />
+          <FilterDropdown label="Time Horizon" options={["1-3 Years","3-5 Years","5+ Years"]} selected={selectedFilters.horizon} onSelect={v => handleFilterChange("horizon", v)} />
+          <button className={`sl-reset-btn ${hasFilters ? "active" : ""}`} onClick={clearAll}>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <button
+          className={`sl-mobile-filter-btn ${hasFilters ? "has-filters" : ""}`}
+          onClick={() => setMobileOpen(o => !o)}
+        >
+          <span className="sl-mobile-filter-btn-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/>
+            </svg>
+            Filters
+            {totalActive > 0 && <span className="sl-mobile-filter-badge">{totalActive}</span>}
+          </span>
+          <ChevronIcon open={mobileOpen} />
+        </button>
+
+        <div className={`sl-mobile-drawer ${mobileOpen ? "open" : ""}`}>
+          {FILTER_GROUPS.map(({ key, label, opts }) => (
+            <div key={key} className="sl-drawer-section">
+              <div className="sl-drawer-label">{label}</div>
+              <div className="sl-drawer-chips">
+                {opts.map(opt => (
+                  <button
+                    key={opt}
+                    className={`sl-drawer-chip ${selectedFilters[key].includes(opt) ? "selected" : ""}`}
+                    onClick={() => handleFilterChange(key, opt)}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+          {hasFilters && (
+            <div className="sl-drawer-footer">
+              <button className="sl-drawer-reset" onClick={clearAll}>Clear all filters</button>
+            </div>
+          )}
+        </div>
+
+        <div className="sl-grid">
+          {filtered.length > 0 ? filtered.map(item => {
+            const rc = riskColors[item.risk];
+            return (
+              <div key={item.id} className="sl-card">
+                <div className="sl-card-header">
+                  <div className="sl-asset-icon">
+                    <svg viewBox="0 0 24 24"><path d={assetIcons[item.asset]} /></svg>
+                  </div>
+                  <span className="sl-risk-pill" style={{ background: rc.bg, color: rc.text }}>
+                    <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: rc.dot, marginRight: 5, verticalAlign: "middle" }} />
+                    {item.risk}
+                  </span>
+                </div>
+
+                <div className="sl-card-body">
+                  <span className="sl-asset-tag">{item.asset}</span>
+                  <h4 className="sl-card-title">{item.title}</h4>
+
+                  <div className="sl-meta">
+                    <div className="sl-meta-row">
+                      <span className="sl-meta-key">Region</span>
+                      <span className="sl-meta-val">{item.geo}</span>
+                    </div>
+                    <div className="sl-meta-row">
+                      <span className="sl-meta-key">Risk</span>
+                      <span className="sl-meta-val">{item.risk}</span>
+                    </div>
+                    <div className="sl-meta-row">
+                      <span className="sl-meta-key">Horizon</span>
+                      <span className="sl-meta-val">{item.horizon}</span>
+                    </div>
+                  </div>
+
+                  <div className="sl-btn-container">
+                    <Link href={`/strategies/${item.id}`} style={{ textDecoration: 'none' }}>
+                      <LiquidButton text="View Analysis" bgcolor="#17479e" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          }) : (
+            <div className="sl-empty">
+              <p>No strategies match your selected filters.</p>
+            </div>
+          )}
+        </div>
+
       </div>
+    </div>
   );
 }
